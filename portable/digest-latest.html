@@ -440,7 +440,7 @@ a { color: inherit; }
     <p class="eyebrow">Daily digest · portable</p>
     <h1>Domenica 26 luglio 2026</h1>
     <p class="sub">2026-07-26 · <a href="#hacker-news">HN</a> · <a href="#substack">Substack</a></p>
-    <div class="stats-row"><span class="stat hn"><strong>20</strong> HN</span><span class="stat"><strong>3134</strong> punti</span><span class="stat sub"><strong>7</strong> Substack</span><span class="stat free"><strong>6</strong> free</span><span class="stat paid"><strong>1</strong> paid</span></div>
+    <div class="stats-row"><span class="stat hn"><strong>20</strong> HN</span><span class="stat"><strong>3037</strong> punti</span><span class="stat sub"><strong>7</strong> Substack</span><span class="stat free"><strong>6</strong> free</span><span class="stat paid"><strong>1</strong> paid</span></div>
   </header>
   
 <section class="source-section" id="hacker-news">
@@ -453,21 +453,21 @@ a { color: inherit; }
   <div class="card-glow" aria-hidden="true"></div>
   <div class="card-head">
     <span class="rank">#1</span>
-    <h3 class="title"><a href="https://tobi.knaup.me/2026-07-25-open-weight-ai-is-having-its-kubernetes-moment/" target="_blank" rel="noopener">Open-weight AI is having its Kubernetes moment</a></h3>
+    <h3 class="title"><a href="https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models" target="_blank" rel="noopener">The new rules of context engineering for Claude 5 generation models</a></h3>
   </div>
-  <div class="meta"><span class="domain">tobi.knaup.me</span> · <span class="score pts-hot">▲ 359</span> · <span>282 commenti</span> · <span>by tknaup</span> · <span class="tag">#ai</span> <span class="tag">#opensource</span></div>
+  <div class="meta"><span class="domain">claude.com</span> · <span class="score pts-hot">▲ 343</span> · <span>229 commenti</span> · <span>by mellosouls</span> · <span class="tag">#ai</span> <span class="tag">#llm</span> <span class="tag">#anthropic</span></div>
   
   <div class="summary-block">
-    <p class="summary-teaser">L&#x27;articolo analizza il momento storico che stanno vivendo i modelli AI open-weight, paragonandolo all&#x27;ascesa di Kubernetes nel mondo del cloud computing. L&#x27;autore sostiene che i modelli aperti come Llama, Mistral e Qwen stanno diventando il fondamento del prossimo ecosistema dell&#x27;intelligenza artificiale, proprio…</p>
+    <p class="summary-teaser">Anthropic ha pubblicato una guida approfondita sulle nuove strategie di context engineering per i modelli Claude di quinta generazione. L&#x27;articolo rappresenta un punto di svolta nel modo in cui gli sviluppatori devono approcciare la costruzione dei prompt: non si tratta più soltanto…</p>
     <details class="summary-details">
       <summary class="expand-btn" aria-controls="hn-long-1">
-        <span class="expand-label-closed">Leggi riassunto completo · ~182 parole</span>
+        <span class="expand-label-closed">Leggi riassunto completo · ~229 parole</span>
         <span class="expand-label-open">Nascondi riassunto</span>
         <span class="expand-chevron" aria-hidden="true">▾</span>
       </summary>
       <div class="summary-long" id="hn-long-1">
         <div class="summary-long-label">Riassunto · versione PDF</div>
-        <p class="summary-long-text">L&#x27;articolo analizza il momento storico che stanno vivendo i modelli AI open-weight, paragonandolo all&#x27;ascesa di Kubernetes nel mondo del cloud computing. L&#x27;autore sostiene che i modelli aperti come Llama, Mistral e Qwen stanno diventando il fondamento del prossimo ecosistema dell&#x27;intelligenza artificiale, proprio come Kubernetes è diventato lo standard de facto per l&#x27;orchestrazione dei container. Il punto centrale è un appello agli Stati Uniti affinché competano attivamente in questo spazio invece di erigere barriere regolatorie che rischiano di isolare il paese dall&#x27;innovazione globale. L&#x27;articolo evidenzia come la Cina e l&#x27;Europa stiano investendo massicciamente in modelli open-weight, creando ecosistemi vivaci di startup e applicazioni. Viene tracciato un parallelo storico: negli anni 2010, Docker e Kubernetes hanno democratizzato l&#x27;infrastruttura cloud, permettendo a chiunque di scalare applicazioni globalmente. Oggi, i modelli open-weight stanno facendo lo stesso per l&#x27;AI, abbassando drasticamente le barriere all&#x27;ingresso. L&#x27;autore avverte che politiche restrittive sulle esportazioni e regolamentazioni eccessive potrebbero ripetere l&#x27;errore di cedere la leadership tecnologica ad altri paesi, esortando invece a investire in ricerca aperta, strumenti di fine-tuning e infrastrutture condivise per mantenere il vantaggio competitivo americano nell&#x27;era dell&#x27;intelligenza artificiale.</p>
+        <p class="summary-long-text">Anthropic ha pubblicato una guida approfondita sulle nuove strategie di context engineering per i modelli Claude di quinta generazione. L&#x27;articolo rappresenta un punto di svolta nel modo in cui gli sviluppatori devono approcciare la costruzione dei prompt: non si tratta più soltanto di scrivere istruzioni chiare, ma di progettare veri e propri &#x27;contesti ingegnerizzati&#x27; che sfruttano la finestra di contesto estremamente ampia (fino a 500K token) dei modelli Claude 5. La guida illustra pattern come il &#x27;context scaffolding&#x27;, dove il modello riceve una struttura gerarchica di informazioni con priorità variabile, e il &#x27;progressive disclosure&#x27;, che dosa le informazioni nel corso della conversazione anziché riversarle tutte nel prompt iniziale. Vengono anche introdotti i concetti di &#x27;context anchors&#x27; — riferimenti stabili che aiutano il modello a mantenere coerenza su conversazioni molto lunghe — e &#x27;semantic compression&#x27;, una tecnica per condensare informazioni ridondanti senza perdere significato. Anthropic sottolinea come queste tecniche siano particolarmente rilevanti per applicazioni enterprise, agenti autonomi e sistemi multi-turno, dove la gestione del contesto è il fattore critico per l&#x27;affidabilità. L&#x27;articolo include esempi pratici di codice e benchmark che mostrano miglioramenti significativi nella precisione delle risposte e nella riduzione delle allucinazioni quando si applicano queste metodologie rispetto al prompt engineering tradizionale. La community di sviluppatori ha accolto la guida con grande interesse, generando un vivace dibattito su come queste tecniche influenzeranno lo sviluppo di applicazioni AI nei prossimi anni.</p>
       </div>
     </details>
   </div>
@@ -478,21 +478,21 @@ a { color: inherit; }
   <div class="card-glow" aria-hidden="true"></div>
   <div class="card-head">
     <span class="rank">#2</span>
-    <h3 class="title"><a href="https://didtheyghostyou.com/" target="_blank" rel="noopener">Did They Ghost You?</a></h3>
+    <h3 class="title"><a href="https://refp.se/articles/your-shell-and-the-magic-colon" target="_blank" rel="noopener">A shell colon does nothing. Use it anyway</a></h3>
   </div>
-  <div class="meta"><span class="domain">didtheyghostyou.com</span> · <span class="score pts-hot">▲ 359</span> · <span>161 commenti</span> · <span>by mooreds</span> · <span class="tag">#careers</span> <span class="tag">#web</span></div>
+  <div class="meta"><span class="domain">refp.se</span> · <span class="score pts-hot">▲ 210</span> · <span>79 commenti</span> · <span>by olexsmir</span> · <span class="tag">#linux</span> <span class="tag">#shell</span></div>
   
   <div class="summary-block">
-    <p class="summary-teaser">Did They Ghost You è un&#x27;applicazione web che permette ai candidati di segnalare pubblicamente le aziende che li hanno ghostati durante un processo di selezione. Il fenomeno del ghosting nel recruiting — quando un&#x27;azienda interrompe improvvisamente ogni comunicazione con un candidato dopo…</p>
+    <p class="summary-teaser">L&#x27;articolo di Filip Roséen esplora uno dei comandi più sottovalutati e misteriosi della shell POSIX: i due punti (:). Tecnicamente, il carattere &#x27;:&#x27; è un built-in che non fa assolutamente nulla — è un no-op, un comando vuoto che restituisce sempre exit…</p>
     <details class="summary-details">
       <summary class="expand-btn" aria-controls="hn-long-2">
-        <span class="expand-label-closed">Leggi riassunto completo · ~178 parole</span>
+        <span class="expand-label-closed">Leggi riassunto completo · ~208 parole</span>
         <span class="expand-label-open">Nascondi riassunto</span>
         <span class="expand-chevron" aria-hidden="true">▾</span>
       </summary>
       <div class="summary-long" id="hn-long-2">
         <div class="summary-long-label">Riassunto · versione PDF</div>
-        <p class="summary-long-text">Did They Ghost You è un&#x27;applicazione web che permette ai candidati di segnalare pubblicamente le aziende che li hanno ghostati durante un processo di selezione. Il fenomeno del ghosting nel recruiting — quando un&#x27;azienda interrompe improvvisamente ogni comunicazione con un candidato dopo colloqui promettenti — è diventato endemicamente diffuso nel settore tech. La piattaforma offre un database consultabile di segnalazioni, completo di nomi delle aziende, ruoli per cui ci si era candidati e tempistiche dell&#x27;abbandono comunicativo. L&#x27;obiettivo è duplice: da un lato dare voce ai candidati frustrati, creando un meccanismo di accountability sociale; dall&#x27;altro fornire a chi cerca lavoro uno strumento per valutare la serietà delle aziende prima di investire tempo ed energie emotive in un processo di selezione. L&#x27;articolo ha generato un acceso dibattito su HN: alcuni lodano l&#x27;iniziativa come necessaria in un mercato del lavoro sempre più disumanizzato, altri sollevano preoccupazioni sulla verificabilità delle segnalazioni e sul rischio di recensioni vendicative. Il creatore del sito sottolinea che si tratta di un esperimento sociale per spingere le aziende a trattare i candidati con maggiore rispetto e trasparenza.</p>
+        <p class="summary-long-text">L&#x27;articolo di Filip Roséen esplora uno dei comandi più sottovalutati e misteriosi della shell POSIX: i due punti (:). Tecnicamente, il carattere &#x27;:&#x27; è un built-in che non fa assolutamente nulla — è un no-op, un comando vuoto che restituisce sempre exit code 0. Eppure, l&#x27;autore dimostra con eleganza come questo &#x27;non-comando&#x27; sia sorprendentemente utile in una varietà di scenari di scripting. Tra i pattern illustrati: l&#x27;uso come placeholder in costrutti condizionali (if true; then :; fi), come corpo vuoto per cicli while e for, e soprattutto il trucco di assegnazione condizionale con &#x27;${var:=default}&#x27; che permette di impostare valori predefiniti senza usare if complessi. Un&#x27;applicazione particolarmente interessante è l&#x27;uso di &#x27;:&#x27; per valutare espansioni di variabili senza eseguire il risultato, utile per il debugging. Roséen mostra anche come &#x27;:&#x27; possa fungere da &#x27;commento eseguibile&#x27; — a differenza di &#x27;#&#x27;, il contenuto dopo &#x27;:&#x27; viene comunque espanso, permettendo di verificare la correttezza sintattica delle espansioni. L&#x27;articolo include esempi pratici tratti da codebase reali e progetti open source, dimostrando che anche i più esperti sviluppatori possono imparare nuovi trucchi dalle fondamenta di UNIX. La discussione su HN si è concentrata su altri usi creativi del comando &#x27;:&#x27; e sulla bellezza minimalista dei tool POSIX che, dopo decenni, continuano a sorprendere.</p>
       </div>
     </details>
   </div>
@@ -503,46 +503,46 @@ a { color: inherit; }
   <div class="card-glow" aria-hidden="true"></div>
   <div class="card-head">
     <span class="rank">#3</span>
-    <h3 class="title"><a href="https://news.mongabay.com/2026/07/zero-roadkill-as-amazon-canopy-bridges-secure-15000-crossings/" target="_blank" rel="noopener">Zero roadkill as Amazon canopy bridges secure 15,000 crossings</a></h3>
+    <h3 class="title"><a href="https://www.jetzero.aero" target="_blank" rel="noopener">JetZero</a></h3>
   </div>
-  <div class="meta"><span class="domain">news.mongabay.com</span> · <span class="score pts-hot">▲ 336</span> · <span>98 commenti</span> · <span>by hn_acker</span> · <span class="tag">#ecology</span> <span class="tag">#conservation</span></div>
+  <div class="meta"><span class="domain">jetzero.aero</span> · <span class="score pts-hot">▲ 207</span> · <span>165 commenti</span> · <span>by lisper</span> · <span class="tag">#aerospace</span></div>
   
   <div class="summary-block">
-    <p class="summary-teaser">Un progetto di conservazione nella foresta amazzonica ha raggiunto un traguardo straordinario: zero animali uccisi sulla strada BR-174 da quando sono stati installati ponti aerei artificiali che collegano le chiome degli alberi sopra l&#x27;asfalto. L&#x27;iniziativa, documentata da Mongabay, ha registrato oltre 15.000…</p>
+    <p class="summary-teaser">JetZero è una startup aerospaziale ambiziosa che sta sviluppando un aereo commerciale con design blended wing body (BWB), una configurazione che fonde la fusoliera con le ali in un&#x27;unica forma aerodinamica. L&#x27;aereo promette 250 posti a sedere con autonomia per rotte internazionali…</p>
     <details class="summary-details">
       <summary class="expand-btn" aria-controls="hn-long-3">
-        <span class="expand-label-closed">Leggi riassunto completo · ~186 parole</span>
+        <span class="expand-label-closed">Leggi riassunto completo · ~231 parole</span>
         <span class="expand-label-open">Nascondi riassunto</span>
         <span class="expand-chevron" aria-hidden="true">▾</span>
       </summary>
       <div class="summary-long" id="hn-long-3">
         <div class="summary-long-label">Riassunto · versione PDF</div>
-        <p class="summary-long-text">Un progetto di conservazione nella foresta amazzonica ha raggiunto un traguardo straordinario: zero animali uccisi sulla strada BR-174 da quando sono stati installati ponti aerei artificiali che collegano le chiome degli alberi sopra l&#x27;asfalto. L&#x27;iniziativa, documentata da Mongabay, ha registrato oltre 15.000 attraversamenti sicuri da parte di primati, bradipi, opossum e altre specie arboricole. La strada BR-174 attraversa una delle aree più biodiverse del pianeta e rappresentava una barriera mortale che frammentava gli habitat, interrompendo corridoi ecologici essenziali per la sopravvivenza di numerose specie. I ponti aerei, costruiti con materiali semplici come corde e reti sospese, sono stati posizionati strategicamente dopo uno studio approfondito dei percorsi naturali degli animali. Il monitoraggio con fototrappole ha confermato che le specie si sono adattate rapidamente all&#x27;infrastruttura, utilizzandola regolarmente e dimostrando che anche interventi modesti possono ristabilire la connettività ecologica. Il successo del progetto dimostra che soluzioni low-tech e a basso costo possono avere un impatto enorme sulla conservazione della biodiversità, offrendo un modello replicabile per altre strade che attraversano ecosistemi forestali tropicali nel mondo. I ricercatori sottolineano l&#x27;importanza di integrare questi corridoi ecologici nella pianificazione delle infrastrutture fin dall&#x27;inizio.</p>
+        <p class="summary-long-text">JetZero è una startup aerospaziale ambiziosa che sta sviluppando un aereo commerciale con design blended wing body (BWB), una configurazione che fonde la fusoliera con le ali in un&#x27;unica forma aerodinamica. L&#x27;aereo promette 250 posti a sedere con autonomia per rotte internazionali e un&#x27;aerodinamica significativamente superiore rispetto ai tradizionali design &#x27;tubo e ali&#x27;. Il sito web dell&#x27;azienda presenta il loro progresso: hanno recentemente raccolto circa 175 milioni di dollari in un round di finanziamento Series B guidato da B Capital, una società di investimento globale multi-stage. Alaska Airlines ha investito tramite il suo braccio di venture capital Alaska Star Ventures, con opzioni per futuri ordini di aeromobili — un forte segnale di validazione da parte dell&#x27;industria. Il design BWB promette un miglioramento dell&#x27;efficienza del carburante fino al 50% rispetto agli aerei di linea attuali, grazie alla ridotta resistenza aerodinamica e alla maggiore portanza generata dalla fusoliera stessa. Questo si traduce in minori emissioni di CO2 per passeggero-chilometro, in linea con gli obiettivi di sostenibilità dell&#x27;aviazione commerciale. JetZero sta lavorando anche con la U.S. Air Force per potenziali applicazioni militari. La discussione su HN si è concentrata sulla fattibilità tecnica del BWB per l&#x27;aviazione commerciale (sfide come l&#x27;evacuazione di emergenza, la pressurizzazione della cabina non cilindrica, e l&#x27;esperienza dei passeggeri in una configurazione senza finestrini laterali tradizionali) e sul potenziale impatto trasformativo che questo design potrebbe avere sul trasporto aereo del futuro.</p>
       </div>
     </details>
   </div>
 </article>
 
 
-<article class="card hn-card pts-hot" id="hn-4">
+<article class="card hn-card pts-high" id="hn-4">
   <div class="card-glow" aria-hidden="true"></div>
   <div class="card-head">
     <span class="rank">#4</span>
-    <h3 class="title"><a href="https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models" target="_blank" rel="noopener">The new rules of context engineering for Claude 5 generation models</a></h3>
+    <h3 class="title"><a href="https://github.com/slvDev/esp32-ai" target="_blank" rel="noopener">Running a 28.9M parameter LLM on an $8 microcontroller</a></h3>
   </div>
-  <div class="meta"><span class="domain">claude.com</span> · <span class="score pts-hot">▲ 259</span> · <span>166 commenti</span> · <span>by mellosouls</span> · <span class="tag">#ai</span> <span class="tag">#llm</span> <span class="tag">#anthropic</span></div>
+  <div class="meta"><span class="domain">github.com</span> · <span class="score pts-high">▲ 197</span> · <span>47 commenti</span> · <span>by boveyking</span> · <span class="tag">#esp32</span> <span class="tag">#hardware</span> <span class="tag">#ai</span> <span class="tag">#edge</span></div>
   
   <div class="summary-block">
-    <p class="summary-teaser">Anthropic ha pubblicato una guida tecnica sulle nuove regole dell&#x27;ingegneria del contesto per i modelli Claude di quinta generazione. L&#x27;articolo rappresenta un aggiornamento significativo rispetto alle best practice precedenti, riflettendo i cambiamenti fondamentali nel modo in cui i modelli di nuova generazione…</p>
+    <p class="summary-teaser">Il progetto esp32-ai dimostra che è possibile eseguire un modello linguistico da 28,9 milioni di parametri su un microcontrollore ESP32 che costa appena 8 dollari. Si tratta di un&#x27;impresa notevole di ingegneria embedded che spinge i limiti di ciò che è possibile…</p>
     <details class="summary-details">
       <summary class="expand-btn" aria-controls="hn-long-4">
-        <span class="expand-label-closed">Leggi riassunto completo · ~163 parole</span>
+        <span class="expand-label-closed">Leggi riassunto completo · ~205 parole</span>
         <span class="expand-label-open">Nascondi riassunto</span>
         <span class="expand-chevron" aria-hidden="true">▾</span>
       </summary>
       <div class="summary-long" id="hn-long-4">
         <div class="summary-long-label">Riassunto · versione PDF</div>
-        <p class="summary-long-text">Anthropic ha pubblicato una guida tecnica sulle nuove regole dell&#x27;ingegneria del contesto per i modelli Claude di quinta generazione. L&#x27;articolo rappresenta un aggiornamento significativo rispetto alle best practice precedenti, riflettendo i cambiamenti fondamentali nel modo in cui i modelli di nuova generazione processano e utilizzano il contesto. Tra i punti chiave: la lunghezza ottimale dei prompt è cambiata, con i modelli Claude 5 che gestiscono meglio contesti lunghissimi ma richiedono una strutturazione più attenta delle istruzioni. L&#x27;articolo introduce il concetto di &#x27;context anchoring&#x27; — posizionare le informazioni più importanti in punti strategici del prompt dove il modello presta maggiore attenzione. Viene inoltre discussa la gestione dei &#x27;system prompt&#x27; e come separare efficacemente istruzioni di sistema, contesto documentale e richieste dell&#x27;utente. Anthropic raccomanda di utilizzare marcatori XML strutturati per delimitare sezioni, sfruttare esempi few-shot mirati, e di testare empiricamente i prompt anziché affidarsi a regole generali. La guida include anche consigli su come sfruttare le capacità di tool-use e ragionamento esteso dei nuovi modelli.</p>
+        <p class="summary-long-text">Il progetto esp32-ai dimostra che è possibile eseguire un modello linguistico da 28,9 milioni di parametri su un microcontrollore ESP32 che costa appena 8 dollari. Si tratta di un&#x27;impresa notevole di ingegneria embedded che spinge i limiti di ciò che è possibile fare con hardware estremamente limitato: l&#x27;ESP32 ha solo pochi megabyte di flash e qualche centinaio di kilobyte di RAM, risorse che normalmente basterebbero a malapena per un sistema operativo minimale, figuriamoci per un modello linguistico. Il progetto utilizza tecniche di quantizzazione aggressiva per comprimere i pesi del modello, riducendo la precisione dei calcoli senza sacrificare eccessivamente la qualità dell&#x27;output. Il modello è in grado di generare testo a una velocità di alcuni token al secondo, sufficiente per applicazioni di edge computing come assistenti vocali offline, interfacce uomo-macchina per dispositivi IoT, e sistemi di automazione domestica che non dipendono dal cloud. L&#x27;autore ha documentato l&#x27;intero processo di ottimizzazione, inclusi i compromessi tra dimensione del modello, velocità di inferenza e qualità del testo generato. La discussione su HN ha evidenziato come questo tipo di innovazione apra la strada a un&#x27;AI veramente ubiqua, dove anche i dispositivi più economici possono ospitare capacità di comprensione del linguaggio naturale, riducendo la dipendenza da connessioni internet e server centralizzati.</p>
       </div>
     </details>
   </div>
@@ -553,21 +553,21 @@ a { color: inherit; }
   <div class="card-glow" aria-hidden="true"></div>
   <div class="card-head">
     <span class="rank">#5</span>
-    <h3 class="title"><a href="https://fly.io/blog/kurt-scott-money-sprites/" target="_blank" rel="noopener">Turn And Face The Strange</a></h3>
+    <h3 class="title"><a href="https://brolly.sh/forecast/RWFP2qW8" target="_blank" rel="noopener">Show HN: Brolly, a plain-text weather forecast site</a></h3>
   </div>
-  <div class="meta"><span class="domain">fly.io</span> · <span class="score pts-high">▲ 184</span> · <span>124 commenti</span> · <span>by subarctic</span> · <span class="tag">#startups</span> <span class="tag">#business</span></div>
+  <div class="meta"><span class="domain">brolly.sh</span> · <span class="score pts-high">▲ 196</span> · <span>69 commenti</span> · <span>by jsax</span> · <span class="tag">#design</span> <span class="tag">#ux</span></div>
   
   <div class="summary-block">
-    <p class="summary-teaser">Fly.io pubblica un saggio riflessivo sulla natura effimera del successo nelle startup e nel venture capital. Il titolo, che cita David Bowie, introduce una meditazione sul cambiamento costante e sull&#x27;imprevedibilità del mercato tech. L&#x27;autore, Kurt Scott (noto come &#x27;Money Sprites&#x27;), racconta la…</p>
+    <p class="summary-teaser">Brolly è un sito web di previsioni meteo che abbraccia un&#x27;estetica radicalmente minimalista: invece di mappe animate, grafici colorati e pubblicità invasive, presenta le informazioni meteorologiche in formato puro testo ASCII. L&#x27;interfaccia, accessibile all&#x27;URL brolly.sh, mostra per una data località (nell&#x27;esempio, York…</p>
     <details class="summary-details">
       <summary class="expand-btn" aria-controls="hn-long-5">
-        <span class="expand-label-closed">Leggi riassunto completo · ~163 parole</span>
+        <span class="expand-label-closed">Leggi riassunto completo · ~191 parole</span>
         <span class="expand-label-open">Nascondi riassunto</span>
         <span class="expand-chevron" aria-hidden="true">▾</span>
       </summary>
       <div class="summary-long" id="hn-long-5">
         <div class="summary-long-label">Riassunto · versione PDF</div>
-        <p class="summary-long-text">Fly.io pubblica un saggio riflessivo sulla natura effimera del successo nelle startup e nel venture capital. Il titolo, che cita David Bowie, introduce una meditazione sul cambiamento costante e sull&#x27;imprevedibilità del mercato tech. L&#x27;autore, Kurt Scott (noto come &#x27;Money Sprites&#x27;), racconta la parabola di aziende che sembravano invincibili e sono svanite nel giro di pochi trimestri, così come storie di underdog che hanno sovvertito ogni previsione. Il pezzo intreccia aneddoti personali del mondo delle infrastrutture cloud con riflessioni più ampie sulla psicologia dei founder: l&#x27;ossessione per le metriche di crescita, l&#x27;ansia da fundraising, e la difficoltà di mantenere una bussola morale quando la pressione degli investitori aumenta. Fly.io stessa viene usata come caso di studio di un&#x27;azienda che ha scelto una strada meno battuta — concentrarsi sulla qualità tecnica e sulla soddisfazione degli sviluppatori anziché sulla crescita a tutti i costi. Il messaggio centrale è che nel lungo periodo contano più la resilienza, l&#x27;adattabilità e l&#x27;integrità che non i round di finanziamento miliardari.</p>
+        <p class="summary-long-text">Brolly è un sito web di previsioni meteo che abbraccia un&#x27;estetica radicalmente minimalista: invece di mappe animate, grafici colorati e pubblicità invasive, presenta le informazioni meteorologiche in formato puro testo ASCII. L&#x27;interfaccia, accessibile all&#x27;URL brolly.sh, mostra per una data località (nell&#x27;esempio, York, Inghilterra) i dati essenziali: temperatura attuale e percepita, velocità del vento con raffiche, indice UV, qualità dell&#x27;aria, precipitazioni previste, e una previsione settimanale compatta giorno per giorno. Il design ricorda i BBS degli anni &#x27;80 e i terminali UNIX, con l&#x27;uso di caratteri per creare separatori e incorniciare le sezioni. Non c&#x27;è JavaScript, non ci sono cookie, non c&#x27;è tracciamento: la pagina è HTML puro generato lato server. Questo approccio &#x27;brutalista&#x27; al web design ha colpito la community di HN, che ha apprezzato la velocità di caricamento fulminea, la leggibilità perfetta su qualsiasi dispositivo (dagli smartphone ai terminali testuali), e la filosofia &#x27;less is more&#x27; in un&#x27;epoca di app meteo sempre più pesanti. L&#x27;autore ha condiviso il progetto come Show HN per raccogliere feedback, e la discussione si è ampliata verso il movimento del &#x27;web sostenibile&#x27; e la riscoperta di interfacce essenziali che mettono i dati al primo posto.</p>
       </div>
     </details>
   </div>
@@ -578,21 +578,21 @@ a { color: inherit; }
   <div class="card-glow" aria-hidden="true"></div>
   <div class="card-head">
     <span class="rank">#6</span>
-    <h3 class="title"><a href="https://brolly.sh/forecast/RWFP2qW8" target="_blank" rel="noopener">Show HN: Brolly, a plain-text weather forecast site</a></h3>
+    <h3 class="title"><a href="https://brandonli.net/semisim/animations" target="_blank" rel="noopener">Show HN: I made some transistor animations</a></h3>
   </div>
-  <div class="meta"><span class="domain">brolly.sh</span> · <span class="score pts-high">▲ 165</span> · <span>50 commenti</span> · <span>by jsax</span> · <span class="tag">#web</span> <span class="tag">#opensource</span></div>
+  <div class="meta"><span class="domain">brandonli.net</span> · <span class="score pts-high">▲ 186</span> · <span>24 commenti</span> · <span>by stunningllama</span> · <span class="tag">#electronics</span> <span class="tag">#education</span></div>
   
   <div class="summary-block">
-    <p class="summary-teaser">Brolly è un&#x27;applicazione web che offre previsioni meteorologiche in formato esclusivamente testuale, senza immagini, grafici, JavaScript pesante o tracker. Presentata come Show HN, l&#x27;app si distingue per la sua filosofia minimalista radicale: ogni pagina è puro testo formattato, leggibile anche su terminale…</p>
+    <p class="summary-teaser">Brandon Li ha creato una serie di animazioni interattive che visualizzano il funzionamento interno dei transistor, basate su un simulatore di semiconduttori sviluppato personalmente. Le animazioni mostrano il movimento degli elettroni (punti blu) e delle lacune (punti rossi) attraverso la struttura cristallina…</p>
     <details class="summary-details">
       <summary class="expand-btn" aria-controls="hn-long-6">
-        <span class="expand-label-closed">Leggi riassunto completo · ~161 parole</span>
+        <span class="expand-label-closed">Leggi riassunto completo · ~198 parole</span>
         <span class="expand-label-open">Nascondi riassunto</span>
         <span class="expand-chevron" aria-hidden="true">▾</span>
       </summary>
       <div class="summary-long" id="hn-long-6">
         <div class="summary-long-label">Riassunto · versione PDF</div>
-        <p class="summary-long-text">Brolly è un&#x27;applicazione web che offre previsioni meteorologiche in formato esclusivamente testuale, senza immagini, grafici, JavaScript pesante o tracker. Presentata come Show HN, l&#x27;app si distingue per la sua filosofia minimalista radicale: ogni pagina è puro testo formattato, leggibile anche su terminale o connessioni lentissime. L&#x27;interfaccia mostra temperatura attuale, percezione termica, velocità del vento, indice UV e qualità dell&#x27;aria in un layout essenziale che ricorda le interfacce testuali degli anni &#x27;80. Le previsioni coprono la settimana con dati giornalieri su condizioni meteo, temperature minime e massime, vento e precipitazioni. Il progetto ha ricevuto ampio apprezzamento dalla community di HN per la sua accessibilità e leggerezza: la pagina pesa pochi kilobyte, funziona senza JavaScript e rispetta la privacy dell&#x27;utente non utilizzando alcun tracker. L&#x27;autore spiega di aver creato Brolly per frustrazione verso i siti meteo moderni, sempre più carichi di pubblicità invasiva e script di tracciamento. Il codice è open source e utilizza dati da Open-Meteo, un&#x27;API meteo gratuita e senza limiti.</p>
+        <p class="summary-long-text">Brandon Li ha creato una serie di animazioni interattive che visualizzano il funzionamento interno dei transistor, basate su un simulatore di semiconduttori sviluppato personalmente. Le animazioni mostrano il movimento degli elettroni (punti blu) e delle lacune (punti rossi) attraverso la struttura cristallina del silicio, con lampi bianchi che indicano gli eventi di ricombinazione. Sono rappresentati tre tipi fondamentali di transistor: il BJT NPN (transistor a giunzione bipolare), il MOSFET a canale N (il componente alla base di tutta l&#x27;elettronica digitale moderna) e il JFET a canale N. Per ciascun dispositivo, due set di animazioni offrono livelli crescenti di dettaglio: il primo mostra solo la velocità netta dei portatori di carica (combinazione di diffusione e drift), mentre il secondo visualizza separatamente i contributi di diffusione e deriva, rendendo visivamente comprensibili fenomeni fisici complessi che normalmente si studiano solo con equazioni differenziali. Il simulatore sottostante, chiamato &#x27;semisim&#x27;, risolve numericamente le equazioni di Poisson e di continuità su una griglia bidimensionale. La community di HN ha elogiato il progetto come uno strumento didattico eccezionale per studenti di ingegneria elettronica e fisica dello stato solido, notando come la visualizzazione renda intuitivi concetti che i libri di testo tradizionali faticano a comunicare efficacemente.</p>
       </div>
     </details>
   </div>
@@ -605,19 +605,19 @@ a { color: inherit; }
     <span class="rank">#7</span>
     <h3 class="title"><a href="https://spectrum.ieee.org/sodium-ion-battery-peak-energy" target="_blank" rel="noopener">GM Backs Sodium Ion Batteries for U.S. Grid Storage</a></h3>
   </div>
-  <div class="meta"><span class="domain">spectrum.ieee.org</span> · <span class="score pts-high">▲ 164</span> · <span>66 commenti</span> · <span>by rbanffy</span> · <span class="tag">#energy</span> <span class="tag">#batteries</span></div>
+  <div class="meta"><span class="domain">spectrum.ieee.org</span> · <span class="score pts-high">▲ 178</span> · <span>78 commenti</span> · <span>by rbanffy</span> · <span class="tag">#energy</span> <span class="tag">#batteries</span> <span class="tag">#renewable</span></div>
   
   <div class="summary-block">
-    <p class="summary-teaser">General Motors ha annunciato un investimento strategico nella tecnologia delle batterie agli ioni di sodio per lo stoccaggio energetico su scala di rete negli Stati Uniti. L&#x27;articolo di IEEE Spectrum descrive come questa mossa segni un punto di svolta per una tecnologia…</p>
+    <p class="summary-teaser">General Motors ha annunciato un investimento strategico in Peak Energy, una startup che sviluppa batterie agli ioni di sodio per lo stoccaggio energetico su scala di rete negli Stati Uniti. A differenza delle batterie al litio, quelle al sodio utilizzano un elemento…</p>
     <details class="summary-details">
       <summary class="expand-btn" aria-controls="hn-long-7">
-        <span class="expand-label-closed">Leggi riassunto completo · ~184 parole</span>
+        <span class="expand-label-closed">Leggi riassunto completo · ~228 parole</span>
         <span class="expand-label-open">Nascondi riassunto</span>
         <span class="expand-chevron" aria-hidden="true">▾</span>
       </summary>
       <div class="summary-long" id="hn-long-7">
         <div class="summary-long-label">Riassunto · versione PDF</div>
-        <p class="summary-long-text">General Motors ha annunciato un investimento strategico nella tecnologia delle batterie agli ioni di sodio per lo stoccaggio energetico su scala di rete negli Stati Uniti. L&#x27;articolo di IEEE Spectrum descrive come questa mossa segni un punto di svolta per una tecnologia a lungo considerata il &#x27;fratello povero&#x27; delle batterie al litio. Le batterie al sodio offrono vantaggi chiave per lo stoccaggio stazionario: il sodio è abbondante ed economico (il carbonato di sodio costa una frazione del carbonato di litio), non richiede cobalto né nichel, e la catena di approvvigionamento è geograficamente diversificata, riducendo la dipendenza dalla Cina. GM collabora con Peak Energy, una startup californiana che ha sviluppato celle agli ioni di sodio con densità energetica competitiva e cicli di vita superiori a 4.000 ricariche. L&#x27;investimento si inserisce nella strategia più ampia di GM di diversificare le tecnologie di elettrificazione, separando le esigenze della mobilità (dove la densità energetica del litio resta insuperata) da quelle dello stoccaggio di rete (dove costo e sostenibilità contano di più). L&#x27;articolo evidenzia come il 2026 potrebbe essere l&#x27;anno di svolta per il sodio nello stoccaggio energetico americano.</p>
+        <p class="summary-long-text">General Motors ha annunciato un investimento strategico in Peak Energy, una startup che sviluppa batterie agli ioni di sodio per lo stoccaggio energetico su scala di rete negli Stati Uniti. A differenza delle batterie al litio, quelle al sodio utilizzano un elemento abbondante ed economico — il sodio è il sesto elemento più comune nella crosta terrestre e si estrae facilmente dall&#x27;acqua di mare — eliminando la dipendenza da materiali critici come litio, cobalto e nickel, spesso soggetti a volatilità geopolitica e problematiche etiche legate all&#x27;estrazione. Le batterie al sodio hanno una densità energetica inferiore rispetto a quelle al litio, il che le rende meno adatte per veicoli elettrici dove peso e spazio sono vincoli stringenti, ma sono ideali per applicazioni stazionarie di grid storage, dove il costo per kWh e la durata nel tempo contano più della densità. L&#x27;articolo di IEEE Spectrum dettaglia come la tecnologia di Peak Energy utilizzi un catodo a base di Prussian White, un materiale a basso costo e alta stabilità, che promette oltre 10.000 cicli di carica-scarica. GM vede questa tecnologia come complementare alla sua strategia di elettrificazione dei veicoli: le batterie al sodio possono immagazzinare energia rinnovabile durante i picchi di produzione solare ed eolica per ricaricare i veicoli elettrici nei momenti di bassa generazione. L&#x27;investimento segnala una crescente maturità delle alternative al litio per lo stoccaggio energetico su larga scala.</p>
       </div>
     </details>
   </div>
@@ -628,21 +628,21 @@ a { color: inherit; }
   <div class="card-glow" aria-hidden="true"></div>
   <div class="card-head">
     <span class="rank">#8</span>
-    <h3 class="title"><a href="https://brandonli.net/semisim/animations" target="_blank" rel="noopener">Show HN: I made some transistor animations</a></h3>
+    <h3 class="title"><a href="https://www.debian.org/vote/2026/vote_002" target="_blank" rel="noopener">LLM Usage in Debian: Three Proposals</a></h3>
   </div>
-  <div class="meta"><span class="domain">brandonli.net</span> · <span class="score pts-high">▲ 153</span> · <span>19 commenti</span> · <span>by stunningllama</span> · <span class="tag">#electronics</span> <span class="tag">#education</span></div>
+  <div class="meta"><span class="domain">debian.org</span> · <span class="score pts-high">▲ 163</span> · <span>147 commenti</span> · <span>by zdw</span> · <span class="tag">#linux</span> <span class="tag">#debian</span> <span class="tag">#ai</span></div>
   
   <div class="summary-block">
-    <p class="summary-teaser">Un progetto Show HN presenta animazioni interattive del funzionamento interno dei transistor, realizzate con un simulatore di semiconduttori sviluppato dall&#x27;autore. Le animazioni mostrano tre tipi fondamentali di transistor — NPN BJT, MOSFET a canale N e JFET a canale N — visualizzando…</p>
+    <p class="summary-teaser">Il progetto Debian ha avviato una votazione formale (General Resolution) sull&#x27;uso dei modelli linguistici di grandi dimensioni (LLM) all&#x27;interno della distribuzione. La pagina ufficiale del voto presenta tre proposte distinte che riflettono diverse filosofie sul rapporto tra software libero e intelligenza artificiale…</p>
     <details class="summary-details">
       <summary class="expand-btn" aria-controls="hn-long-8">
-        <span class="expand-label-closed">Leggi riassunto completo · ~171 parole</span>
+        <span class="expand-label-closed">Leggi riassunto completo · ~211 parole</span>
         <span class="expand-label-open">Nascondi riassunto</span>
         <span class="expand-chevron" aria-hidden="true">▾</span>
       </summary>
       <div class="summary-long" id="hn-long-8">
         <div class="summary-long-label">Riassunto · versione PDF</div>
-        <p class="summary-long-text">Un progetto Show HN presenta animazioni interattive del funzionamento interno dei transistor, realizzate con un simulatore di semiconduttori sviluppato dall&#x27;autore. Le animazioni mostrano tre tipi fondamentali di transistor — NPN BJT, MOSFET a canale N e JFET a canale N — visualizzando il movimento degli elettroni (punti blu) e delle lacune (punti rossi) all&#x27;interno del dispositivo. I flash bianchi rappresentano eventi di ricombinazione elettrone-lacuna. Il simulatore risolve numericamente le equazioni di deriva-diffusione che governano il trasporto di carica nei semiconduttori, producendo visualizzazioni che rendono intuitivi fenomeni altrimenti astratti come la formazione del canale di inversione in un MOSFET o la modulazione della regione di svuotamento in un JFET. Due set di animazioni sono disponibili: uno che mostra la velocità netta dei portatori (corrente totale) e uno che separa le componenti di diffusione e deriva. Il progetto ha un chiaro valore didattico, rendendo accessibile la fisica dei semiconduttori a studenti e appassionati di elettronica senza richiedere complesse simulazioni TCAD. La community HN ha elogiato la chiarezza visiva e l&#x27;accuratezza tecnica delle animazioni.</p>
+        <p class="summary-long-text">Il progetto Debian ha avviato una votazione formale (General Resolution) sull&#x27;uso dei modelli linguistici di grandi dimensioni (LLM) all&#x27;interno della distribuzione. La pagina ufficiale del voto presenta tre proposte distinte che riflettono diverse filosofie sul rapporto tra software libero e intelligenza artificiale. La prima proposta, la più permissiva, consente l&#x27;uso di LLM per assistere lo sviluppo — generazione di codice boilerplate, documentazione, traduzioni — mantenendo però la revisione umana obbligatoria per ogni contributo. La seconda proposta adotta una linea più restrittiva, richiedendo che qualsiasi output di LLM inserito in Debian sia accompagnato da una dichiarazione esplicita della fonte e dal modello utilizzato, oltre a verifiche aggiuntive sulla licenza del codice generato. La terza proposta, la più radicale, vieta completamente l&#x27;uso di LLM per la produzione di codice o documentazione destinata agli archivi ufficiali, citando preoccupazioni sulla proprietà intellettuale del codice di training, sulla riproducibilità (un principio fondamentale di Debian) e sul rischio di introdurre bug sottili generati da modelli statistici. La discussione nella community è stata intensa, con 147 commenti su HN che riflettono il dibattito più ampio nel mondo open source: da un lato la promessa di maggiore produttività, dall&#x27;altro la difesa dei principi di trasparenza e controllo che hanno reso Debian una delle distribuzioni Linux più rispettate al mondo.</p>
       </div>
     </details>
   </div>
@@ -653,21 +653,21 @@ a { color: inherit; }
   <div class="card-glow" aria-hidden="true"></div>
   <div class="card-head">
     <span class="rank">#9</span>
-    <h3 class="title"><a href="https://www.jetzero.aero" target="_blank" rel="noopener">JetZero</a></h3>
+    <h3 class="title"><a href="https://github.com/demo-zexuan/liang-wenfeng-investor-meeting-2026-7-22/blob/master/liang-wenfeng-investor-meeting-transcript_translate_20260723201651.pdf" target="_blank" rel="noopener">DeepSeek pause fundraise after comments on compute gap to US leaked (transcript) [pdf]</a></h3>
   </div>
-  <div class="meta"><span class="domain">jetzero.aero</span> · <span class="score pts-high">▲ 142</span> · <span>95 commenti</span> · <span>by lisper</span> · <span class="tag">#aerospace</span></div>
+  <div class="meta"><span class="domain">github.com</span> · <span class="score pts-high">▲ 159</span> · <span>108 commenti</span> · <span>by oliculipolicula</span> · <span class="tag">#ai</span> <span class="tag">#llm</span> <span class="tag">#opensource</span></div>
   
   <div class="summary-block">
-    <p class="summary-teaser">JetZero presenta il suo ambizioso progetto di un aereo di linea a fusoliera integrata (blended wing body) capace di trasportare 250 passeggeri su rotte internazionali con un&#x27;aerodinamica rivoluzionaria. Il design elimina la tradizionale distinzione tra fusoliera e ali, fondendoli in un&#x27;unica superficie…</p>
+    <p class="summary-teaser">Una trascrizione trapelata di un incontro tra Liang Wenfeng, CEO di DeepSeek, e investitori ha rivelato commenti sorprendentemente franchi sul divario computazionale tra Cina e Stati Uniti nell&#x27;addestramento di modelli AI avanzati. Nel documento, Liang ammette che il gap di potenza di…</p>
     <details class="summary-details">
       <summary class="expand-btn" aria-controls="hn-long-9">
-        <span class="expand-label-closed">Leggi riassunto completo · ~163 parole</span>
+        <span class="expand-label-closed">Leggi riassunto completo · ~212 parole</span>
         <span class="expand-label-open">Nascondi riassunto</span>
         <span class="expand-chevron" aria-hidden="true">▾</span>
       </summary>
       <div class="summary-long" id="hn-long-9">
         <div class="summary-long-label">Riassunto · versione PDF</div>
-        <p class="summary-long-text">JetZero presenta il suo ambizioso progetto di un aereo di linea a fusoliera integrata (blended wing body) capace di trasportare 250 passeggeri su rotte internazionali con un&#x27;aerodinamica rivoluzionaria. Il design elimina la tradizionale distinzione tra fusoliera e ali, fondendoli in un&#x27;unica superficie portante che riduce drasticamente la resistenza aerodinamica. Secondo l&#x27;azienda, questa configurazione consuma il 50% in meno di carburante rispetto agli aerei convenzionali della stessa categoria, un risultato che avrebbe implicazioni enormi per la sostenibilità del trasporto aereo. L&#x27;articolo riporta due sviluppi recenti: Alaska Airlines ha investito in JetZero tramite il suo fondo Alaska Star Ventures, con opzioni per ordini futuri di velivoli; inoltre JetZero ha raccolto circa 175 milioni di dollari in un round Series B guidato da B Capital. L&#x27;interesse di una grande compagnia aerea come Alaska rappresenta una validazione significativa della tecnologia. JetZero sta lavorando con la U.S. Air Force per un dimostratore che volerà entro il 2027, con l&#x27;obiettivo di entrare in servizio commerciale nei primi anni 2030.</p>
+        <p class="summary-long-text">Una trascrizione trapelata di un incontro tra Liang Wenfeng, CEO di DeepSeek, e investitori ha rivelato commenti sorprendentemente franchi sul divario computazionale tra Cina e Stati Uniti nell&#x27;addestramento di modelli AI avanzati. Nel documento, Liang ammette che il gap di potenza di calcolo disponibile è sostanziale e in peggioramento a causa delle restrizioni all&#x27;esportazione di chip avanzati imposte dagli Stati Uniti. Questa ammissione ha spinto DeepSeek a mettere in pausa un round di raccolta fondi in corso, poiché gli investitori hanno reagito con cautela alla prospettiva di un&#x27;azienda che riconosce pubblicamente un limite strutturale alla propria capacità competitiva. La trascrizione PDF, caricata su GitHub da un account anonimo, include dettagli tecnici sulle strategie di ottimizzazione che DeepSeek sta perseguendo per compensare la carenza di GPU — tra cui tecniche di Mixture of Experts, training a precisione mista, e architetture che massimizzano l&#x27;efficienza per FLOP. La fuga di notizie ha innescato un acceso dibattito su HN, con molti partecipanti che notano l&#x27;ironia di un&#x27;azienda cinese che soffre le stesse dinamiche di dipendenza tecnologica che gli Stati Uniti cercano di mitigare con il CHIPS Act. Altri hanno sottolineato come la trasparenza forzata dalla fuga potrebbe paradossalmente rafforzare la posizione di DeepSeek nel lungo periodo, costringendo una discussione più onesta sulle reali capacità dell&#x27;AI cinese.</p>
       </div>
     </details>
   </div>
@@ -678,21 +678,21 @@ a { color: inherit; }
   <div class="card-glow" aria-hidden="true"></div>
   <div class="card-head">
     <span class="rank">#10</span>
-    <h3 class="title"><a href="https://github.com/slvDev/esp32-ai" target="_blank" rel="noopener">Running a 28.9M parameter LLM on an $8 microcontroller</a></h3>
+    <h3 class="title"><a href="https://blog.ktz.me/esp32-plane-radar/" target="_blank" rel="noopener">An ESP32 based plane radar for my desk</a></h3>
   </div>
-  <div class="meta"><span class="domain">github.com</span> · <span class="score pts-high">▲ 135</span> · <span>29 commenti</span> · <span>by boveyking</span> · <span class="tag">#esp32</span> <span class="tag">#hardware</span> <span class="tag">#ai</span></div>
+  <div class="meta"><span class="domain">blog.ktz.me</span> · <span class="score pts-high">▲ 156</span> · <span>32 commenti</span> · <span>by alexktz</span> · <span class="tag">#esp32</span> <span class="tag">#hardware</span></div>
   
   <div class="summary-block">
-    <p class="summary-teaser">Un progetto open source dimostra come eseguire un modello linguistico da 28,9 milioni di parametri su un microcontroller ESP32-S3, un chip che costa circa 8 dollari. Il progetto, ospitato su GitHub, utilizza un modello Transformer ottimizzato e quantizzato per funzionare nei pochi…</p>
+    <p class="summary-teaser">Alex Kretzschmar ha costruito un radar aereo da scrivania basato su ESP32, un progetto hardware open source perfetto per un weekend di relax creativo. Il dispositivo utilizza un display rotondo da 1,28 pollici e un ricevitore ADS-B per captare i segnali trasmessi…</p>
     <details class="summary-details">
       <summary class="expand-btn" aria-controls="hn-long-10">
-        <span class="expand-label-closed">Leggi riassunto completo · ~163 parole</span>
+        <span class="expand-label-closed">Leggi riassunto completo · ~198 parole</span>
         <span class="expand-label-open">Nascondi riassunto</span>
         <span class="expand-chevron" aria-hidden="true">▾</span>
       </summary>
       <div class="summary-long" id="hn-long-10">
         <div class="summary-long-label">Riassunto · versione PDF</div>
-        <p class="summary-long-text">Un progetto open source dimostra come eseguire un modello linguistico da 28,9 milioni di parametri su un microcontroller ESP32-S3, un chip che costa circa 8 dollari. Il progetto, ospitato su GitHub, utilizza un modello Transformer ottimizzato e quantizzato per funzionare nei pochi megabyte di RAM disponibili sul microcontrollore. L&#x27;ESP32-S3 è dotato di acceleratori per reti neurali e unità vettoriali che permettono di eseguire inferenza a velocità sorprendenti per un dispositivo di questa categoria — circa 15-20 token al secondo in configurazione base. L&#x27;implementazione supporta la generazione di testo, completamento di prompt e semplici conversazioni, il tutto senza connessione internet e con un consumo energetico nell&#x27;ordine dei milliwatt. Il progetto include il codice firmware, script di conversione del modello e istruzioni dettagliate per caricare il tutto su una scheda di sviluppo ESP32. Le applicazioni spaziano dall&#x27;assistenza vocale offline in dispositivi IoT a interfacce uomo-macchina intelligenti in contesti industriali. La community HN ha discusso le implicazioni di questa democratizzazione dell&#x27;AI su hardware a bassissimo costo.</p>
+        <p class="summary-long-text">Alex Kretzschmar ha costruito un radar aereo da scrivania basato su ESP32, un progetto hardware open source perfetto per un weekend di relax creativo. Il dispositivo utilizza un display rotondo da 1,28 pollici e un ricevitore ADS-B per captare i segnali trasmessi dagli aerei in volo nelle vicinanze. L&#x27;ESP32 elabora i dati di posizione, altitudine, velocità e direzione, visualizzandoli in tempo reale sul piccolo schermo con una grafica pulita in stile radar. Il progetto è interamente open source, con il codice disponibile su GitHub, e sfrutta un case stampato in 3D ispirato a un modello trovato su Makerworld. L&#x27;autore racconta come l&#x27;idea sia nata dal desiderio di rilassarsi dopo una settimana intensa di lavoro, trasformando componenti elettronici in un oggetto tanto funzionale quanto esteticamente piacevole da tenere sulla scrivania. Il firmware supporta la connessione Wi-Fi per scaricare dati aggiuntivi sui voli (come la rotta e la compagnia aerea) e usa la libreria ESP32 TFT per il rendering grafico. La community di HN ha apprezzato la combinazione di hardware accessibile, software ben documentato e design curato, notando come progetti di questo tipo rendano tangibile la tecnologia di tracciamento aereo che normalmente rimane invisibile nei server di Flightradar24 e simili.</p>
       </div>
     </details>
   </div>
@@ -703,21 +703,21 @@ a { color: inherit; }
   <div class="card-glow" aria-hidden="true"></div>
   <div class="card-head">
     <span class="rank">#11</span>
-    <h3 class="title"><a href="https://www.debian.org/vote/2026/vote_002" target="_blank" rel="noopener">LLM Usage in Debian: Three Proposals</a></h3>
+    <h3 class="title"><a href="https://huggingface.co/owensong/Inflect-Micro-v2" target="_blank" rel="noopener">Inflect-Micro-v2: complete voice in 9.36M parameters</a></h3>
   </div>
-  <div class="meta"><span class="domain">debian.org</span> · <span class="score pts-high">▲ 123</span> · <span>111 commenti</span> · <span>by zdw</span> · <span class="tag">#linux</span> <span class="tag">#debian</span> <span class="tag">#ai</span></div>
+  <div class="meta"><span class="domain">huggingface.co</span> · <span class="score pts-high">▲ 137</span> · <span>11 commenti</span> · <span>by nateb2022</span> · <span class="tag">#ai</span> <span class="tag">#tts</span> <span class="tag">#edge</span></div>
   
   <div class="summary-block">
-    <p class="summary-teaser">Debian, una delle distribuzioni Linux più influenti e rispettate, ha avviato una votazione generale (General Resolution) sull&#x27;uso dei modelli linguistici (LLM) all&#x27;interno del progetto. Sono state presentate tre proposte distinte. La prima, più restrittiva, vieta completamente l&#x27;uso di output generati da LLM…</p>
+    <p class="summary-teaser">Inflect-Micro-v2 è un modello di sintesi vocale (text-to-speech) incredibilmente compatto: soli 9,36 milioni di parametri, sufficienti per essere eseguito su CPU senza GPU, su dispositivi edge e persino su microcontroller relativamente potenti. Pubblicato su Hugging Face da Owensong, il modello rappresenta lo…</p>
     <details class="summary-details">
       <summary class="expand-btn" aria-controls="hn-long-11">
-        <span class="expand-label-closed">Leggi riassunto completo · ~156 parole</span>
+        <span class="expand-label-closed">Leggi riassunto completo · ~194 parole</span>
         <span class="expand-label-open">Nascondi riassunto</span>
         <span class="expand-chevron" aria-hidden="true">▾</span>
       </summary>
       <div class="summary-long" id="hn-long-11">
         <div class="summary-long-label">Riassunto · versione PDF</div>
-        <p class="summary-long-text">Debian, una delle distribuzioni Linux più influenti e rispettate, ha avviato una votazione generale (General Resolution) sull&#x27;uso dei modelli linguistici (LLM) all&#x27;interno del progetto. Sono state presentate tre proposte distinte. La prima, più restrittiva, vieta completamente l&#x27;uso di output generati da LLM in qualsiasi contributo ufficiale a Debian, inclusi codice, documentazione e comunicazioni nei bug tracker, citando rischi di violazione di licenze, allucinazioni e problemi di attribuzione. La seconda proposta adotta un approccio intermedio: permette l&#x27;uso di LLM come strumento ausiliario ma richiede che ogni contributo sia esplicitamente dichiarato come assistito da AI e che il contributore umano si assuma la piena responsabilità legale e tecnica del contenuto. La terza proposta è la più permissiva e tratta gli LLM come qualsiasi altro strumento di sviluppo, senza restrizioni specifiche oltre alle normali policy di qualità del progetto. La discussione riflette tensioni più ampie nel mondo open source tra innovazione e preservazione della fiducia nella provenienza del codice.</p>
+        <p class="summary-long-text">Inflect-Micro-v2 è un modello di sintesi vocale (text-to-speech) incredibilmente compatto: soli 9,36 milioni di parametri, sufficienti per essere eseguito su CPU senza GPU, su dispositivi edge e persino su microcontroller relativamente potenti. Pubblicato su Hugging Face da Owensong, il modello rappresenta lo stato dell&#x27;arte della sintesi vocale efficiente, producendo voce in inglese di qualità sorprendentemente naturale nonostante le dimensioni ridotte. A differenza dei modelli TTS tradizionali che occupano centinaia di megabyte o addirittura gigabyte, Inflect-Micro-v2 è progettato per scenari dove le risorse computazionali sono estremamente limitate: assistenti vocali offline, dispositivi IoT, applicazioni mobile che non possono dipendere da API cloud, e tecnologie assistive per persone con disabilità visive. Il modello utilizza un&#x27;architettura ottimizzata con quantizzazione e pruning aggressivo, mantenendo tuttavia una prosodia naturale e una buona intelligibilità. La scheda tecnica su Hugging Face riporta i benchmark di qualità e latenza, dimostrando che è possibile ottenere sintesi vocale in tempo reale su hardware modesto. La community di HN ha discusso le implicazioni per l&#x27;accessibilità e la democratizzazione della tecnologia vocale: con modelli così compatti, chiunque può integrare capacità TTS di qualità nelle proprie applicazioni senza costi ricorrenti di API e senza dipendenza da connessioni internet.</p>
       </div>
     </details>
   </div>
@@ -728,96 +728,96 @@ a { color: inherit; }
   <div class="card-glow" aria-hidden="true"></div>
   <div class="card-head">
     <span class="rank">#12</span>
-    <h3 class="title"><a href="https://ammoniaenergy.org/articles/flexible-renewable-ammonia-demonstrator-now-operational-in-minnesota/" target="_blank" rel="noopener">Producing ammonia and fertiliser using wind power in Morris, Minnesota</a></h3>
+    <h3 class="title"><a href="https://golfcoursebrowser.com/" target="_blank" rel="noopener">Show HN: I mapped every US golf course</a></h3>
   </div>
-  <div class="meta"><span class="domain">ammoniaenergy.org</span> · <span class="score pts-high">▲ 115</span> · <span>80 commenti</span> · <span>by gritzko</span> · <span class="tag">#energy</span> <span class="tag">#ammonia</span> <span class="tag">#renewable</span></div>
+  <div class="meta"><span class="domain">golfcoursebrowser.com</span> · <span class="score pts-high">▲ 133</span> · <span>74 commenti</span> · <span>by rickmf</span> · <span class="tag">#maps</span> <span class="tag">#data</span></div>
   
   <div class="summary-block">
-    <p class="summary-teaser">Un dimostratore di produzione flessibile di ammoniaca rinnovabile è entrato in funzione a Morris, nel Minnesota, utilizzando esclusivamente energia eolica. L&#x27;impianto, descritto da Ammonia Energy Association, rappresenta un passo fondamentale verso la decarbonizzazione della produzione di fertilizzanti e dell&#x27;industria chimica pesante. Il…</p>
+    <p class="summary-teaser">Golf Course Browser è un ambizioso progetto di mappatura che cataloga e visualizza su una mappa interattiva ogni campo da golf degli Stati Uniti — oltre 18.000 strutture. L&#x27;applicazione web, presentata come Show HN, permette di esplorare i campi per stato, filtrarli…</p>
     <details class="summary-details">
       <summary class="expand-btn" aria-controls="hn-long-12">
-        <span class="expand-label-closed">Leggi riassunto completo · ~160 parole</span>
+        <span class="expand-label-closed">Leggi riassunto completo · ~211 parole</span>
         <span class="expand-label-open">Nascondi riassunto</span>
         <span class="expand-chevron" aria-hidden="true">▾</span>
       </summary>
       <div class="summary-long" id="hn-long-12">
         <div class="summary-long-label">Riassunto · versione PDF</div>
-        <p class="summary-long-text">Un dimostratore di produzione flessibile di ammoniaca rinnovabile è entrato in funzione a Morris, nel Minnesota, utilizzando esclusivamente energia eolica. L&#x27;impianto, descritto da Ammonia Energy Association, rappresenta un passo fondamentale verso la decarbonizzazione della produzione di fertilizzanti e dell&#x27;industria chimica pesante. Il processo utilizza elettrolizzatori alimentati da turbine eoliche per produrre idrogeno verde, che viene poi combinato con azoto atmosferico in un reattore Haber-Bosch modificato per funzionare in modo intermittente — una sfida tecnica notevole dato che il processo tradizionale richiede funzionamento continuo. Il dimostratore nel Minnesota è progettato per adattarsi dinamicamente alla variabilità del vento, accendendosi e spegnendosi o modulando la produzione in base alla disponibilità di energia rinnovabile. La capacità produttiva è di alcune tonnellate al giorno, sufficienti per uso agricolo locale. Il progetto è finanziato dal Department of Energy americano e coinvolge partner industriali e accademici. L&#x27;ammoniaca verde non è solo un fertilizzante: è anche un promettente vettore energetico e combustibile navale a zero emissioni di carbonio.</p>
+        <p class="summary-long-text">Golf Course Browser è un ambizioso progetto di mappatura che cataloga e visualizza su una mappa interattiva ogni campo da golf degli Stati Uniti — oltre 18.000 strutture. L&#x27;applicazione web, presentata come Show HN, permette di esplorare i campi per stato, filtrarli per tipo di accesso (pubblico, municipale, resort, privato, chiuso), numero di buche (9, 18, 19+), tipologia di percorso (regolamentare, executive, par-3) e servizi disponibili come il driving range. Ogni campo è rappresentato da un marker sulla mappa con informazioni dettagliate, e gli utenti possono suggerire l&#x27;aggiunta di campi mancanti tramite un&#x27;interfaccia di crowdsourcing. Il progetto è notevole per la completezza del dataset — raccogliere e verificare dati su 18.000+ campi da golf sparsi in tutti gli Stati Uniti, inclusi quelli più remoti in Alaska e Hawaii, è un&#x27;impresa di data curation significativa. L&#x27;autore ha utilizzando fonti pubbliche, API di mappatura e contributi della community per costruire il database. La discussione su HN ha toccato temi come l&#x27;impatto ambientale dei campi da golf (consumo idrico, uso di pesticidi), l&#x27;accessibilità economica di questo sport, e le sfide tecniche della geolocalizzazione di strutture che spesso hanno confini complessi. Diversi utenti hanno contribuito con suggerimenti per migliorare i filtri di ricerca e aggiungere metadati come le tariffe medie e le valutazioni degli utenti.</p>
       </div>
     </details>
   </div>
 </article>
 
 
-<article class="card hn-card pts-mid" id="hn-13">
+<article class="card hn-card pts-high" id="hn-13">
   <div class="card-glow" aria-hidden="true"></div>
   <div class="card-head">
     <span class="rank">#13</span>
-    <h3 class="title"><a href="https://golfcoursebrowser.com/" target="_blank" rel="noopener">Show HN: I mapped every US golf course</a></h3>
+    <h3 class="title"><a href="https://blog.cloudflare.com/content-independence-day-ai-options/" target="_blank" rel="noopener">Cloudflare&#x27;s new AI traffic options for customers</a></h3>
   </div>
-  <div class="meta"><span class="domain">golfcoursebrowser.com</span> · <span class="score pts-mid">▲ 94</span> · <span>42 commenti</span> · <span>by rickmf</span> · <span class="tag">#maps</span> <span class="tag">#data</span></div>
+  <div class="meta"><span class="domain">blog.cloudflare.com</span> · <span class="score pts-high">▲ 125</span> · <span>99 commenti</span> · <span>by alphabetatango</span> · <span class="tag">#cloud</span> <span class="tag">#ai</span></div>
   
   <div class="summary-block">
-    <p class="summary-teaser">Un progetto Show HN presenta Golf Course Browser, una mappa interattiva che cataloga oltre 18.000 campi da golf negli Stati Uniti. L&#x27;applicazione web permette di esplorare ogni stato americano, visualizzando la posizione esatta di ogni campo su una mappa interattiva con filtri…</p>
+    <p class="summary-teaser">Cloudflare ha annunciato &#x27;Content Independence Day&#x27;, una nuova suite di opzioni che permette ai proprietari di siti web di controllare come i bot di AI e i crawler di addestramento accedono ai loro contenuti. L&#x27;iniziativa risponde a una crescente preoccupazione nel mondo…</p>
     <details class="summary-details">
       <summary class="expand-btn" aria-controls="hn-long-13">
-        <span class="expand-label-closed">Leggi riassunto completo · ~160 parole</span>
+        <span class="expand-label-closed">Leggi riassunto completo · ~225 parole</span>
         <span class="expand-label-open">Nascondi riassunto</span>
         <span class="expand-chevron" aria-hidden="true">▾</span>
       </summary>
       <div class="summary-long" id="hn-long-13">
         <div class="summary-long-label">Riassunto · versione PDF</div>
-        <p class="summary-long-text">Un progetto Show HN presenta Golf Course Browser, una mappa interattiva che cataloga oltre 18.000 campi da golf negli Stati Uniti. L&#x27;applicazione web permette di esplorare ogni stato americano, visualizzando la posizione esatta di ogni campo su una mappa interattiva con filtri avanzati. È possibile filtrare per tipo di accesso (pubblico, municipale, resort, privato), numero di buche (9, 18, 19+), tipo di percorso (regolamentare, executive, par-3) e servizi (campo pratica). La mappa include anche campi chiusi o abbandonati, documentando la storia golfistica americana. L&#x27;autore ha raccolto e normalizzato dati da fonti pubbliche, database governativi e contributi della community, creando il dataset più completo mai assemblato sui campi da golf statunitensi. L&#x27;interfaccia è pulita e reattiva, con clustering dei marker per zoom lontani e dettaglio progressivo avvicinandosi. Gli utenti possono aggiungere campi mancanti tramite un sistema di segnalazione geolocalizzata. Il progetto ha suscitato interesse non solo tra i golfisti ma anche tra analisti di dati geospaziali e appassionati di visualizzazione cartografica.</p>
+        <p class="summary-long-text">Cloudflare ha annunciato &#x27;Content Independence Day&#x27;, una nuova suite di opzioni che permette ai proprietari di siti web di controllare come i bot di AI e i crawler di addestramento accedono ai loro contenuti. L&#x27;iniziativa risponde a una crescente preoccupazione nel mondo del web publishing: aziende di AI come OpenAI, Google e Anthropic utilizzano crawler massivi per raccogliere dati di addestramento dai siti pubblici, spesso senza un meccanismo semplice per i proprietari dei contenuti per negare il consenso. Cloudflare introduce controlli granulari che vanno oltre il tradizionale robots.txt: i clienti possono ora bloccare selettivamente specifici bot AI, consentire l&#x27;accesso solo a determinate sezioni del sito, impostare limiti di rate, o richiedere un compenso economico per l&#x27;accesso ai dati. Una delle funzionalità più discusse è &#x27;AI Audit&#x27;, che fornisce report dettagliati su quali bot AI hanno visitato il sito, quante pagine hanno scaricato e con quale frequenza. L&#x27;articolo del blog descrive anche &#x27;AI Shield&#x27;, una protezione che rileva e mitiga attacchi di scraping AI che tentano di bypassare le restrizioni. La mossa di Cloudflare si inserisce nel dibattito più ampio sul &#x27;diritto di non essere addestrati&#x27; e sulla necessità di un&#x27;infrastruttura tecnica che traduca le preferenze dei publisher in meccanismi applicabili. La discussione su HN ha evidenziato sia l&#x27;apprezzamento per gli strumenti offerti, sia lo scetticismo sulla possibilità che misure tecniche possano fermare crawler sufficientemente determinati.</p>
       </div>
     </details>
   </div>
 </article>
 
 
-<article class="card hn-card pts-mid" id="hn-14">
+<article class="card hn-card pts-high" id="hn-14">
   <div class="card-glow" aria-hidden="true"></div>
   <div class="card-head">
     <span class="rank">#14</span>
-    <h3 class="title"><a href="https://blog.cloudflare.com/content-independence-day-ai-options/" target="_blank" rel="noopener">Cloudflare&#x27;s new AI traffic options for customers</a></h3>
+    <h3 class="title"><a href="https://itsallaboutthebit.com/memory-safety-absolutists/" target="_blank" rel="noopener">Memory safety absolutists</a></h3>
   </div>
-  <div class="meta"><span class="domain">blog.cloudflare.com</span> · <span class="score pts-mid">▲ 89</span> · <span>59 commenti</span> · <span>by alphabetatango</span> · <span class="tag">#cloud</span> <span class="tag">#ai</span></div>
+  <div class="meta"><span class="domain">itsallaboutthebit.com</span> · <span class="score pts-high">▲ 107</span> · <span>160 commenti</span> · <span>by drogus</span> · <span class="tag">#systems</span> <span class="tag">#engineering</span></div>
   
   <div class="summary-block">
-    <p class="summary-teaser">Cloudflare ha annunciato nuove opzioni per permettere ai propri clienti di controllare come i crawler e i bot di intelligenza artificiale accedono ai loro siti web. La funzionalità, chiamata &#x27;Content Independence Day&#x27;, introduce un pannello di controllo granulare che consente ai proprietari…</p>
+    <p class="summary-teaser">L&#x27;articolo di Piotr Sarnacki affronta con tono critico ma equilibrato il dibattito sulla memory safety nei linguaggi di programmazione, prendendo di mira ciò che l&#x27;autore chiama &#x27;assolutisti della sicurezza della memoria&#x27;. Il pezzo riconosce che i linguaggi memory-safe come Rust hanno portato…</p>
     <details class="summary-details">
       <summary class="expand-btn" aria-controls="hn-long-14">
-        <span class="expand-label-closed">Leggi riassunto completo · ~182 parole</span>
+        <span class="expand-label-closed">Leggi riassunto completo · ~225 parole</span>
         <span class="expand-label-open">Nascondi riassunto</span>
         <span class="expand-chevron" aria-hidden="true">▾</span>
       </summary>
       <div class="summary-long" id="hn-long-14">
         <div class="summary-long-label">Riassunto · versione PDF</div>
-        <p class="summary-long-text">Cloudflare ha annunciato nuove opzioni per permettere ai propri clienti di controllare come i crawler e i bot di intelligenza artificiale accedono ai loro siti web. La funzionalità, chiamata &#x27;Content Independence Day&#x27;, introduce un pannello di controllo granulare che consente ai proprietari di siti di decidere quali AI bot possono fare scraping dei contenuti, con quali limiti di frequenza, e in quali sezioni del sito. I clienti possono bloccare completamente bot specifici, permettere l&#x27;accesso solo a determinate directory, o impostare limiti di richieste al minuto. Cloudflare sfrutta la sua posizione unica come reverse proxy di una porzione significativa del web per offrire questa protezione a livello di edge, senza richiedere modifiche ai server di origine. La mossa risponde alle crescenti preoccupazioni di editori, creatori di contenuti e aziende che vedono i propri dati utilizzati per addestrare modelli AI senza consenso né compenso. L&#x27;articolo del blog ufficiale sottolinea che Cloudflare non prende posizione contro l&#x27;AI, ma vuole restituire ai proprietari dei contenuti il controllo su come i loro dati vengono utilizzati. La funzionalità è disponibile per tutti i piani, incluso il tier gratuito.</p>
+        <p class="summary-long-text">L&#x27;articolo di Piotr Sarnacki affronta con tono critico ma equilibrato il dibattito sulla memory safety nei linguaggi di programmazione, prendendo di mira ciò che l&#x27;autore chiama &#x27;assolutisti della sicurezza della memoria&#x27;. Il pezzo riconosce che i linguaggi memory-safe come Rust hanno portato miglioramenti innegabili nella prevenzione di intere classi di vulnerabilità — buffer overflow, use-after-free, dangling pointers — che hanno afflitto software scritto in C e C++ per decenni. Tuttavia, Sarnacki argomenta che l&#x27;atteggiamento di alcuni sostenitori di Rust, che dipingono qualsiasi codice non memory-safe come intrinsecamente pericoloso e irresponsabile, è controproducente. L&#x27;articolo evidenzia come molti sistemi critici scritti in C continuino a funzionare in modo affidabile grazie a processi rigorosi di testing, analisi statica, fuzzing e revisione del codice — pratiche che riducono drasticamente il rischio di bug di memoria anche senza le garanzie del compilatore. Viene anche sottolineato il costo reale della riscrittura di codebase legacy in Rust: non solo il tempo di sviluppo, ma anche il rischio di introdurre nuovi bug logici durante la traduzione. La discussione su HN è stata una delle più animate della giornata, con 160 commenti che riflettono la polarizzazione della community su questo tema. Molti hanno apprezzato il tono pragmatico dell&#x27;articolo, mentre altri hanno difeso la posizione &#x27;assolutista&#x27; citando i report di Google e Microsoft che attribuiscono il 70% delle vulnerabilità browser a bug di memory safety.</p>
       </div>
     </details>
   </div>
 </article>
 
 
-<article class="card hn-card pts-mid" id="hn-15">
+<article class="card hn-card pts-high" id="hn-15">
   <div class="card-glow" aria-hidden="true"></div>
   <div class="card-head">
     <span class="rank">#15</span>
     <h3 class="title"><a href="https://www.science.org/content/blog-post/clinical-failure-rates-over-decades-yikes" target="_blank" rel="noopener">Clinical failure rates over the decades: yikes</a></h3>
   </div>
-  <div class="meta"><span class="domain">science.org</span> · <span class="score pts-mid">▲ 85</span> · <span>48 commenti</span> · <span>by EA-3167</span> · <span class="tag">#pharma</span> <span class="tag">#science</span></div>
+  <div class="meta"><span class="domain">science.org</span> · <span class="score pts-high">▲ 105</span> · <span>85 commenti</span> · <span>by EA-3167</span> · <span class="tag">#pharma</span> <span class="tag">#science</span></div>
   
   <div class="summary-block">
-    <p class="summary-teaser">Un&#x27;analisi pubblicata su Science esamina i tassi di fallimento negli studi clinici farmaceutici negli ultimi decenni, e il quadro che emerge è allarmante. L&#x27;articolo di Derek Lowe riporta che circa il 90% dei farmaci che entrano in fase clinica I non arriva…</p>
+    <p class="summary-teaser">Un post sul blog di Science analizza i tassi di fallimento degli studi clinici farmacologici nel corso dei decenni, dipingendo un quadro che l&#x27;autore descrive con un eloquente &#x27;yikes&#x27;. I dati mostrano che, nonostante i progressi nella biologia molecolare, nella genomica e…</p>
     <details class="summary-details">
       <summary class="expand-btn" aria-controls="hn-long-15">
-        <span class="expand-label-closed">Leggi riassunto completo · ~173 parole</span>
+        <span class="expand-label-closed">Leggi riassunto completo · ~221 parole</span>
         <span class="expand-label-open">Nascondi riassunto</span>
         <span class="expand-chevron" aria-hidden="true">▾</span>
       </summary>
       <div class="summary-long" id="hn-long-15">
         <div class="summary-long-label">Riassunto · versione PDF</div>
-        <p class="summary-long-text">Un&#x27;analisi pubblicata su Science esamina i tassi di fallimento negli studi clinici farmaceutici negli ultimi decenni, e il quadro che emerge è allarmante. L&#x27;articolo di Derek Lowe riporta che circa il 90% dei farmaci che entrano in fase clinica I non arriva mai all&#x27;approvazione. Il dato più preoccupante è che questo tasso non è migliorato significativamente nonostante i progressi esponenziali nella genomica, nella biologia computazionale e nell&#x27;intelligenza artificiale applicata alla scoperta di farmaci. Anzi, in alcune aree terapeutiche come l&#x27;Alzheimer e l&#x27;oncologia, i tassi di fallimento in fase III sono addirittura peggiorati. L&#x27;autore esplora le possibili cause: modelli animali scarsamente predittivi della fisiologia umana, complessità biologica sottostimata, pressioni commerciali che spingono a far avanzare candidati promettenti ma immaturi, e un sistema di incentivi che premia la quantità di molecole in pipeline più che la qualità. L&#x27;articolo si conclude con una nota di cauto ottimismo: nuove tecnologie come gli organoidi, i digital twins e l&#x27;analisi di dati real-world potrebbero finalmente migliorare la predittività preclinica, ma ci vorranno anni prima di vederne l&#x27;impatto sulle statistiche.</p>
+        <p class="summary-long-text">Un post sul blog di Science analizza i tassi di fallimento degli studi clinici farmacologici nel corso dei decenni, dipingendo un quadro che l&#x27;autore descrive con un eloquente &#x27;yikes&#x27;. I dati mostrano che, nonostante i progressi nella biologia molecolare, nella genomica e nell&#x27;intelligenza artificiale applicata alla scoperta di farmaci, la probabilità che un candidato farmaco superi tutte le fasi cliniche e ottenga l&#x27;approvazione rimane drammaticamente bassa — circa il 10% per i farmaci che entrano in Fase I. Il tasso di fallimento in Fase II (dove si testa l&#x27;efficacia preliminare) è particolarmente alto e non è migliorato significativamente dagli anni &#x27;90. L&#x27;articolo esplora le ragioni strutturali di questa persistente inefficienza: modelli animali che non predicono bene la risposta umana, endpoint clinici troppo ambiziosi, popolazioni di pazienti eterogenee, e un sistema di incentivi che premia la pubblicazione di risultati positivi anche quando i trial sono sottodimensionati. Viene anche discusso il fenomeno della &#x27;legge di Eroom&#x27; — l&#x27;osservazione che il costo di sviluppo di un nuovo farmaco approvato raddoppia circa ogni 9 anni (l&#x27;inverso della legge di Moore) — e come gli approcci basati su AI e machine learning stiano iniziando solo ora a scalfire questa tendenza. La discussione su HN ha coinvolto ricercatori del settore che hanno condiviso esperienze dirette e proposto riforme del sistema di regolamentazione e finanziamento della ricerca clinica.</p>
       </div>
     </details>
   </div>
@@ -828,21 +828,21 @@ a { color: inherit; }
   <div class="card-glow" aria-hidden="true"></div>
   <div class="card-head">
     <span class="rank">#16</span>
-    <h3 class="title"><a href="https://blog.ktz.me/esp32-plane-radar/" target="_blank" rel="noopener">An ESP32 based plane radar for my desk</a></h3>
+    <h3 class="title"><a href="https://box2d.org/posts/2026/07/simd-for-collision/" target="_blank" rel="noopener">SIMD for Collision</a></h3>
   </div>
-  <div class="meta"><span class="domain">blog.ktz.me</span> · <span class="score pts-mid">▲ 84</span> · <span>13 commenti</span> · <span>by alexktz</span> · <span class="tag">#esp32</span> <span class="tag">#hardware</span> <span class="tag">#edge</span></div>
+  <div class="meta"><span class="domain">box2d.org</span> · <span class="score pts-mid">▲ 99</span> · <span>27 commenti</span> · <span>by birdculture</span> · <span class="tag">#gamedev</span> <span class="tag">#simd</span></div>
   
   <div class="summary-block">
-    <p class="summary-teaser">Un maker ha costruito un radar per aerei da scrivania utilizzando un microcontrollore ESP32 e un display rotondo da 1,28 pollici. Il dispositivo riceve dati ADS-B (Automatic Dependent Surveillance-Broadcast) — i segnali che gli aerei trasmettono con la loro posizione, altitudine, velocità…</p>
+    <p class="summary-teaser">Erin Catto, il creatore del celebre motore fisico Box2D, ha pubblicato un approfondimento tecnico sull&#x27;uso delle istruzioni SIMD (Single Instruction, Multiple Data) per ottimizzare la rilevazione delle collisioni. L&#x27;articolo distingue tra &#x27;wide SIMD&#x27; e &#x27;narrow SIMD&#x27;: il primo approccio, già esplorato in…</p>
     <details class="summary-details">
       <summary class="expand-btn" aria-controls="hn-long-16">
-        <span class="expand-label-closed">Leggi riassunto completo · ~172 parole</span>
+        <span class="expand-label-closed">Leggi riassunto completo · ~211 parole</span>
         <span class="expand-label-open">Nascondi riassunto</span>
         <span class="expand-chevron" aria-hidden="true">▾</span>
       </summary>
       <div class="summary-long" id="hn-long-16">
         <div class="summary-long-label">Riassunto · versione PDF</div>
-        <p class="summary-long-text">Un maker ha costruito un radar per aerei da scrivania utilizzando un microcontrollore ESP32 e un display rotondo da 1,28 pollici. Il dispositivo riceve dati ADS-B (Automatic Dependent Surveillance-Broadcast) — i segnali che gli aerei trasmettono con la loro posizione, altitudine, velocità e identificativo — utilizzando un ricevitore SDR (Software Defined Radio) collegato all&#x27;ESP32. Il display mostra gli aerei in volo nell&#x27;area circostante come punti su uno schermo radar in stile controllo del traffico aereo, con tanto di effetto di persistenza che simula la scansione del radar reale. L&#x27;autore descrive il progetto come un &#x27;perfetto rilassante sabato pomeriggio&#x27; dopo una settimana intensa di lavoro, e il repository GitHub include firmware open source, schemi di collegamento e istruzioni dettagliate per replicare il dispositivo. Il case è stampato in 3D basandosi su un modello trovato su Makerworld. Il progetto unisce hardware a basso costo, radiofrequenza, elaborazione dati in tempo reale e design industriale in un oggetto che è tanto funzionale quanto esteticamente affascinante, perfetto per la scrivania di qualsiasi appassionato di aviazione o tecnologia.</p>
+        <p class="summary-long-text">Erin Catto, il creatore del celebre motore fisico Box2D, ha pubblicato un approfondimento tecnico sull&#x27;uso delle istruzioni SIMD (Single Instruction, Multiple Data) per ottimizzare la rilevazione delle collisioni. L&#x27;articolo distingue tra &#x27;wide SIMD&#x27; e &#x27;narrow SIMD&#x27;: il primo approccio, già esplorato in un precedente post, elabora più unità di lavoro simultaneamente (ad esempio quattro punti di contatto in parallelo), mentre il &#x27;narrow SIMD&#x27; applica il parallelismo a livello di dati all&#x27;interno di un singolo calcolo. Catto mostra come operazioni fondamentali della rilevazione collisioni — come il calcolo delle matrici di rotazione, il test degli assi separatori (SAT) per poligoni convessi, e la determinazione dei punti di contatto — possano beneficiare enormemente delle istruzioni SIMD disponibili sui processori moderni (SSE, AVX). I benchmark mostrano accelerazioni da 2x a 4x rispetto a implementazioni scalari equivalenti, un guadagno significativo in un motore fisico dove la rilevazione collisioni è spesso il collo di bottiglia. L&#x27;articolo include frammenti di codice C++ commentati che mostrano come strutturare i dati in &#x27;struct of arrays&#x27; anziché &#x27;array of structs&#x27; per massimizzare l&#x27;efficienza SIMD. La discussione su HN ha attirato sviluppatori di motori di gioco e appassionati di ottimizzazione, con diversi commenti che hanno collegato queste tecniche ai moderni approcci data-oriented design (DOD) e alla programmazione ECS (Entity Component System).</p>
       </div>
     </details>
   </div>
@@ -853,21 +853,21 @@ a { color: inherit; }
   <div class="card-glow" aria-hidden="true"></div>
   <div class="card-head">
     <span class="rank">#17</span>
-    <h3 class="title"><a href="https://box2d.org/posts/2026/07/simd-for-collision/" target="_blank" rel="noopener">SIMD for Collision</a></h3>
+    <h3 class="title"><a href="https://siepr.stanford.edu/publications/policy-brief/what-really-happening-jobs-separating-ai-hype-reality" target="_blank" rel="noopener">What is happening to jobs? Separating AI hype from reality</a></h3>
   </div>
-  <div class="meta"><span class="domain">box2d.org</span> · <span class="score pts-mid">▲ 81</span> · <span>26 commenti</span> · <span>by birdculture</span> · <span class="tag">#gamedev</span> <span class="tag">#simd</span></div>
+  <div class="meta"><span class="domain">siepr.stanford.edu</span> · <span class="score pts-mid">▲ 98</span> · <span>111 commenti</span> · <span>by pod_krad</span> · <span class="tag">#ai</span> <span class="tag">#career</span> <span class="tag">#recruiting</span></div>
   
   <div class="summary-block">
-    <p class="summary-teaser">Erin Catto, creatore del motore fisico Box2D, pubblica un approfondimento tecnico sull&#x27;uso delle istruzioni SIMD (Single Instruction, Multiple Data) per accelerare il rilevamento delle collisioni. L&#x27;articolo distingue tra due approcci all&#x27;uso del SIMD nei motori fisici: &#x27;wide SIMD&#x27;, che processa multiple unità…</p>
+    <p class="summary-teaser">Lo Stanford Institute for Economic Policy Research (SIEPR) ha pubblicato un policy brief che cerca di separare i fatti dall&#x27;hype nel dibattito sull&#x27;impatto dell&#x27;intelligenza artificiale sul mercato del lavoro. Lo studio analizza dati empirici provenienti da diverse fonti — Bureau of Labor…</p>
     <details class="summary-details">
       <summary class="expand-btn" aria-controls="hn-long-17">
-        <span class="expand-label-closed">Leggi riassunto completo · ~177 parole</span>
+        <span class="expand-label-closed">Leggi riassunto completo · ~218 parole</span>
         <span class="expand-label-open">Nascondi riassunto</span>
         <span class="expand-chevron" aria-hidden="true">▾</span>
       </summary>
       <div class="summary-long" id="hn-long-17">
         <div class="summary-long-label">Riassunto · versione PDF</div>
-        <p class="summary-long-text">Erin Catto, creatore del motore fisico Box2D, pubblica un approfondimento tecnico sull&#x27;uso delle istruzioni SIMD (Single Instruction, Multiple Data) per accelerare il rilevamento delle collisioni. L&#x27;articolo distingue tra due approcci all&#x27;uso del SIMD nei motori fisici: &#x27;wide SIMD&#x27;, che processa multiple unità di lavoro simultaneamente (ad esempio quattro coppie di contatti in parallelo), e &#x27;narrow SIMD&#x27;, che parallelizza le operazioni all&#x27;interno di una singola coppia di corpi. Catto mostra come ha applicato il wide SIMD al collision detection in Box2D versione 3, ottenendo accelerazioni significative sfruttando le istruzioni SSE/AVX sulle CPU moderne x86-64. Viene spiegato in dettaglio come ristrutturare gli algoritmi di narrow phase — test AABB, calcolo dei manifold di contatto, clipping dei punti — per adattarsi al paradigma SIMD senza perdere correttezza numerica. L&#x27;articolo include benchmark comparativi che mostrano miglioramenti fino al 3x in scene con centinaia di corpi rigidi. Catto discute anche i limiti dell&#x27;approccio, in particolare la divergenza di flusso quando non tutte le lane SIMD hanno lo stesso carico di lavoro. Una lettura essenziale per sviluppatori di motori fisici e game engine.</p>
+        <p class="summary-long-text">Lo Stanford Institute for Economic Policy Research (SIEPR) ha pubblicato un policy brief che cerca di separare i fatti dall&#x27;hype nel dibattito sull&#x27;impatto dell&#x27;intelligenza artificiale sul mercato del lavoro. Lo studio analizza dati empirici provenienti da diverse fonti — Bureau of Labor Statistics, dati sulle assunzioni di grandi aziende tecnologiche, piattaforme di freelancing e sondaggi tra i datori di lavoro — per capire cosa sta realmente accadendo all&#x27;occupazione, al di là dei titoli allarmistici. I risultati dipingono un quadro più sfumato di quanto spesso riportato: l&#x27;AI sta effettivamente automatizzando alcune mansioni, in particolare nel customer service, nella traduzione, nella scrittura di codice boilerplate e nell&#x27;analisi di dati di base. Tuttavia, l&#x27;effetto netto sull&#x27;occupazione aggregata è finora modesto, con una ricomposizione delle competenze richieste piuttosto che una distruzione netta di posti di lavoro. I lavoratori che sanno integrare l&#x27;AI nel proprio workflow stanno vedendo aumenti di produttività e retribuzione, mentre quelli le cui mansioni sono completamente sostituibili dall&#x27;AI affrontano pressioni salariali. Il brief formula raccomandazioni di policy: investire in programmi di riqualificazione, modernizzare i sistemi di sicurezza sociale per un mercato del lavoro più fluido, e monitorare attentamente i settori più esposti. La discussione su HN ha evidenziato come il vero rischio non sia l&#x27;AI in sé, ma la velocità della transizione e la capacità delle istituzioni di adattarsi.</p>
       </div>
     </details>
   </div>
@@ -878,21 +878,21 @@ a { color: inherit; }
   <div class="card-glow" aria-hidden="true"></div>
   <div class="card-head">
     <span class="rank">#18</span>
-    <h3 class="title"><a href="https://itsallaboutthebit.com/memory-safety-absolutists/" target="_blank" rel="noopener">Memory Safety Absolutists</a></h3>
+    <h3 class="title"><a href="https://discuss.grapheneos.org/d/40700-grapheneos-protections-against-data-extraction-from-locked-devices" target="_blank" rel="noopener">GrapheneOS protections against data extraction from locked devices</a></h3>
   </div>
-  <div class="meta"><span class="domain">itsallaboutthebit.com</span> · <span class="score pts-mid">▲ 81</span> · <span>109 commenti</span> · <span>by drogus</span> · <span class="tag">#systems</span> <span class="tag">#engineering</span></div>
+  <div class="meta"><span class="domain">discuss.grapheneos.org</span> · <span class="score pts-mid">▲ 88</span> · <span>41 commenti</span> · <span>by Cider9986</span> · <span class="tag">#privacy</span> <span class="tag">#android</span></div>
   
   <div class="summary-block">
-    <p class="summary-teaser">Piotr Sarnacki pubblica un saggio critico sugli &#x27;assolutisti della sicurezza della memoria&#x27;, coloro che sostengono che qualsiasi linguaggio senza garanzie di memory safety dovrebbe essere abbandonato per lo sviluppo di software di sistema. L&#x27;autore riconosce il valore innegabile di Rust e delle…</p>
+    <p class="summary-teaser">Il forum ufficiale di GrapheneOS ha pubblicato una documentazione dettagliata sulle protezioni che il sistema operativo offre contro l&#x27;estrazione di dati da dispositivi bloccati. GrapheneOS, un fork di Android focalizzato sulla sicurezza e la privacy, implementa numerosi strati di difesa che vanno…</p>
     <details class="summary-details">
       <summary class="expand-btn" aria-controls="hn-long-18">
-        <span class="expand-label-closed">Leggi riassunto completo · ~184 parole</span>
+        <span class="expand-label-closed">Leggi riassunto completo · ~203 parole</span>
         <span class="expand-label-open">Nascondi riassunto</span>
         <span class="expand-chevron" aria-hidden="true">▾</span>
       </summary>
       <div class="summary-long" id="hn-long-18">
         <div class="summary-long-label">Riassunto · versione PDF</div>
-        <p class="summary-long-text">Piotr Sarnacki pubblica un saggio critico sugli &#x27;assolutisti della sicurezza della memoria&#x27;, coloro che sostengono che qualsiasi linguaggio senza garanzie di memory safety dovrebbe essere abbandonato per lo sviluppo di software di sistema. L&#x27;autore riconosce il valore innegabile di Rust e delle garanzie di sicurezza che offre, ma mette in guardia contro il dogmatismo che sta emergendo in alcune frange della community. L&#x27;articolo argomenta che la memory safety è una proprietà importante ma non l&#x27;unica dimensione della qualità del software: correttezza logica, manutenibilità, performance ed ecosistema contano altrettanto. Sarnacki porta esempi di sistemi critici scritti in C che funzionano affidabilmente da decenni grazie a processi rigorosi di code review, testing e analisi statica. L&#x27;articolo esamina anche il costo reale della riscrittura di codebase mature in Rust — non solo in ore di sviluppo ma in termini di nuovi bug introdotti durante la traduzione. La tesi centrale è che la sicurezza della memoria dovrebbe essere perseguita con pragmatismo, valutando rischi e benefici caso per caso, e che la scelta del linguaggio è solo uno degli strumenti nella cassetta degli attrezzi di un ingegnere del software.</p>
+        <p class="summary-long-text">Il forum ufficiale di GrapheneOS ha pubblicato una documentazione dettagliata sulle protezioni che il sistema operativo offre contro l&#x27;estrazione di dati da dispositivi bloccati. GrapheneOS, un fork di Android focalizzato sulla sicurezza e la privacy, implementa numerosi strati di difesa che vanno ben oltre le protezioni standard di Android. Tra le caratteristiche documentate: la crittografia completa del disco con chiavi derivate dalla passphrase dell&#x27;utente (non dal PIN di sblocco schermo), l&#x27;azzeramento automatico della memoria di lavoro quando il dispositivo viene bloccato, la protezione contro attacchi di brute-force sul PIN con ritardi esponenziali, e la disabilitazione hardware delle porte USB per il trasferimento dati quando il dispositivo è bloccato. Particolare attenzione è dedicata alla resistenza contro strumenti forensi come Cellebrite e GrayKey, comunemente utilizzati dalle forze dell&#x27;ordine per estrarre dati da smartphone sequestrati. GrapheneOS implementa anche &#x27;duress password&#x27;, che permette di configurare una password secondaria che, se inserita, cancella tutte le chiavi di crittografia rendendo i dati irrecuperabili. Il thread ha generato una discussione approfondita su HN riguardo al bilanciamento tra privacy individuale e esigenze investigative delle autorità, con molti utenti che hanno elogiato l&#x27;approccio tecnico di GrapheneOS ma anche sollevato questioni sulle implicazioni legali e sociali di sistemi così robusti contro l&#x27;accesso forense.</p>
       </div>
     </details>
   </div>
@@ -903,21 +903,21 @@ a { color: inherit; }
   <div class="card-glow" aria-hidden="true"></div>
   <div class="card-head">
     <span class="rank">#19</span>
-    <h3 class="title"><a href="https://huggingface.co/owensong/Inflect-Micro-v2" target="_blank" rel="noopener">Inflect-Micro-v2: complete voice in 9.36M parameters</a></h3>
+    <h3 class="title"><a href="https://www.law.uchicago.edu/news/ai-strategy-statement" target="_blank" rel="noopener">Rethinking Legal Education in the AI Era</a></h3>
   </div>
-  <div class="meta"><span class="domain">huggingface.co</span> · <span class="score pts-mid">▲ 74</span> · <span>5 commenti</span> · <span>by nateb2022</span> · <span class="tag">#ai</span> <span class="tag">#ml</span> <span class="tag">#tts</span></div>
+  <div class="meta"><span class="domain">law.uchicago.edu</span> · <span class="score pts-mid">▲ 78</span> · <span>43 commenti</span> · <span>by jjwiseman</span> · <span class="tag">#law</span> <span class="tag">#ai</span> <span class="tag">#education</span></div>
   
   <div class="summary-block">
-    <p class="summary-teaser">Inflect-Micro-v2 è un modello text-to-speech di soli 9,36 milioni di parametri capace di generare voce completa e naturale direttamente su CPU, senza bisogno di GPU. Pubblicato su Hugging Face, il modello rappresenta un balzo in avanti nell&#x27;efficienza della sintesi vocale: è abbastanza…</p>
+    <p class="summary-teaser">La University of Chicago Law School, una delle facoltà di giurisprudenza più prestigiose al mondo, ha pubblicato un documento strategico che delinea come l&#x27;istruzione legale debba evolversi nell&#x27;era dell&#x27;intelligenza artificiale. Il documento riconosce che l&#x27;AI sta trasformando radicalmente la pratica legale: strumenti…</p>
     <details class="summary-details">
       <summary class="expand-btn" aria-controls="hn-long-19">
-        <span class="expand-label-closed">Leggi riassunto completo · ~170 parole</span>
+        <span class="expand-label-closed">Leggi riassunto completo · ~208 parole</span>
         <span class="expand-label-open">Nascondi riassunto</span>
         <span class="expand-chevron" aria-hidden="true">▾</span>
       </summary>
       <div class="summary-long" id="hn-long-19">
         <div class="summary-long-label">Riassunto · versione PDF</div>
-        <p class="summary-long-text">Inflect-Micro-v2 è un modello text-to-speech di soli 9,36 milioni di parametri capace di generare voce completa e naturale direttamente su CPU, senza bisogno di GPU. Pubblicato su Hugging Face, il modello rappresenta un balzo in avanti nell&#x27;efficienza della sintesi vocale: è abbastanza piccolo da funzionare su dispositivi edge, smartphone e single-board computer come Raspberry Pi. Il modello produce parlato in inglese con prosodia naturale, gestendo intonazione, pause e enfasi in modo convincente. La qualità è paragonabile a modelli TTS con centinaia di milioni di parametri di una generazione fa, dimostrando che l&#x27;ottimizzazione architetturale e le tecniche di distillazione stanno producendo risultati impressionanti. Il modello è ottimizzato per l&#x27;inferenza su CPU con PyTorch e supporta la generazione in tempo reale. Viene fornito con pesi pre-addestrati, script di inferenza e documentazione completa. Le applicazioni sono vastissime: assistenti vocali offline, screen reader a basso consumo, audiolibri automatizzati, dispositivi IoT con interfacce vocali, e sistemi di accessibilità embedded. La community HN ha elogiato in particolare il rapporto qualità/dimensione e la facilità d&#x27;uso del modello.</p>
+        <p class="summary-long-text">La University of Chicago Law School, una delle facoltà di giurisprudenza più prestigiose al mondo, ha pubblicato un documento strategico che delinea come l&#x27;istruzione legale debba evolversi nell&#x27;era dell&#x27;intelligenza artificiale. Il documento riconosce che l&#x27;AI sta trasformando radicalmente la pratica legale: strumenti come Harvey AI, CoCounsel e Claude sono già utilizzati per la revisione di documenti, la ricerca giurisprudenziale, la redazione di contratti e l&#x27;analisi predittiva degli esiti processuali. La scuola propone un ripensamento del curriculum che integri competenze tecnologiche senza sacrificare i fondamenti del ragionamento giuridico. Tra le proposte: corsi obbligatori di &#x27;legal technology literacy&#x27;, cliniche legali che utilizzano strumenti AI per assistere clienti reali, e collaborazioni interdisciplinari con il dipartimento di computer science. Particolare enfasi è posta sull&#x27;etica dell&#x27;AI nel contesto legale — come gestire le allucinazioni dei modelli nei documenti legali, la riservatezza delle informazioni dei clienti quando si utilizzano servizi AI cloud, e le implicazioni per l&#x27;accesso alla giustizia se gli strumenti AI riducono i costi legali. Il documento affronta anche la questione della formazione degli avvocati già in attività, proponendo programmi di executive education per colmare il gap di competenze tecnologiche nella professione. La discussione su HN ha evidenziato come l&#x27;approccio pragmatico di UChicago contrasti con l&#x27;immobilismo di molte altre facoltà di giurisprudenza.</p>
       </div>
     </details>
   </div>
@@ -928,21 +928,21 @@ a { color: inherit; }
   <div class="card-glow" aria-hidden="true"></div>
   <div class="card-head">
     <span class="rank">#20</span>
-    <h3 class="title"><a href="https://www.law.uchicago.edu/news/ai-strategy-statement" target="_blank" rel="noopener">Rethinking Legal Education in the AI Era</a></h3>
+    <h3 class="title"><a href="https://www.seti.org/news/alien-world-chemistry-found-inside-meteorite/" target="_blank" rel="noopener">Alien World Chemistry Found Inside Meteorite That Struck New Jersey Home</a></h3>
   </div>
-  <div class="meta"><span class="domain">law.uchicago.edu</span> · <span class="score pts-mid">▲ 52</span> · <span>14 commenti</span> · <span>by jjwiseman</span> · <span class="tag">#law</span> <span class="tag">#education</span> <span class="tag">#ai</span></div>
+  <div class="meta"><span class="domain">seti.org</span> · <span class="score pts-mid">▲ 72</span> · <span>23 commenti</span> · <span>by spzx</span> · <span class="tag">#pharma</span> <span class="tag">#science</span></div>
   
   <div class="summary-block">
-    <p class="summary-teaser">La University of Chicago Law School ha pubblicato un documento strategico sulla necessità di ripensare radicalmente la formazione giuridica nell&#x27;era dell&#x27;intelligenza artificiale. L&#x27;articolo sostiene che le law school americane stanno formando avvocati per un mondo che non esisterà più tra cinque anni…</p>
+    <p class="summary-teaser">Il SETI Institute ha annunciato una scoperta straordinaria: l&#x27;analisi di un meteorite che ha colpito un&#x27;abitazione nel New Jersey ha rivelato una chimica completamente aliena, con composti e strutture cristalline mai osservate sulla Terra. Il meteorite, classificato come condrite carbonacea — un…</p>
     <details class="summary-details">
       <summary class="expand-btn" aria-controls="hn-long-20">
-        <span class="expand-label-closed">Leggi riassunto completo · ~172 parole</span>
+        <span class="expand-label-closed">Leggi riassunto completo · ~213 parole</span>
         <span class="expand-label-open">Nascondi riassunto</span>
         <span class="expand-chevron" aria-hidden="true">▾</span>
       </summary>
       <div class="summary-long" id="hn-long-20">
         <div class="summary-long-label">Riassunto · versione PDF</div>
-        <p class="summary-long-text">La University of Chicago Law School ha pubblicato un documento strategico sulla necessità di ripensare radicalmente la formazione giuridica nell&#x27;era dell&#x27;intelligenza artificiale. L&#x27;articolo sostiene che le law school americane stanno formando avvocati per un mondo che non esisterà più tra cinque anni: la ricerca giuridica, la redazione di contratti, la due diligence e persino la previsione degli esiti processuali sono compiti sempre più automatizzabili. La scuola propone un curriculum rinnovato che includa competenze di prompt engineering, comprensione dei limiti e dei bias dei modelli AI, verifica critica degli output generati, e soprattutto etica dell&#x27;automazione legale. Il documento identifica tre aree chiave: (1) &#x27;AI literacy&#x27; obbligatoria dal primo anno, (2) cliniche legali che utilizzano strumenti AI per servire comunità sottorappresentate, (3) collaborazioni interdisciplinari con dipartimenti di computer science. Viene inoltre affrontato il delicato tema della responsabilità professionale quando un avvocato si affida a strumenti automatizzati, citando casi recenti di sanzioni per l&#x27;uso acritico di output generati da LLM. L&#x27;articolo si conclude con un appello all&#x27;American Bar Association per aggiornare gli standard di accreditamento.</p>
+        <p class="summary-long-text">Il SETI Institute ha annunciato una scoperta straordinaria: l&#x27;analisi di un meteorite che ha colpito un&#x27;abitazione nel New Jersey ha rivelato una chimica completamente aliena, con composti e strutture cristalline mai osservate sulla Terra. Il meteorite, classificato come condrite carbonacea — un tipo particolarmente primitivo di meteorite risalente alla formazione del sistema solare — conteneva inclusioni minerali con rapporti isotopici e configurazioni molecolari che non corrispondono a nessun processo geologico terrestre conosciuto. I ricercatori del SETI, in collaborazione con diverse università, hanno utilizzato spettrometria di massa ad alta risoluzione, diffrazione a raggi X e microscopia elettronica per caratterizzare questi materiali. Tra le scoperte più sorprendenti: aminoacidi con chiralità inusuale, strutture policicliche aromatiche che suggeriscono processi di sintesi in ambienti di alta energia come supernove, e microsfere di carbonio che potrebbero essere fossili chimici di processi prebiotici extraterrestri. L&#x27;articolo sottolinea che, sebbene questi composti non costituiscano prova di vita aliena, dimostrano che la chimica organica complessa può formarsi in ambienti cosmici molto diversi dalla Terra primordiale, rafforzando l&#x27;ipotesi che i mattoni della vita siano diffusi nell&#x27;universo. La comunità di HN ha discusso con entusiasmo le implicazioni per l&#x27;astrobiologia e la panspermia, con diversi commentatori che hanno notato l&#x27;ironia poetica di una scoperta cosmica avvenuta letteralmente nel giardino di casa di qualcuno nel New Jersey.</p>
       </div>
     </details>
   </div>
@@ -1120,7 +1120,7 @@ a { color: inherit; }
 
 
   <footer class="site-footer">
-    HTML portatile monofile · CSS inline · teaser + riassunto PDF espandibile · no rete · 2026-07-26T06:38:17Z
+    HTML portatile monofile · CSS inline · teaser + riassunto PDF espandibile · no rete · 2026-07-26T10:45:38Z
   </footer>
 </div>
 
