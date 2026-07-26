@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark">
+<title>Digest Archive</title>
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+
+<div class="page">
+  <nav class="topnav">
+    <a class="brand" href="index.html">✦ Digest Archive</a>
+    <div class="topnav-right muted">2 giornata/e · locale · no network</div>
+  </nav>
+
+  <header class="hero home">
+    <p class="eyebrow">Hacker News · Substack</p>
+    <h1>Archivio digest navigabile</h1>
+    <p class="sub">
+      Sito statico generato dagli artifact già prodotti dai digest giornalieri.
+      I PDF restano leggibili per data; i JSON normalizzati vivono in <code>raw/</code> pronti per LLM wiki.
+      A ogni rebuild esce anche un <strong>HTML monofile portatile</strong> con i contenuti già renderizzati.
+      Sulle card HN: teaser + riassunto PDF ~200 parole espandibile.
+    </p>
+    <div class="hero-actions"><a class="cta" href="days/2026-07-26/index.html">Apri digest più recente →</a><a class="pdf-btn" href="portable/digest-2026-07-26.html">⬇ HTML portatile (giorno)</a><a class="pdf-btn" href="portable/digest-all.html">⬇ HTML portatile (tutto)</a></div>
+  </header>
+
+  <section>
+    <div class="section-head">
+      <h2>Giornate</h2>
+    </div>
+    <div class="day-grid">
+      
+<article class="day-card">
+  <div class="day-card-top">
+    <div>
+      <div class="day-date">2026-07-26</div>
+      <a class="day-label" href="days/2026-07-26/index.html">Domenica 26 luglio 2026</a>
+    </div>
+    <div class="pills"><span class='pill hn'>20 HN</span><span class='pill sub'>6 Substack</span><span class='pill free'>5 free</span><span class='pill paid'>1 paid</span></div>
+  </div>
+  <ul class='peek'><li><span class='src hn'>HN</span> Open-weight AI is having its Kubernetes moment</li><li><span class='src hn'>HN</span> Did They Ghost You?</li><li><span class='src hn'>HN</span> Zero roadkill as Amazon canopy bridges secure 15,000 crossings</li><li><span class='src sub'>SUB</span> War in Ukraine XI</li><li><span class='src sub'>SUB</span> AI is Oil, Not God</li><li><span class='src sub'>SUB</span> Talking Again With Gabriel Zucman</li></ul>
+  <div class="day-card-foot">
+    <a class="open-day" href="days/2026-07-26/index.html">Apri giorno →</a>
+    <a class="mini-pdf" href="portable/digest-2026-07-26.html">HTML portatile</a>
+    <a class='mini-pdf' href='pdfs/hacker-news/2026-07-26.pdf' target='_blank' rel='noopener'>HN PDF</a> <a class='mini-pdf' href='pdfs/substack/2026-07-26.pdf' target='_blank' rel='noopener'>Sub PDF</a>
+  </div>
+</article>
+
+<article class="day-card">
+  <div class="day-card-top">
+    <div>
+      <div class="day-date">2026-07-25</div>
+      <a class="day-label" href="days/2026-07-25/index.html">Sabato 25 luglio 2026</a>
+    </div>
+    <div class="pills"><span class='pill sub'>7 Substack</span><span class='pill free'>4 free</span><span class='pill paid'>3 paid</span></div>
+  </div>
+  <ul class='peek'><li><span class='src sub'>SUB</span> War in Ukraine XI</li><li><span class='src sub'>SUB</span> Talking Again With Gabriel Zucman</li><li><span class='src sub'>SUB</span> Top Links 1173 — Price level shock. The chemistry of chips. The German lobbies and berries always and everywhere.</li></ul>
+  <div class="day-card-foot">
+    <a class="open-day" href="days/2026-07-25/index.html">Apri giorno →</a>
+    <a class="mini-pdf" href="portable/digest-2026-07-25.html">HTML portatile</a>
+    <a class='mini-pdf' href='pdfs/substack/2026-07-25.pdf' target='_blank' rel='noopener'>Sub PDF</a>
+  </div>
+</article>
+
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    Path archivio: <code>/opt/data/digest-archive</code> · build 2026-07-26T06:29:45Z
+  </footer>
+</div>
+
+<script>
+
+(() => {
+  // Optional polish: accordion habit — opening one long summary keeps others open
+  // (explicit multi-expand is better for scanning long digests).
+  document.querySelectorAll('.summary-details').forEach((d) => {
+    d.addEventListener('toggle', () => {
+      if (d.open) {
+        const long = d.querySelector('.summary-long-text');
+        if (long) long.setAttribute('tabindex', '-1');
+      }
+    });
+  });
+})();
+
+</script>
+</body>
+</html>

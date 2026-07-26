@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark">
+<title>Digest · 2026-07-25</title>
+<style>
+:root {
+  --bg: #07090f;
+  --bg-elev: rgba(22, 26, 38, 0.72);
+  --bg-elev-solid: #141824;
+  --bg-elev-2: #1c2233;
+  --border: rgba(255,255,255,0.08);
+  --border-strong: rgba(255,255,255,0.14);
+  --text: #eef0f8;
+  --muted: #9298ad;
+  --hn: #ff6a00;
+  --hn-2: #ffb347;
+  --sub: #8b7cff;
+  --sub-2: #b7a9ff;
+  --green: #3ddc97;
+  --red: #ff5c7a;
+  --gold: #f0b429;
+  --shadow: 0 18px 50px rgba(0,0,0,.45);
+  --radius: 18px;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --sans: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --ease: cubic-bezier(.2,.8,.2,1);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: var(--sans);
+  background:
+    radial-gradient(1100px 700px at 8% -8%, rgba(255,106,0,.18), transparent 55%),
+    radial-gradient(900px 560px at 92% 0%, rgba(139,124,255,.16), transparent 50%),
+    radial-gradient(700px 400px at 50% 100%, rgba(61,220,151,.05), transparent 40%),
+    linear-gradient(180deg, #0a0c14 0%, var(--bg) 40%, #07080d 100%);
+  color: var(--text);
+  line-height: 1.55;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+body::before {
+  content: "";
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at center, black 20%, transparent 75%);
+  opacity: .5;
+}
+code {
+  font-family: var(--mono);
+  font-size: .9em;
+  background: var(--bg-elev-2);
+  padding: .1em .35em;
+  border-radius: 6px;
+}
+a { color: inherit; }
+.page { position: relative; z-index: 1; max-width: 980px; margin: 0 auto; padding: 22px 18px 72px; }
+
+.topnav {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; padding: 10px 14px; margin-bottom: 22px; flex-wrap: wrap;
+  background: rgba(12,14,22,.55);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 8px 30px rgba(0,0,0,.25);
+}
+.brand {
+  font-weight: 760; letter-spacing: .01em; text-decoration: none;
+  color: var(--text);
+  background: linear-gradient(90deg, #fff, #ffd0a8);
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent;
+}
+.brand:hover { filter: brightness(1.1); }
+.topnav-right { display: flex; gap: 14px; color: var(--muted); font-size: .9rem; flex-wrap: wrap; }
+.topnav-right a { color: var(--text); text-decoration: none; border-bottom: 1px solid transparent; }
+.topnav-right a:hover { border-bottom-color: var(--hn); }
+.nav-disabled { opacity: .4; }
+
+.hero { margin: 8px 0 28px; }
+.hero.home { padding: 10px 0 6px; }
+.eyebrow {
+  text-transform: uppercase; letter-spacing: .14em; font-size: .7rem;
+  color: var(--hn-2); margin: 0 0 10px; font-weight: 700;
+}
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(1.85rem, 4vw, 2.55rem);
+  line-height: 1.12; margin: 0 0 10px; font-weight: 650;
+  letter-spacing: -0.02em;
+}
+.hero .sub { color: var(--muted); margin: 0 0 16px; max-width: 52rem; font-size: .98rem; }
+.stats-row, .pdf-row, .hero-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.stat, .pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(255,255,255,.03); border: 1px solid var(--border);
+  border-radius: 999px; padding: 5px 12px; font-size: .8rem; color: var(--muted);
+  backdrop-filter: blur(8px);
+}
+.stat strong, .pill { color: var(--text); }
+.stat.hn, .pill.hn { border-color: rgba(255,106,0,.45); color: var(--hn); box-shadow: inset 0 0 0 1px rgba(255,106,0,.08); }
+.stat.sub, .pill.sub { border-color: rgba(139,124,255,.4); color: var(--sub-2); }
+.stat.free, .pill.free { color: var(--green); }
+.stat.paid, .pill.paid { color: var(--red); }
+
+.pdf-btn, .cta, .mini-pdf {
+  display: inline-flex; align-items: center; gap: 6px;
+  text-decoration: none; border-radius: 12px; font-size: .86rem; font-weight: 650;
+  transition: transform .18s var(--ease), border-color .18s, filter .18s, background .18s;
+}
+.pdf-btn, .mini-pdf {
+  background: rgba(255,255,255,.03); border: 1px solid var(--border);
+  color: var(--text); padding: 9px 13px;
+}
+.pdf-btn:hover, .mini-pdf:hover { border-color: rgba(255,106,0,.55); color: var(--hn-2); transform: translateY(-1px); }
+.cta {
+  background: linear-gradient(135deg, #ff6a00, #ff9a3d 55%, #ffc78a);
+  color: #1a0d00; padding: 11px 16px; border: none;
+  box-shadow: 0 10px 28px rgba(255,106,0,.28);
+}
+.cta:hover { filter: brightness(1.05); transform: translateY(-1px); }
+
+.section-head {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; margin: 34px 0 16px; padding-bottom: 12px;
+  border-bottom: 1px solid var(--border); flex-wrap: wrap;
+}
+.section-head h2 {
+  margin: 0; font-size: 1.2rem; display: flex; align-items: center; gap: 10px;
+  letter-spacing: -0.01em;
+}
+.dot {
+  width: 10px; height: 10px; border-radius: 50%; display: inline-block;
+}
+.dot.hn { background: var(--hn); box-shadow: 0 0 0 4px rgba(255,106,0,.16), 0 0 18px rgba(255,106,0,.45); }
+.dot.sub { background: var(--sub); box-shadow: 0 0 0 4px rgba(139,124,255,.16), 0 0 18px rgba(139,124,255,.4); }
+
+.cards { display: grid; gap: 14px; }
+.card {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.03), transparent 38%),
+    var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 18px 16px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: transform .2s var(--ease), border-color .2s, box-shadow .2s;
+}
+.card:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-strong);
+  box-shadow: 0 22px 55px rgba(0,0,0,.5);
+}
+.card-glow {
+  position: absolute; inset: auto -20% -55% auto; width: 220px; height: 220px;
+  border-radius: 50%; pointer-events: none; filter: blur(30px); opacity: .22;
+}
+.hn-card { border-left: 3px solid var(--hn); }
+.hn-card .card-glow { background: radial-gradient(circle, rgba(255,106,0,.9), transparent 70%); }
+.hn-card.pts-hot { border-left-color: #ff8a3d; }
+.hn-card.pts-high { border-left-color: var(--gold); }
+.hn-card.pts-mid { border-left-color: var(--green); }
+.sub-card.free { border-left: 3px solid var(--green); }
+.sub-card.paid { border-left: 3px solid var(--red); }
+.sub-card .card-glow { background: radial-gradient(circle, rgba(139,124,255,.9), transparent 70%); left: -10%; right: auto; }
+.card-head { display: grid; gap: 4px; position: relative; }
+.rank {
+  font-family: var(--mono); font-size: .72rem; color: var(--muted);
+  letter-spacing: .04em;
+}
+.title { margin: 0; font-size: 1.08rem; font-weight: 700; line-height: 1.35; letter-spacing: -0.015em; }
+.title a { text-decoration: none; }
+.title a:hover { color: var(--hn-2); }
+.sub-card .title a:hover { color: var(--sub-2); }
+.pub {
+  font-size: .7rem; font-weight: 750; letter-spacing: .07em;
+  text-transform: uppercase; color: var(--sub-2);
+}
+.meta {
+  margin-top: 8px; color: var(--muted); font-size: .78rem;
+  display: flex; flex-wrap: wrap; gap: 7px; align-items: center;
+}
+.domain { font-family: var(--mono); opacity: .9; }
+.score { font-weight: 750; }
+.pts-hot { color: #ff8a3d; }
+.pts-high { color: var(--gold); }
+.pts-mid { color: var(--green); }
+.pts-low { color: var(--muted); }
+
+/* ---- summaries + expand ---- */
+.summary-block { margin-top: 12px; }
+.summary-teaser {
+  margin: 0;
+  color: #d5d9e8;
+  font-size: .95rem;
+  font-family: var(--serif);
+  line-height: 1.65;
+}
+.summary-details { margin-top: 10px; }
+.summary-details > summary {
+  list-style: none;
+  cursor: pointer;
+  user-select: none;
+}
+.summary-details > summary::-webkit-details-marker { display: none; }
+.expand-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,106,0,.35);
+  background:
+    linear-gradient(180deg, rgba(255,106,0,.14), rgba(255,106,0,.05));
+  color: var(--hn-2);
+  font-family: var(--sans);
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .01em;
+  transition: background .18s var(--ease), border-color .18s, transform .18s var(--ease), box-shadow .18s;
+  box-shadow: 0 0 0 0 rgba(255,106,0,0);
+}
+.expand-btn:hover {
+  border-color: rgba(255,106,0,.65);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px rgba(255,106,0,.18);
+}
+.expand-btn:focus-visible {
+  outline: 2px solid rgba(255,176,96,.8);
+  outline-offset: 3px;
+}
+.expand-chevron {
+  display: inline-block;
+  transition: transform .22s var(--ease);
+  font-size: .85rem;
+  opacity: .85;
+}
+.summary-details[open] .expand-chevron { transform: rotate(180deg); }
+.expand-label-open { display: none; }
+.summary-details[open] .expand-label-closed { display: none; }
+.summary-details[open] .expand-label-open { display: inline; }
+.summary-details[open] .expand-btn {
+  border-color: rgba(255,255,255,.14);
+  background: rgba(255,255,255,.04);
+  color: var(--text);
+}
+
+.summary-long {
+  margin-top: 12px;
+  padding: 14px 14px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,106,0,.18);
+  background:
+    linear-gradient(180deg, rgba(255,106,0,.07), rgba(255,255,255,.02));
+  animation: reveal .28s var(--ease);
+}
+.summary-long.is-static { margin-top: 10px; }
+.summary-long-label {
+  font-size: .68rem;
+  font-weight: 750;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--hn-2);
+  margin-bottom: 8px;
+}
+.summary-long-text {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: .98rem;
+  line-height: 1.72;
+  color: #e6e8f2;
+  white-space: pre-wrap;
+}
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.sub-card .expand-btn {
+  border-color: rgba(139,124,255,.35);
+  background: linear-gradient(180deg, rgba(139,124,255,.16), rgba(139,124,255,.05));
+  color: var(--sub-2);
+}
+.sub-card .expand-btn:hover {
+  border-color: rgba(139,124,255,.65);
+  box-shadow: 0 8px 22px rgba(139,124,255,.16);
+}
+.sub-card .summary-long {
+  border-color: rgba(139,124,255,.2);
+  background: linear-gradient(180deg, rgba(139,124,255,.08), rgba(255,255,255,.02));
+}
+.sub-card .summary-long-label { color: var(--sub-2); }
+
+.muted { color: var(--muted); }
+.paid-tag, .free-tag {
+  display: inline-block; font-size: .68rem; font-weight: 750;
+  letter-spacing: .04em; padding: 2px 8px; border-radius: 999px;
+  vertical-align: middle;
+}
+.paid-tag { background: rgba(255,92,122,.15); color: var(--red); }
+.free-tag { background: rgba(61,220,151,.12); color: var(--green); }
+.tag {
+  display: inline-block; font-size: .68rem; padding: 2px 8px;
+  border-radius: 999px; background: rgba(255,255,255,.04); color: var(--muted);
+  border: 1px solid var(--border);
+}
+.hn-discuss { color: var(--muted); text-decoration: none; }
+.hn-discuss:hover { color: var(--hn); }
+
+.day-grid { display: grid; gap: 14px; }
+.day-card {
+  display: block; color: inherit;
+  background: var(--bg-elev); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 16px 18px;
+  transition: border-color .15s, transform .15s;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+}
+.day-card:hover { border-color: rgba(255,106,0,.5); transform: translateY(-1px); }
+.day-card-top {
+  display: flex; justify-content: space-between; gap: 12px; align-items: flex-start;
+  flex-wrap: wrap; margin-bottom: 10px;
+}
+.day-date { font-family: var(--mono); color: var(--muted); font-size: .8rem; }
+.day-label {
+  display: inline-block; font-size: 1.1rem; font-weight: 740;
+  text-decoration: none; color: var(--text); margin-top: 2px;
+}
+.day-label:hover { color: var(--hn); }
+.pills { display: flex; flex-wrap: wrap; gap: 6px; }
+.peek { margin: 0; padding-left: 1.1rem; color: var(--muted); font-size: .86rem; }
+.peek li { margin: 3px 0; }
+.src {
+  font-family: var(--mono); font-size: .68rem; font-weight: 700;
+  margin-right: 4px;
+}
+.src.hn { color: var(--hn); }
+.src.sub { color: #b2a8ff; }
+.day-card-foot { margin-top: 12px; display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.day-card .mini-pdf { font-size: .75rem; padding: 4px 8px; }
+.open-day {
+  text-decoration: none; font-size: .82rem; font-weight: 740;
+  color: var(--hn); margin-right: 4px;
+}
+.open-day:hover { text-decoration: underline; }
+
+.site-footer {
+  margin-top: 44px; padding-top: 18px; border-top: 1px solid var(--border);
+  color: var(--muted); font-size: .78rem; text-align: center;
+}
+
+@media (max-width: 640px) {
+  .page { padding: 14px 12px 48px; }
+  .hero h1 { font-size: 1.55rem; }
+  .card { padding: 14px; }
+  .expand-btn { width: 100%; justify-content: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.portable-banner {
+  margin: 0 0 18px;
+  padding: 12px 14px;
+  border: 1px solid rgba(255,106,0,.18);
+  border-radius: 14px;
+  color: var(--muted);
+  font-size: .82rem;
+  background: linear-gradient(135deg, rgba(255,106,0,.08), rgba(139,124,255,.05));
+}
+.portable-toc {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin: 0 0 22px;
+}
+.portable-toc a {
+  text-decoration: none;
+  background: rgba(255,255,255,.03);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: .8rem;
+  color: var(--text);
+}
+.portable-toc a:hover { border-color: var(--hn); color: var(--hn); }
+.day-block {
+  margin: 34px 0 18px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+}
+.day-block:first-of-type { border-top: 0; margin-top: 8px; }
+.day-block > h2.day-title {
+  font-family: var(--serif);
+  font-size: 1.45rem;
+  margin: 0 0 6px;
+}
+.day-block .day-sub { color: var(--muted); margin: 0 0 12px; font-size: .9rem; }
+.jump-top {
+  display: inline-block;
+  margin: 8px 0 18px;
+  color: var(--muted);
+  font-size: .78rem;
+  text-decoration: none;
+}
+.jump-top:hover { color: var(--hn); }
+
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <nav class="topnav">
+    <span class="brand">✦ Digest portatile</span>
+    <div class="topnav-right muted">2026-07-25 · singolo file</div>
+  </nav>
+  <div class="portable-banner">
+    File autonomo: apri offline in qualsiasi browser. Riassunti e metadati sono già nel documento
+    (nessun JSON/PDF esterno richiesto per la lettura).
+  </div>
+  <header class="hero">
+    <p class="eyebrow">Daily digest · portable</p>
+    <h1>Sabato 25 luglio 2026</h1>
+    <p class="sub">2026-07-25 · <a href="#substack">Substack</a></p>
+    <div class="stats-row"><span class="stat sub"><strong>7</strong> Substack</span><span class="stat free"><strong>4</strong> free</span><span class="stat paid"><strong>3</strong> paid</span></div>
+  </header>
+  
+<section class="source-section" id="substack">
+  <div class="section-head">
+    <h2><span class="dot sub"></span> Substack</h2>
+    <div class="section-actions"></div>
+  </div>
+  <div class="cards">
+<article class="card sub-card free" id="sub-cliodynamica-by-peter-turchin-war-in-ukraine-xi">
+  <div class="card-glow" aria-hidden="true"></div>
+  <div class="card-head">
+    <div class="pub">Cliodynamica by Peter Turchin</div>
+    <h3 class="title"><a href="https://peterturchin.substack.com/p/war-in-ukraine-xi" target="_blank" rel="noopener">War in Ukraine XI</a> <span class="free-tag">FREE</span></h3>
+  </div>
+  <div class="meta">Cliodynamica by Peter Turchin · <span class="free-tag">FREE</span></div>
+  
+  <div class="summary-block">
+    <p class="summary-teaser">Peter Turchin pubblica l&#x27;undicesimo aggiornamento sulla guerra in Ucraina, basandosi su uno scambio diretto con il team di Mediazona, che monitora le perdite russe attraverso necrologi e fonti aperte. Il dato centrale è il progressivo allungamento dei tempi tra la morte di un soldato russo e la sua…</p>
+    <details class="summary-details">
+      <summary class="expand-btn" aria-controls="sub-long-cliodynamica-by-peter-turchin-war-in-ukraine-xi">
+        <span class="expand-label-closed">Leggi riassunto completo · ~426 parole</span>
+        <span class="expand-label-open">Nascondi riassunto</span>
+        <span class="expand-chevron" aria-hidden="true">▾</span>
+      </summary>
+      <div class="summary-long" id="sub-long-cliodynamica-by-peter-turchin-war-in-ukraine-xi">
+        <div class="summary-long-label">Riassunto</div>
+        <p class="summary-long-text">Peter Turchin pubblica l&#x27;undicesimo aggiornamento sulla guerra in Ucraina, basandosi su uno scambio diretto con il team di Mediazona, che monitora le perdite russe attraverso necrologi e fonti aperte. Il dato centrale è il progressivo allungamento dei tempi tra la morte di un soldato russo e la sua registrazione pubblica. Nel 2022-2023 l&#x27;intervallo era di 2-4 settimane; nel 2024 è salito a 6 mesi; oggi supera l&#x27;anno. Dima Treshchanin di Mediazona spiega che il motivo principale è il rallentamento del fronte e l&#x27;allargamento della &quot;kill zone&quot;, che rende molto più difficile il recupero dei corpi — questo spiega anche lo squilibrio negli scambi di salme tra Ucraina e Russia. A ciò si aggiunge un arretrato di 29.000 necrologi da processare, mentre i volontari possono gestirne solo 5-6.000 al mese. Inoltre, determinare la data precisa della morte richiede spesso un anno o più, perché molti necrologi non la riportano e va ricostruita con altre fonti. La conseguenza è drammatica: Mediazona stima che si potranno contare con precisione i morti del primo semestre 2026 solo a fine 2028 o dopo la fine della guerra. Se il fronte smette di muoversi o la kill zone si espande ulteriormente, anche fine 2028 è una stima ottimistica. Smentiscono la cifra di 30.000 morti al mese circolata sui media, ma sottolineano che ciò non significa che le perdite russe siano diminuite: non c&#x27;è alcun cambiamento nelle tattiche, né riduzione dell&#x27;intensità dei combattimenti, né alcun tentativo da parte dei comandanti di proteggere il personale. La Russia continua a usare la stessa strategia di &quot;carne da macello&quot;. Sul fronte ucraino, la preoccupazione è per i continui ritardi degli aiuti occidentali, mentre il Cremlino pianifica nuove mobilitazioni per l&#x27;autunno 2026. L&#x27;offensiva russa nelle regioni di Kharkiv, Donetsk e Zaporizhzhia ha recentemente rallentato, ma Turchin ritiene sia una pausa temporanea in preparazione di una nuova offensiva su vasta scala. La guerra si è trasformata in un conflitto di logoramento in cui entrambe le parti cercano di consumare la volontà dell&#x27;altra di continuare a combattere, mentre accumulano capacità militari. L&#x27;articolo dipinge un quadro fosco: nessuna delle due parti sembra in grado di ottenere una vittoria decisiva, e i costi umani continuano a crescere senza che si veda una via d&#x27;uscita diplomatica. La trasparenza sui dati reali delle perdite rimane un problema enorme, con tempi di registrazione che rendono quasi impossibile avere un quadro accurato della situazione in tempo reale. Turchin conclude che ci troviamo di fronte a una guerra di attrito che potrebbe durare ancora anni, con conseguenze demografiche e sociali devastanti per entrambi i paesi coinvolti.</p>
+      </div>
+    </details>
+  </div>
+</article>
+
+
+<article class="card sub-card free" id="sub-paul-krugman-talking-again-with-gabriel-zucman">
+  <div class="card-glow" aria-hidden="true"></div>
+  <div class="card-head">
+    <div class="pub">Paul Krugman</div>
+    <h3 class="title"><a href="https://paulkrugman.substack.com/p/talking-again-with-gabriel-zucman" target="_blank" rel="noopener">Talking Again With Gabriel Zucman</a> <span class="free-tag">FREE</span></h3>
+  </div>
+  <div class="meta">Paul Krugman · <span class="free-tag">FREE</span></div>
+  
+  <div class="summary-block">
+    <p class="summary-teaser">Paul Krugman intervista Gabriel Zucman, vincitore della Clark Medal 2023 e tra i massimi esperti mondiali di disuguaglianza economica. La conversazione, registrata il 23 luglio 2026, si concentra sulla concentrazione della ricchezza estrema e sulle possibili soluzioni fiscali a livello nazionale e globale. Zucman apre spiegando che esiste…</p>
+    <details class="summary-details">
+      <summary class="expand-btn" aria-controls="sub-long-paul-krugman-talking-again-with-gabriel-zucman">
+        <span class="expand-label-closed">Leggi riassunto completo · ~426 parole</span>
+        <span class="expand-label-open">Nascondi riassunto</span>
+        <span class="expand-chevron" aria-hidden="true">▾</span>
+      </summary>
+      <div class="summary-long" id="sub-long-paul-krugman-talking-again-with-gabriel-zucman">
+        <div class="summary-long-label">Riassunto</div>
+        <p class="summary-long-text">Paul Krugman intervista Gabriel Zucman, vincitore della Clark Medal 2023 e tra i massimi esperti mondiali di disuguaglianza economica. La conversazione, registrata il 23 luglio 2026, si concentra sulla concentrazione della ricchezza estrema e sulle possibili soluzioni fiscali a livello nazionale e globale. Zucman apre spiegando che esiste una tensione fondamentale tra ricchezza estrema e democrazia funzionante — un tema che attraversa il pensiero occidentale da Aristotele in poi. Dopo la Seconda Guerra Mondiale, la ricchezza estrema era quasi scomparsa a causa degli shock del primo Novecento, ma oggi sta tornando in modo drammatico. Il rapporto tra ricchezza totale delle famiglie e PIL negli USA è passato dal 200-250% del 1980 a oltre il 500% oggi. Zucman spiega perché il focus si è spostato dal reddito alla ricchezza: la ricchezza cresce molto più velocemente del reddito, e la sua concentrazione ai vertici è aumentata in modo ancora più marcato. I 20 americani più ricchi possiedono un patrimonio equivalente al 12-13% del PIL USA — un potere di influenza politica sproporzionato. Nel 2024, i miliardari hanno coperto il 19% di tutta la spesa politica federale, finanziando campagne elettorali, think tank e media. Krugman e Zucman discutono le cause della crescente concentrazione: il crollo dell&#x27;aliquota massima sul reddito dal 70% al 28% negli anni &#x27;80, la riduzione dell&#x27;imposta sulle società dal 50% al 21%, la deregulation, il declino dei sindacati e la competizione fiscale internazionale. Zucman sottolinea che questi tagli non hanno stimolato la crescita — anzi, il PIL cresceva più velocemente negli anni &#x27;50 e &#x27;60 con aliquote molto più alte. La parte centrale dell&#x27;intervista riguarda le soluzioni. Zucman argomenta che l&#x27;imposta sul reddito non basta perché i super-ricchi manipolano facilmente il reddito dichiarato: nel 2023 Jeff Bezos ha ricevuto il child tax credit pur essendo tra gli uomini più ricchi del mondo, perché non si pagava uno stipendio e non vendeva azioni. Serve un&#x27;imposta annuale basata sulla ricchezza, non sul reddito. Racconta l&#x27;esperimento francese fallito — i miliardari erano legalmente esentati — e spiega perché la nuova proposta è diversa: un prelievo minimo del 2% sui patrimoni sopra i 100 milioni di euro, già approvato dall&#x27;Assemblea Nazionale francese. Il punto più promettente è la Proposition 40 in California: un&#x27;imposta una tantum del 5% sui miliardari californiani, che potrebbe generare 100 miliardi di dollari per preservare Medicaid. Se passa a novembre, Zucman la considera il primo passo verso un&#x27;imposta federale annuale sulla ricchezza, riecheggiando il percorso storico dell&#x27;imposta sul reddito che partì dagli stati nel 1911 per diventare federale nel 1913. Il mondo sta guardando la California.</p>
+      </div>
+    </details>
+  </div>
+</article>
+
+
+<article class="card sub-card free" id="sub-chartbook-top-links-1173-price-level-shock-the-chemistry-of-chips-the-german-lob">
+  <div class="card-glow" aria-hidden="true"></div>
+  <div class="card-head">
+    <div class="pub">Chartbook</div>
+    <h3 class="title"><a href="https://adamtooze.substack.com/p/top-links-1173-price-level-shock" target="_blank" rel="noopener">Top Links 1173 — Price level shock. The chemistry of chips. The German lobbies and berries always and everywhere.</a> <span class="free-tag">FREE</span></h3>
+  </div>
+  <div class="meta">Chartbook · <span class="free-tag">FREE</span></div>
+  
+  <div class="summary-block">
+    <p class="summary-teaser">Adam Tooze pubblica la consueta raccolta settimanale di segnalazioni e collegamenti, arrivata al numero 1173. Il tema portante di questa edizione è lo &quot;price level shock&quot; che sta colpendo i consumatori americani. Tooze osserva come gli americani stiano collettivamente soffrendo lo shock del livello generale dei prezzi, un…</p>
+    <details class="summary-details">
+      <summary class="expand-btn" aria-controls="sub-long-chartbook-top-links-1173-price-level-shock-the-chemistry-of-chips-the-german-lob">
+        <span class="expand-label-closed">Leggi riassunto completo · ~357 parole</span>
+        <span class="expand-label-open">Nascondi riassunto</span>
+        <span class="expand-chevron" aria-hidden="true">▾</span>
+      </summary>
+      <div class="summary-long" id="sub-long-chartbook-top-links-1173-price-level-shock-the-chemistry-of-chips-the-german-lob">
+        <div class="summary-long-label">Riassunto</div>
+        <p class="summary-long-text">Adam Tooze pubblica la consueta raccolta settimanale di segnalazioni e collegamenti, arrivata al numero 1173. Il tema portante di questa edizione è lo &quot;price level shock&quot; che sta colpendo i consumatori americani. Tooze osserva come gli americani stiano collettivamente soffrendo lo shock del livello generale dei prezzi, un fenomeno macroeconomico che va oltre la semplice inflazione misurata dagli indici ufficiali. Mentre l&#x27;inflazione annuale si è attenuata rispetto ai picchi del 2022-2024, il livello assoluto dei prezzi rimane strutturalmente più alto, creando una persistente sensazione di perdita di potere d&#x27;acquisto che condiziona il sentiment dei consumatori e il dibattito politico. Tooze collega questo fenomeno alle più ampie dinamiche economiche globali: la trasformazione delle catene di approvvigionamento post-pandemia, le tensioni commerciali tra Stati Uniti e Cina, e le politiche fiscali espansive che hanno caratterizzato la risposta alla crisi. Il tema è particolarmente rilevante in un anno elettorale, dove la percezione dell&#x27;economia da parte degli elettori gioca un ruolo cruciale. La seconda parte della raccolta si concentra sulla chimica dei semiconduttori, con segnalazioni che toccano la fisica dei materiali alla base dei chip di nuova generazione e le implicazioni per l&#x27;industria tecnologica globale — un settore diventato centrale per la competizione geopolitica tra Stati Uniti, Cina e Unione Europea. Tooze include anche un approfondimento sulle dinamiche di lobbying in Germania, analizzando come i grandi gruppi industriali tedeschi stiano influenzando le politiche energetiche e industriali europee. La menzione ricorrente delle &quot;berries&quot; (bacche) sembra essere un filo conduttore leggero ma indicativo delle stranezze del commercio globale e delle catene di approvvigionamento alimentare. Come di consueto per la rubrica &quot;Top Links&quot; di Chartbook, si tratta principalmente di una selezione ragionata di letture esterne più che di un&#x27;analisi originale estesa. Tooze offre il suo commento curatoriale tra i vari link, fornendo ai lettori una mappa settimanale delle idee e degli eventi che meritano attenzione nei campi dell&#x27;economia politica globale, della storia economica e delle relazioni internazionali. L&#x27;approccio di Chartbook — combinare rigore accademico con accessibilità divulgativa — emerge chiaramente anche in questa edizione, che trasforma una semplice lista di link in un vero strumento di orientamento intellettuale per navigare la complessità dell&#x27;economia globale contemporanea.</p>
+      </div>
+    </details>
+  </div>
+</article>
+
+
+<article class="card sub-card free" id="sub-laculturadeldato-laculturadeldato-228">
+  <div class="card-glow" aria-hidden="true"></div>
+  <div class="card-head">
+    <div class="pub">LaCulturaDelDato</div>
+    <h3 class="title"><a href="https://stefanogatti.substack.com/p/laculturadeldato-228" target="_blank" rel="noopener">LaCulturaDelDato #228</a> <span class="free-tag">FREE</span></h3>
+  </div>
+  <div class="meta">LaCulturaDelDato · <span class="free-tag">FREE</span></div>
+  
+  <div class="summary-block">
+    <p class="summary-teaser">Stefano Gatti pubblica il numero 228 della sua newsletter, con quattro approfondimenti sul mondo dei dati, dell&#x27;AI e degli investimenti tecnologici. Il primo spunto è un&#x27;intervista ad Alessandro Depase, cofondatore e CTO di AGG Soluzioni Avanzate. Depase racconta oltre 40 anni di carriera nell&#x27;AI, iniziata nel 1984 quando…</p>
+    <details class="summary-details">
+      <summary class="expand-btn" aria-controls="sub-long-laculturadeldato-laculturadeldato-228">
+        <span class="expand-label-closed">Leggi riassunto completo · ~387 parole</span>
+        <span class="expand-label-open">Nascondi riassunto</span>
+        <span class="expand-chevron" aria-hidden="true">▾</span>
+      </summary>
+      <div class="summary-long" id="sub-long-laculturadeldato-laculturadeldato-228">
+        <div class="summary-long-label">Riassunto</div>
+        <p class="summary-long-text">Stefano Gatti pubblica il numero 228 della sua newsletter, con quattro approfondimenti sul mondo dei dati, dell&#x27;AI e degli investimenti tecnologici. Il primo spunto è un&#x27;intervista ad Alessandro Depase, cofondatore e CTO di AGG Soluzioni Avanzate. Depase racconta oltre 40 anni di carriera nell&#x27;AI, iniziata nel 1984 quando lesse il suo primo libro sull&#x27;argomento. La sua tesi di ingegneria del 1994 — &quot;Sistemi basati su conoscenza che analizzano il proprio ragionamento&quot; — anticipava temi oggi centrali come il meta-apprendimento e l&#x27;auto-analisi dei modelli. Dal 2023 guida lo sviluppo di Algaware, un framework enterprise per NLP. Alla domanda su quale sarà il suo ruolo tra 10 anni, risponde con ironia citando due scenari: il &quot;gatto dell&#x27;AI&quot; servito e riverito da robot umanoidi, o un novello Leonardo da Vinci in un mondo pieno di Leonard. Più seriamente, identifica nella sfida politica e sociale il vero ostacolo: bisogna guardare oltre le limitazioni attuali dell&#x27;AI e valutarne gli impatti reali, perché tra 3-6 mesi ciò che oggi sembra impossibile sarà realtà. Serve un&#x27;architettura neuro-simbolica che vada oltre i puri modelli linguistici. Il secondo spunto riguarda i risultati finanziari di Microsoft nel Q4 FY2026: ricavi a $73,2 miliardi, sopra la guidance di $71,2 miliardi, trainati dall&#x27;accelerazione AI. AI services ha generato $24 milioni a costo marginale zero, mentre l&#x27;AI rappresenta 13 punti percentuali di accelerazione su Azure. Il terzo spunto analizza il mercato degli investimenti AI nel primo semestre 2026, che ha chiuso a 510 miliardi di dollari, record assoluto. OpenAI e Anthropic pesano per 217 miliardi (43% del totale). Ma la vera novità è il ritorno delle exit: 32 IPO sopra il miliardo e 24 acquisizioni per 113 miliardi, inclusa l&#x27;acquisizione di Anysphere (Cursor, l&#x27;editor AI-first) da parte di SpaceX per 60 miliardi — la più grande acquisizione di startup mai registrata. La startup del mese è in realtà un trio: Odyssey, Generalist AI e XDOF, che insieme raccontano la corsa verso i world model e la physical AI, superando i transformer. Il quarto spunto è una riflessione sulla data visualization come atto politico: Bloomberg, NYT, Reuters e McKinsey pubblicano sintesi visuali dell&#x27;anno, ma ogni sintesi è una selezione e ogni selezione è un&#x27;opinione. Il pezzo si chiude con la Great Gatsby Curve, che mostra l&#x27;inversa relazione tra disuguaglianza e mobilità sociale, con i paesi nordici virtuosamente in basso a sinistra.</p>
+      </div>
+    </details>
+  </div>
+</article>
+
+
+<article class="card sub-card paid" id="sub-not-boring-by-packy-mccormick-ai-is-oil-not-god">
+  <div class="card-glow" aria-hidden="true"></div>
+  <div class="card-head">
+    <div class="pub">Not Boring by Packy McCormick</div>
+    <h3 class="title"><a href="https://notboring.substack.com/p/ai-is-oil-not-god" target="_blank" rel="noopener">AI is Oil, Not God</a> <span class="paid-tag">PAYWALL</span></h3>
+  </div>
+  <div class="meta">Not Boring by Packy McCormick · <span class="paid-tag">PAYWALL</span></div>
+  <div class="summary-block"><p class="summary-teaser muted">Articolo a pagamento — solo titolo/link nel digest.</p></div>
+</article>
+
+
+<article class="card sub-card paid" id="sub-prof-g-markets-no-mercy-no-malice-turns-10">
+  <div class="card-glow" aria-hidden="true"></div>
+  <div class="card-head">
+    <div class="pub">Prof G Markets</div>
+    <h3 class="title"><a href="https://profgmedia.substack.com/p/no-mercy-no-malice-turns-10" target="_blank" rel="noopener">No Mercy / No Malice Turns 10</a> <span class="paid-tag">PAYWALL</span></h3>
+  </div>
+  <div class="meta">Prof G Markets · <span class="paid-tag">PAYWALL</span></div>
+  <div class="summary-block"><p class="summary-teaser muted">Articolo a pagamento — solo titolo/link nel digest.</p></div>
+</article>
+
+
+<article class="card sub-card paid" id="sub-prof-g-media-no-mercy-no-malice-turns-10">
+  <div class="card-glow" aria-hidden="true"></div>
+  <div class="card-head">
+    <div class="pub">Prof G Media</div>
+    <h3 class="title"><a href="https://profgmedia.substack.com/p/no-mercy-no-malice-turns-10" target="_blank" rel="noopener">No Mercy / No Malice Turns 10</a> <span class="paid-tag">PAYWALL</span></h3>
+  </div>
+  <div class="meta">Prof G Media · <span class="paid-tag">PAYWALL</span></div>
+  <div class="summary-block"><p class="summary-teaser muted">Articolo a pagamento — solo titolo/link nel digest.</p></div>
+</article>
+</div>
+</section>
+
+
+  <footer class="site-footer">
+    HTML portatile monofile · CSS inline · teaser + riassunto PDF espandibile · no rete · 2026-07-26T06:29:45Z
+  </footer>
+</div>
+
+<script>
+
+(() => {
+  // Optional polish: accordion habit — opening one long summary keeps others open
+  // (explicit multi-expand is better for scanning long digests).
+  document.querySelectorAll('.summary-details').forEach((d) => {
+    d.addEventListener('toggle', () => {
+      if (d.open) {
+        const long = d.querySelector('.summary-long-text');
+        if (long) long.setAttribute('tabindex', '-1');
+      }
+    });
+  });
+})();
+
+</script>
+</body>
+</html>

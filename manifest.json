@@ -1,0 +1,17 @@
+{
+  "built_at": "2026-07-26T06:29:45.391609+00:00",
+  "day_count": 2,
+  "days": [
+    "2026-07-26",
+    "2026-07-25"
+  ],
+  "home": "index.html",
+  "portable": {
+    "latest": "portable/digest-latest.html",
+    "all": "portable/digest-all.html",
+    "days": [
+      "portable/digest-2026-07-26.html",
+      "portable/digest-2026-07-25.html"
+    ]
+  }
+}
