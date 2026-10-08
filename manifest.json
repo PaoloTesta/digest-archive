@@ -1,7 +1,8 @@
 {
-  "built_at": "2026-10-07T20:11:15.253786+00:00",
-  "day_count": 67,
+  "built_at": "2026-10-08T06:07:37.242205+00:00",
+  "day_count": 68,
   "days": [
+    "2026-10-08",
     "2026-10-07",
     "2026-10-06",
     "2026-10-05",
@@ -75,6 +76,7 @@
     "latest": "portable/digest-latest.html",
     "all": "portable/digest-all.html",
     "days": [
+      "portable/digest-2026-10-08.html",
       "portable/digest-2026-10-07.html",
       "portable/digest-2026-10-06.html",
       "portable/digest-2026-10-05.html",
