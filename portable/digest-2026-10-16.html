@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark">
+<title>Digest · 2026-10-16</title>
+<style>
+:root {
+  --bg: #07090f;
+  --bg-elev: rgba(22, 26, 38, 0.72);
+  --bg-elev-solid: #141824;
+  --bg-elev-2: #1c2233;
+  --border: rgba(255,255,255,0.08);
+  --border-strong: rgba(255,255,255,0.14);
+  --text: #eef0f8;
+  --muted: #9298ad;
+  --hn: #ff6a00;
+  --hn-2: #ffb347;
+  --sub: #8b7cff;
+  --sub-2: #b7a9ff;
+  --web: #00bcd4;
+  --web-2: #4dd0e1;
+  --green: #3ddc97;
+  --red: #ff5c7a;
+  --gold: #f0b429;
+  --shadow: 0 18px 50px rgba(0,0,0,.45);
+  --radius: 18px;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --sans: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --ease: cubic-bezier(.2,.8,.2,1);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: var(--sans);
+  background:
+    radial-gradient(1100px 700px at 8% -8%, rgba(255,106,0,.18), transparent 55%),
+    radial-gradient(900px 560px at 92% 0%, rgba(139,124,255,.16), transparent 50%),
+    radial-gradient(700px 400px at 50% 100%, rgba(61,220,151,.05), transparent 40%),
+    linear-gradient(180deg, #0a0c14 0%, var(--bg) 40%, #07080d 100%);
+  color: var(--text);
+  line-height: 1.55;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+body::before {
+  content: "";
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at center, black 20%, transparent 75%);
+  opacity: .5;
+}
+code {
+  font-family: var(--mono);
+  font-size: .9em;
+  background: var(--bg-elev-2);
+  padding: .1em .35em;
+  border-radius: 6px;
+}
+a { color: inherit; }
+.page { position: relative; z-index: 1; max-width: 980px; margin: 0 auto; padding: 22px 18px 72px; }
+
+.topnav {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; padding: 10px 14px; margin-bottom: 22px; flex-wrap: wrap;
+  background: rgba(12,14,22,.55);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 8px 30px rgba(0,0,0,.25);
+}
+.brand {
+  font-weight: 760; letter-spacing: .01em; text-decoration: none;
+  color: var(--text);
+  background: linear-gradient(90deg, #fff, #ffd0a8);
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent;
+}
+.brand:hover { filter: brightness(1.1); }
+.topnav-right { display: flex; gap: 14px; color: var(--muted); font-size: .9rem; flex-wrap: wrap; }
+.topnav-right a { color: var(--text); text-decoration: none; border-bottom: 1px solid transparent; }
+.topnav-right a:hover { border-bottom-color: var(--hn); }
+.nav-disabled { opacity: .4; }
+
+.hero { margin: 8px 0 28px; }
+.hero.home { padding: 10px 0 6px; }
+.eyebrow {
+  text-transform: uppercase; letter-spacing: .14em; font-size: .7rem;
+  color: var(--hn-2); margin: 0 0 10px; font-weight: 700;
+}
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(1.85rem, 4vw, 2.55rem);
+  line-height: 1.12; margin: 0 0 10px; font-weight: 650;
+  letter-spacing: -0.02em;
+}
+.hero .sub { color: var(--muted); margin: 0 0 16px; max-width: 52rem; font-size: .98rem; }
+.stats-row, .pdf-row, .hero-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.stat, .pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(255,255,255,.03); border: 1px solid var(--border);
+  border-radius: 999px; padding: 5px 12px; font-size: .8rem; color: var(--muted);
+  backdrop-filter: blur(8px);
+}
+.stat strong, .pill { color: var(--text); }
+.stat.hn, .pill.hn { border-color: rgba(255,106,0,.45); color: var(--hn); box-shadow: inset 0 0 0 1px rgba(255,106,0,.08); }
+.stat.sub, .pill.sub { border-color: rgba(139,124,255,.4); color: var(--sub-2); }
+.stat.free, .pill.free { color: var(--green); }
+.stat.paid, .pill.paid { color: var(--red); }
+.stat.web, .pill.web { border-color: rgba(0,188,212,.35); color: var(--web-2); }
+
+.pdf-btn, .cta, .mini-pdf {
+  display: inline-flex; align-items: center; gap: 6px;
+  text-decoration: none; border-radius: 12px; font-size: .86rem; font-weight: 650;
+  transition: transform .18s var(--ease), border-color .18s, filter .18s, background .18s;
+}
+.pdf-btn, .mini-pdf {
+  background: rgba(255,255,255,.03); border: 1px solid var(--border);
+  color: var(--text); padding: 9px 13px;
+}
+.pdf-btn:hover, .mini-pdf:hover { border-color: rgba(255,106,0,.55); color: var(--hn-2); transform: translateY(-1px); }
+.cta {
+  background: linear-gradient(135deg, #ff6a00, #ff9a3d 55%, #ffc78a);
+  color: #1a0d00; padding: 11px 16px; border: none;
+  box-shadow: 0 10px 28px rgba(255,106,0,.28);
+}
+.cta:hover { filter: brightness(1.05); transform: translateY(-1px); }
+
+.section-head {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; margin: 34px 0 16px; padding-bottom: 12px;
+  border-bottom: 1px solid var(--border); flex-wrap: wrap;
+}
+.section-head h2 {
+  margin: 0; font-size: 1.2rem; display: flex; align-items: center; gap: 10px;
+  letter-spacing: -0.01em;
+}
+.dot {
+  width: 10px; height: 10px; border-radius: 50%; display: inline-block;
+}
+.dot.hn { background: var(--hn); box-shadow: 0 0 0 4px rgba(255,106,0,.16), 0 0 18px rgba(255,106,0,.45); }
+.dot.sub { background: var(--sub); box-shadow: 0 0 0 4px rgba(139,124,255,.16), 0 0 18px rgba(139,124,255,.4); }
+.dot.web { background: var(--web); box-shadow: 0 0 0 4px rgba(0,188,212,.16), 0 0 18px rgba(0,188,212,.4); }
+
+/* ---- source tabs (scalable nav) ---- */
+.source-tabs {
+  display: flex; flex-wrap: wrap; gap: 4px;
+  margin: 12px 0 20px; padding: 4px;
+  background: rgba(255,255,255,.02);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+.source-tab {
+  flex: 1; min-width: 80px;
+  text-align: center; text-decoration: none;
+  padding: 9px 14px; border-radius: 11px;
+  font-size: .82rem; font-weight: 700; letter-spacing: .02em;
+  color: var(--muted);
+  border: 1px solid transparent;
+  transition: background .18s, color .18s, border-color .18s;
+}
+.source-tab:hover { color: var(--text); background: rgba(255,255,255,.03); }
+.source-tab.active-hn { color: var(--hn); background: rgba(255,106,0,.08); border-color: rgba(255,106,0,.3); }
+.source-tab.active-sub { color: var(--sub-2); background: rgba(139,124,255,.08); border-color: rgba(139,124,255,.3); }
+.source-tab.active-web { color: var(--web); background: rgba(0,188,212,.08); border-color: rgba(0,188,212,.3); }
+
+.cards { display: grid; gap: 14px; }
+.card {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.03), transparent 38%),
+    var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 18px 16px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: transform .2s var(--ease), border-color .2s, box-shadow .2s;
+}
+.card:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-strong);
+  box-shadow: 0 22px 55px rgba(0,0,0,.5);
+}
+.card-glow {
+  position: absolute; inset: auto -20% -55% auto; width: 220px; height: 220px;
+  border-radius: 50%; pointer-events: none; filter: blur(30px); opacity: .22;
+}
+.hn-card { border-left: 3px solid var(--hn); }
+.hn-card .card-glow { background: radial-gradient(circle, rgba(255,106,0,.9), transparent 70%); }
+.hn-card.pts-hot { border-left-color: #ff8a3d; }
+.hn-card.pts-high { border-left-color: var(--gold); }
+.hn-card.pts-mid { border-left-color: var(--green); }
+.sub-card.free { border-left: 3px solid var(--green); }
+.sub-card.paid { border-left: 3px solid var(--red); }
+.sub-card .card-glow { background: radial-gradient(circle, rgba(139,124,255,.9), transparent 70%); left: -10%; right: auto; }
+.web-card { border-left: 3px solid var(--web); }
+.web-card .card-glow { background: radial-gradient(circle, rgba(0,188,212,.9), transparent 70%); left: auto; right: -10%; }
+.web-card .title a:hover { color: var(--web-2); }
+.web-card .expand-btn {
+  border-color: rgba(0,188,212,.35);
+  background: linear-gradient(180deg, rgba(0,188,212,.14), rgba(0,188,212,.04));
+  color: var(--web-2);
+}
+.web-card .expand-btn:hover {
+  border-color: rgba(0,188,212,.65);
+  box-shadow: 0 8px 22px rgba(0,188,212,.16);
+}
+.web-card .summary-long {
+  border-color: rgba(0,188,212,.2);
+  background: linear-gradient(180deg, rgba(0,188,212,.08), rgba(255,255,255,.02));
+}
+.web-card .summary-long-label { color: var(--web-2); }
+.card-head { display: grid; gap: 4px; position: relative; }
+.rank {
+  font-family: var(--mono); font-size: .72rem; color: var(--muted);
+  letter-spacing: .04em;
+}
+.title { margin: 0; font-size: 1.08rem; font-weight: 700; line-height: 1.35; letter-spacing: -0.015em; }
+.title a { text-decoration: none; }
+.title a:hover { color: var(--hn-2); }
+.sub-card .title a:hover { color: var(--sub-2); }
+.pub {
+  font-size: .7rem; font-weight: 750; letter-spacing: .07em;
+  text-transform: uppercase; color: var(--sub-2);
+}
+.web-tag {
+  font-size: .7rem; font-weight: 750; letter-spacing: .07em;
+  text-transform: uppercase; color: var(--web-2); text-decoration: none;
+}
+.web-tag:hover { text-decoration: underline; }
+.meta {
+  margin-top: 8px; color: var(--muted); font-size: .78rem;
+  display: flex; flex-wrap: wrap; gap: 7px; align-items: center;
+}
+.domain { font-family: var(--mono); opacity: .9; }
+.score { font-weight: 750; }
+.pts-hot { color: #ff8a3d; }
+.pts-high { color: var(--gold); }
+.pts-mid { color: var(--green); }
+.pts-low { color: var(--muted); }
+
+/* ---- summaries + expand ---- */
+.summary-block { margin-top: 12px; }
+.summary-teaser {
+  margin: 0;
+  color: #d5d9e8;
+  font-size: .95rem;
+  font-family: var(--serif);
+  line-height: 1.65;
+}
+.summary-details { margin-top: 10px; }
+.summary-details > summary {
+  list-style: none;
+  cursor: pointer;
+  user-select: none;
+}
+.summary-details > summary::-webkit-details-marker { display: none; }
+.expand-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,106,0,.35);
+  background:
+    linear-gradient(180deg, rgba(255,106,0,.14), rgba(255,106,0,.05));
+  color: var(--hn-2);
+  font-family: var(--sans);
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .01em;
+  transition: background .18s var(--ease), border-color .18s, transform .18s var(--ease), box-shadow .18s;
+  box-shadow: 0 0 0 0 rgba(255,106,0,0);
+}
+.expand-btn:hover {
+  border-color: rgba(255,106,0,.65);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px rgba(255,106,0,.18);
+}
+.expand-btn:focus-visible {
+  outline: 2px solid rgba(255,176,96,.8);
+  outline-offset: 3px;
+}
+.expand-chevron {
+  display: inline-block;
+  transition: transform .22s var(--ease);
+  font-size: .85rem;
+  opacity: .85;
+}
+.summary-details[open] .expand-chevron { transform: rotate(180deg); }
+.expand-label-open { display: none; }
+.summary-details[open] .expand-label-closed { display: none; }
+.summary-details[open] .expand-label-open { display: inline; }
+.summary-details[open] .expand-btn {
+  border-color: rgba(255,255,255,.14);
+  background: rgba(255,255,255,.04);
+  color: var(--text);
+}
+
+.summary-long {
+  margin-top: 12px;
+  padding: 14px 14px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,106,0,.18);
+  background:
+    linear-gradient(180deg, rgba(255,106,0,.07), rgba(255,255,255,.02));
+  animation: reveal .28s var(--ease);
+}
+.summary-long.is-static { margin-top: 10px; }
+.summary-long-label {
+  font-size: .68rem;
+  font-weight: 750;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--hn-2);
+  margin-bottom: 8px;
+}
+.summary-long-text {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: .98rem;
+  line-height: 1.72;
+  color: #e6e8f2;
+  white-space: pre-wrap;
+}
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.sub-card .expand-btn {
+  border-color: rgba(139,124,255,.35);
+  background: linear-gradient(180deg, rgba(139,124,255,.16), rgba(139,124,255,.05));
+  color: var(--sub-2);
+}
+.sub-card .expand-btn:hover {
+  border-color: rgba(139,124,255,.65);
+  box-shadow: 0 8px 22px rgba(139,124,255,.16);
+}
+.sub-card .summary-long {
+  border-color: rgba(139,124,255,.2);
+  background: linear-gradient(180deg, rgba(139,124,255,.08), rgba(255,255,255,.02));
+}
+.sub-card .summary-long-label { color: var(--sub-2); }
+
+.muted { color: var(--muted); }
+.paid-tag, .free-tag {
+  display: inline-block; font-size: .68rem; font-weight: 750;
+  letter-spacing: .04em; padding: 2px 8px; border-radius: 999px;
+  vertical-align: middle;
+}
+.paid-tag { background: rgba(255,92,122,.15); color: var(--red); }
+.free-tag { background: rgba(61,220,151,.12); color: var(--green); }
+.tag {
+  display: inline-block; font-size: .68rem; padding: 2px 8px;
+  border-radius: 999px; background: rgba(255,255,255,.04); color: var(--muted);
+  border: 1px solid var(--border);
+}
+.hn-discuss { color: var(--muted); text-decoration: none; }
+.hn-discuss:hover { color: var(--hn); }
+
+.day-grid { display: grid; gap: 14px; }
+.day-card {
+  display: block; color: inherit;
+  background: var(--bg-elev); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 16px 18px;
+  transition: border-color .15s, transform .15s;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+}
+.day-card:hover { border-color: rgba(255,106,0,.5); transform: translateY(-1px); }
+.day-card-top {
+  display: flex; justify-content: space-between; gap: 12px; align-items: flex-start;
+  flex-wrap: wrap; margin-bottom: 10px;
+}
+.day-date { font-family: var(--mono); color: var(--muted); font-size: .8rem; }
+.day-label {
+  display: inline-block; font-size: 1.1rem; font-weight: 740;
+  text-decoration: none; color: var(--text); margin-top: 2px;
+}
+.day-label:hover { color: var(--hn); }
+.pills { display: flex; flex-wrap: wrap; gap: 6px; }
+.peek { margin: 0; padding-left: 1.1rem; color: var(--muted); font-size: .86rem; }
+.peek li { margin: 3px 0; }
+.src {
+  font-family: var(--mono); font-size: .68rem; font-weight: 700;
+  margin-right: 4px;
+}
+.src.hn { color: var(--hn); }
+.src.sub { color: #b2a8ff; }
+.src.web { color: var(--web-2); }
+.day-card-foot { margin-top: 12px; display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.day-card .mini-pdf { font-size: .75rem; padding: 4px 8px; }
+.open-day {
+  text-decoration: none; font-size: .82rem; font-weight: 740;
+  color: var(--hn); margin-right: 4px;
+}
+.open-day:hover { text-decoration: underline; }
+
+.site-footer {
+  margin-top: 44px; padding-top: 18px; border-top: 1px solid var(--border);
+  color: var(--muted); font-size: .78rem; text-align: center;
+}
+
+@media (max-width: 640px) {
+  .page { padding: 14px 12px 48px; }
+  .hero h1 { font-size: 1.55rem; }
+  .card { padding: 14px; }
+  .expand-btn { width: 100%; justify-content: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.portable-banner {
+  margin: 0 0 18px;
+  padding: 12px 14px;
+  border: 1px solid rgba(255,106,0,.18);
+  border-radius: 14px;
+  color: var(--muted);
+  font-size: .82rem;
+  background: linear-gradient(135deg, rgba(255,106,0,.08), rgba(139,124,255,.05));
+}
+.portable-toc {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin: 0 0 22px;
+}
+.portable-toc a {
+  text-decoration: none;
+  background: rgba(255,255,255,.03);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: .8rem;
+  color: var(--text);
+}
+.portable-toc a:hover { border-color: var(--hn); color: var(--hn); }
+.day-block {
+  margin: 34px 0 18px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+}
+.day-block:first-of-type { border-top: 0; margin-top: 8px; }
+.day-block > h2.day-title {
+  font-family: var(--serif);
+  font-size: 1.45rem;
+  margin: 0 0 6px;
+}
+.day-block .day-sub { color: var(--muted); margin: 0 0 12px; font-size: .9rem; }
+.jump-top {
+  display: inline-block;
+  margin: 8px 0 18px;
+  color: var(--muted);
+  font-size: .78rem;
+  text-decoration: none;
+}
+.jump-top:hover { color: var(--hn); }
+
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <nav class="topnav">
+    <span class="brand">✦ Digest portatile</span>
+    <div class="topnav-right muted">2026-10-16 · singolo file</div>
+  </nav>
+  <div class="portable-banner">
+    File autonomo: apri offline in qualsiasi browser. Riassunti e metadati sono già nel documento
+    (nessun JSON/PDF esterno richiesto per la lettura).
+  </div>
+  <header class="hero">
+    <p class="eyebrow">Daily digest · portable</p>
+    <h1>Venerdì 16 ottobre 2026</h1>
+    <p class="sub">2026-10-16 · <a href="#hacker-news">HN</a></p>
+    <div class="stats-row"><span class="stat hn"><strong>20</strong> HN</span><span class="stat"><strong>5867</strong> punti</span></div>
+  </header>
+  
+  
+<section class="source-section" id="hacker-news">
+  <div class="section-head">
+    <h2><span class="dot hn"></span> Hacker News</h2>
+    <div class="section-actions"></div>
+  </div>
+  <div class="cards">
+<article class="card hn-card pts-hot" id="hn-1">
+  <div class="card-glow" aria-hidden="true"></div>
+  <div class="card-head">
+    <span class="rank">#1</span>
+    <h3 class="title"><a href="https://research.meta.ai/blog/muse-spark-open" target="_blank" rel="noopener">Muse Spark Open</a></h3>
+  </div>
+  <div class="meta"><span class="domain">research.meta.ai</span> · <span class="score pts-hot">▲ 729</span> · <span>381 commenti</span> · <span>by bigwheels</span> · <span class="tag">#ai</span> <span class="tag">#opensource</span> <span class="tag">#llm</span> <span class="tag">#meta</span></div>
+  
+  <div class="summary-block">
+    <p class="summary-teaser">Meta ha rilasciato Muse Spark Open, candidandolo come il modello open-weight statunitense più capace mai prodotto. Si tratta di un modello nativamente multimodale con 816 miliardi di parametri totali, di cui appena 42 miliardi attivi per token, e una finestra di contesto…</p>
+    <details class="summary-details">
+      <summary class="expand-btn" aria-controls="hn-long-1">
+        <span class="expand-label-closed">Leggi riassunto completo · ~205 parole</span>
+        <span class="expand-label-open">Nascondi riassunto</span>
+        <span class="expand-chevron" aria-hidden="true">▾</span>
+      </summary>
+      <div class="summary-long" id="hn-long-1">
+        <div class="summary-long-label">Riassunto · versione PDF</div>
+        <p class="summary-long-text">Meta ha rilasciato Muse Spark Open, candidandolo come il modello open-weight statunitense più capace mai prodotto. Si tratta di un modello nativamente multimodale con 816 miliardi di parametri totali, di cui appena 42 miliardi attivi per token, e una finestra di contesto di un milione di token. Il sistema è progettato per il coding e per il lavoro agentico, eccelle in compiti a lungo orizzonte, ingegneria del software complessa e ragionamento multi-step. La novità più dirompente riguarda la distribuzione: grazie al framework MLX, è il primo modello di questa classe eseguibile interamente in locale su un desktop, utilizzando due Apple M5 Ultra Mac Studio, togliendo la dipendenza dal cloud per chi vuole operare con i dati sul proprio hardware. Meta dichiara che il futuro dell&#x27;AI debba essere di tutti, incluso il diritto di eseguire modelli avanzati a casa propria. I pesi sono già pubblicati su Hugging Face e il modello è raggiungibile tramite piattaforme API come Baseten, Fireworks AI, Groq, Modal, Nebius, OpenRouter e Together AI. La mossa segna una strategia chiara per portare capacità da frontiera nell&#x27;ecosistema open-weight, abbassando la barriera di adozione per organizzazioni e singoli che vogliono modelli potenti, portabili e sotto il proprio controllo piuttosto che vincolati a servizi cloud proprietari.</p>
+      </div>
+    </details>
+  </div>
+</article>
+
+
+<article class="card hn-card pts-hot" id="hn-2">
+  <div class="card-glow" aria-hidden="true"></div>
+  <div class="card-head">
+    <span class="rank">#2</span>
+    <h3 class="title"><a href="https://already-clean.goodfire.com/" target="_blank" rel="noopener">Neural networks are clean</a></h3>
+  </div>
+  <div class="meta"><span class="domain">already-clean.goodfire.com</span> · <span class="score pts-hot">▲ 604</span> · <span>226 commenti</span> · <span>by themgt</span> · <span class="tag">#ai</span> <span class="tag">#llm</span> <span class="tag">#interpretability</span></div>
+  
+  <div class="summary-block">
+    <p class="summary-teaser">Un saggio informale di ricerca pubblicato da Goodfire propone una tesi controintuitiva e stimolante nell&#x27;ambito dell&#x27;interpretabilità meccanica: le reti neurali sono &#x27;già pulite&#x27;, ovvero più comprensibili di quanto si creda. Gli autori sostengono che la polisemanticità osservata nei primi model organism, cioè…</p>
+    <details class="summary-details">
+      <summary class="expand-btn" aria-controls="hn-long-2">
+        <span class="expand-label-closed">Leggi riassunto completo · ~187 parole</span>
+        <span class="expand-label-open">Nascondi riassunto</span>
+        <span class="expand-chevron" aria-hidden="true">▾</span>
+      </summary>
+      <div class="summary-long" id="hn-long-2">
+        <div class="summary-long-label">Riassunto · versione PDF</div>
+        <p class="summary-long-text">Un saggio informale di ricerca pubblicato da Goodfire propone una tesi controintuitiva e stimolante nell&#x27;ambito dell&#x27;interpretabilità meccanica: le reti neurali sono &#x27;già pulite&#x27;, ovvero più comprensibili di quanto si creda. Gli autori sostengono che la polisemanticità osservata nei primi model organism, cioè il fenomeno per cui un singolo neurone risponde a più concetti non correlati tra loro, non deriverebbe da una complessa superposition neurale come ipotizzato in passato, ma da alcuni problemi ordinari e in gran parte risolvibili. Di conseguenza sarebbe oggi possibile comprendere la maggior parte dei neuroni in modelli che arrivano a migliaia di miliardi di parametri. L&#x27;articolo, firmato da Nick Cammarata, uno dei ricercatori più noti nel campo, sostiene che le prospettive per l&#x27;interpretabilità meccanica siano molto migliori di quanto le ricerche precedenti lasciassero intendere. Se questa visione dovesse essere confermata su larga scala, le implicazioni per la sicurezza e per la fiducia nei sistemi di machine learning sarebbero profonde: capire in modo affidabile cosa fa ogni neurone renderebbe più semplice il debugging, l&#x27;allineamento dei modelli e la verifica del loro comportamento, aprendo la strada a sistemi AI considerati davvero affidabili e verificabili dall&#x27;esterno.</p>
+      </div>
+    </details>
+  </div>
+</article>
+
+
+<article class="card hn-card pts-hot" id="hn-3">
+  <div class="card-glow" aria-hidden="true"></div>
+  <div class="card-head">
+    <span class="rank">#3</span>
+    <h3 class="title"><a href="https://github.com/fyzugx/DEsk" target="_blank" rel="noopener">Wayland desktop for Linux with skeuomorphic design</a></h3>
+  </div>
+  <div class="meta"><span class="domain">github.com</span> · <span class="score pts-hot">▲ 563</span> · <span>223 commenti</span> · <span>by FinalDestiny</span> · <span class="tag">#linux</span> <span class="tag">#design</span> <span class="tag">#ux</span> <span class="tag">#wayland</span></div>
+  
+  <div class="summary-block">
+    <p class="summary-teaser">Un progetto open source denominato DEsk propone un desktop manager Wayland per Linux con un design skeuomorfico, ricco di elementi che imitano gli oggetti e i materiali fisici delle interfacce classiche. In un&#x27;epoca in cui dominano il flat design e il glassmorphism…</p>
+    <details class="summary-details">
+      <summary class="expand-btn" aria-controls="hn-long-3">
+        <span class="expand-label-closed">Leggi riassunto completo · ~183 parole</span>
+        <span class="expand-label-open">Nascondi riassunto</span>
+        <span class="expand-chevron" aria-hidden="true">▾</span>
+      </summary>
+      <div class="summary-long" id="hn-long-3">
+        <div class="summary-long-label">Riassunto · versione PDF</div>
+        <p class="summary-long-text">Un progetto open source denominato DEsk propone un desktop manager Wayland per Linux con un design skeuomorfico, ricco di elementi che imitano gli oggetti e i materiali fisici delle interfacce classiche. In un&#x27;epoca in cui dominano il flat design e il glassmorphism, l&#x27;autore ripropone texture, ombre realistiche e superfici che ricordano le estetiche di sistemi come Mac OS classic o le prime versioni di Windows, recuperando un linguaggio visivo oggi considerato in gran parte dimenticato. Il risultato è un ambiente desktop che privilegia familiarità e calore estetico, ed offre un&#x27;alternativa riconoscibile alle shell minimaliste moderne senza rinunciare alla modernità della tecnologia alla base. Il progetto tocca un tema molto caro alla community Linux, cioè la libertà di personalizzazione estrema e profonda dell&#x27;interfaccia, spinta fino a mettere in discussione i paradigmi grafici dominanti. Grazie a Wayland, DEsk punta a prestazioni moderne e a un&#x27;integrazione pulita con il compositing del display, mantenendo al contempo un aspetto distintivo che cerca di recuperare il fascino e l&#x27;accessibilità delle interfacce tangibili di un tempo, come richiesto dalla crescente nostalgia per i desktop più caldi e curati del passato.</p>
+      </div>
+    </details>
+  </div>
+</article>
+
+
+<article class="card hn-card pts-hot" id="hn-4">
+  <div class="card-glow" aria-hidden="true"></div>
+  <div class="card-head">
+    <span class="rank">#4</span>
+    <h3 class="title"><a href="https://citizenlab.ca/research/how-discover-tech-turned-targeted-ads-into-a-pipeline-for-spyware/" target="_blank" rel="noopener">AdFection: Targeted ads turned into a pipeline for zero-click mercenary spyware</a></h3>
+  </div>
+  <div class="meta"><span class="domain">citizenlab.ca</span> · <span class="score pts-hot">▲ 433</span> · <span>589 commenti</span> · <span>by jcomp</span> · <span class="tag">#security</span> <span class="tag">#privacy</span> <span class="tag">#spyware</span></div>
+  
+  <div class="summary-block">
+    <p class="summary-teaser">Un&#x27;inchiesta del Citizen Lab, il laboratorio di ricerca sulla sorveglianza digitale dell&#x27;Università di Toronto, ha portato alla luce un caso particolarmente inquietante denominato AdFection, che coinvolge l&#x27;azienda israeliana Discover-Tech. La società avrebbe trasformato il sistema pubblicitario mirato in una vera e propria…</p>
+    <details class="summary-details">
+      <summary class="expand-btn" aria-controls="hn-long-4">
+        <span class="expand-label-closed">Leggi riassunto completo · ~166 parole</span>
+        <span class="expand-label-open">Nascondi riassunto</span>
+        <span class="expand-chevron" aria-hidden="true">▾</span>
+      </summary>
+      <div class="summary-long" id="hn-long-4">
+        <div class="summary-long-label">Riassunto · versione PDF</div>
+        <p class="summary-long-text">Un&#x27;inchiesta del Citizen Lab, il laboratorio di ricerca sulla sorveglianza digitale dell&#x27;Università di Toronto, ha portato alla luce un caso particolarmente inquietante denominato AdFection, che coinvolge l&#x27;azienda israeliana Discover-Tech. La società avrebbe trasformato il sistema pubblicitario mirato in una vera e propria pipeline per distribuire spyware mercenario zero-click contro utenti ignari. Sfruttando le reti di annunci online, Discover-Tech riuscirebbe a veicolare exploit capaci di infettare silenziosamente i dispositivi senza alcuna interazione da parte delle vittime, rendendo l&#x27;infezione praticamente invisibile. L&#x27;inchiesta ricostruisce in dettaglio la catena dei responsabili e l&#x27;infrastruttura tecnica utilizzata, sottolineando come il modello economico della pubblicità programmatica possa essere riadattato per scopi di sorveglianza su commissione. Il caso solleva questioni molto serie sulla trasparenza delle piattaforme pubblicitarie, sul rispetto della privacy degli utenti e sulla vulnerabilità di chiunque navighi sul web: mette in luce un mercato grigio in cui la monetizzazione dei dati degli utenti si spinge fino al punto di comprometterne apertamente la sicurezza, con rischi concreti per attivisti, giornalisti e semplici cittadini.</p>
+      </div>
+    </details>
+  </div>
+</article>
+
+
+<article class="card hn-card pts-hot" id="hn-5">
+  <div class="card-glow" aria-hidden="true"></div>
+  <div class="card-head">
+    <span class="rank">#5</span>
+    <h3 class="title"><a href="https://zachlandes.com/trolley-problem/" target="_blank" rel="noopener">Jev meets the Trolley Problem</a></h3>
+  </div>
+  <div class="meta"><span class="domain">zachlandes.com</span> · <span class="score pts-hot">▲ 392</span> · <span>170 commenti</span> · <span>by zlandes86</span> · <span class="tag">#ai</span> <span class="tag">#llm</span> <span class="tag">#etica</span></div>
+  
+  <div class="summary-block">
+    <p class="summary-teaser">Zach Landes riflette sul nuovo modello Jev e sul celebre dilemma filosofico noto come Trolley Problem, il dilemma del carrello ferroviario. Nelle ultime settimane la community AI e quella dello sviluppo software parlano molto di Jev e dei modelli di questa nuova…</p>
+    <details class="summary-details">
+      <summary class="expand-btn" aria-controls="hn-long-5">
+        <span class="expand-label-closed">Leggi riassunto completo · ~181 parole</span>
+        <span class="expand-label-open">Nascondi riassunto</span>
+        <span class="expand-chevron" aria-hidden="true">▾</span>
+      </summary>
+      <div class="summary-long" id="hn-long-5">
+        <div class="summary-long-label">Riassunto · versione PDF</div>
+        <p class="summary-long-text">Zach Landes riflette sul nuovo modello Jev e sul celebre dilemma filosofico noto come Trolley Problem, il dilemma del carrello ferroviario. Nelle ultime settimane la community AI e quella dello sviluppo software parlano molto di Jev e dei modelli di questa nuova famiglia: si tratta di sistemi di decision-making veloci, economici e generali, in alcuni casi decine o addirittura centinaia di volte più economici e rapidi di un grande LLM come Claude, con una capacità di ragionamento paragonabile a quella di un modello frontier di fascia più bassa. L&#x27;autore utilizza il Trolley Problem come metafora efficace per analizzare a quali decisioni siamo davvero disposti ad affidare questi modelli e quali conseguenze etiche possono derivare dal delegare scelte morali a sistemi automatizzati a costo contenuto. L&#x27;articolo invita a interrogarsi non soltanto su ciò che i modelli sono in grado di fare, ma soprattutto su quanto siamo disposti a lasciar loro decidere in autonomia, soprattutto quando le scelte in gioco coinvolgono valori e vite umane, spingendo il lettore verso un dialogo più consapevole tra capacità tecnica, velocità di esecuzione e responsabilità etica colletiva.</p>
+      </div>
+    </details>
+  </div>
+</article>
+
+
+<article class="card hn-card pts-hot" id="hn-6">
+  <div class="card-glow" aria-hidden="true"></div>
+  <div class="card-head">
+    <span class="rank">#6</span>
+    <h3 class="title"><a href="https://viceconsole.fyi/blog/2026/10/10/what-i-self-host/" target="_blank" rel="noopener">What I self-host</a></h3>
+  </div>
+  <div class="meta"><span class="domain">viceconsole.fyi</span> · <span class="score pts-hot">▲ 387</span> · <span>240 commenti</span> · <span>by BrunoBernardino</span> · <span class="tag">#selfhosting</span> <span class="tag">#linux</span> <span class="tag">#privacy</span></div>
+  
+  <div class="summary-block">
+    <p class="summary-teaser">Un articolo personale e molto utile racconta l&#x27;esperienza completa di self-hosting dell&#x27;autore, dalla gestione di un sito web su un server Linux tenuto sotto il letto durante gli anni dell&#x27;università, fino alle più recenti e sofisticate configurazioni moderne. L&#x27;autore elenca con onestà…</p>
+    <details class="summary-details">
+      <summary class="expand-btn" aria-controls="hn-long-6">
+        <span class="expand-label-closed">Leggi riassunto completo · ~174 parole</span>
+        <span class="expand-label-open">Nascondi riassunto</span>
+        <span class="expand-chevron" aria-hidden="true">▾</span>
+      </summary>
+      <div class="summary-long" id="hn-long-6">
+        <div class="summary-long-label">Riassunto · versione PDF</div>
+        <p class="summary-long-text">Un articolo personale e molto utile racconta l&#x27;esperienza completa di self-hosting dell&#x27;autore, dalla gestione di un sito web su un server Linux tenuto sotto il letto durante gli anni dell&#x27;università, fino alle più recenti e sofisticate configurazioni moderne. L&#x27;autore elenca con onestà cosa ospita per conto proprio, ovvero self-host, cosa invece preferisce non gestire personalmente e le ragioni di ogni scelta, basandosi su anni di esperienza concreta che includono MythTV, XBMC, oggi noto come Kodi, e un periodo trascorso in India in cui ha affrontato vincoli di connettività molto diversi. Oltre all&#x27;elenco pratico di servizi come media, cloud personale, backup e automazione, il post riflette in modo maturo sui compromessi reali tra controllo dei propri dati, costi, affidabilità e, soprattutto, tempo di manutenzione. La narrazione offre una prospettiva del self-hosting che non è ideologica né dogmatica, ma fatta di scelte pragmatiche guidate dalle proprie esigenze concrete. Costituisce un punto di riferimento prezioso per chi vuole avvicinarsi al mondo dell&#x27;ospitalità di servizi locali senza inseguire mode, capendo bene vantaggi, costi e limiti di questa scelta.</p>
+      </div>
+    </details>
+  </div>
+</article>
+
+
+<article class="card hn-card pts-hot" id="hn-7">
+  <div class="card-glow" aria-hidden="true"></div>
+  <div class="card-head">
+    <span class="rank">#7</span>
+    <h3 class="title"><a href="https://thereallo.dev/blog/someone-on-torrent-sites-kept-fucking-with-my-sonarr-setup" target="_blank" rel="noopener">Someone on Torrent Sites Kept Fucking with My Sonarr</a></h3>
+  </div>
+  <div class="meta"><span class="domain">thereallo.dev</span> · <span class="score pts-hot">▲ 289</span> · <span>137 commenti</span> · <span>by speckx</span> · <span class="tag">#security</span> <span class="tag">#malware</span> <span class="tag">#homelab</span></div>
+  
+  <div class="summary-block">
+    <p class="summary-teaser">Un articolo di blog in tono ironico e sarcastico racconta una vicenda paradossale che incrocia homelab e sicurezza. L&#x27;autore gestisce una configurazione basata sulla popolare suite di applicazioni, come Sonarr, Radarr e simili, installata su un proprio NAS, e ha visto comparire…</p>
+    <details class="summary-details">
+      <summary class="expand-btn" aria-controls="hn-long-7">
+        <span class="expand-label-closed">Leggi riassunto completo · ~174 parole</span>
+        <span class="expand-label-open">Nascondi riassunto</span>
+        <span class="expand-chevron" aria-hidden="true">▾</span>
+      </summary>
+      <div class="summary-long" id="hn-long-7">
+        <div class="summary-long-label">Riassunto · versione PDF</div>
+        <p class="summary-long-text">Un articolo di blog in tono ironico e sarcastico racconta una vicenda paradossale che incrocia homelab e sicurezza. L&#x27;autore gestisce una configurazione basata sulla popolare suite di applicazioni, come Sonarr, Radarr e simili, installata su un proprio NAS, e ha visto comparire sul cruscotto un avviso strano: il nuovo episodio di South Park si era bloccato in coda ai download perché qualcuno sui siti torrent aveva inserito codice malefico di tipo script kiddie nei file intercettati. Il post documenta in dettaglio come gli aggiornamenti automatizzati dei download, ormai gestiti completamente in modo automatico, possano trasformarsi in un vettore di infezione se il contenuto non viene verificato adeguatamente. L&#x27;autore esorta a riflettere con una punta di ironia su chi cada davvero oggi in queste truffe relativamente semplici, e illustra passo dopo passo le procedure tecniche per riconoscere il malware, capire come è stato iniettato e bonificare l&#x27;installazione. Un caso realistico e divertente che incrocia in modo efficace sicurezza informatica, reverse engineering e gestione pratica e quotidiana di un homelab domestico, con molti dettagli tecnici concreti.</p>
+      </div>
+    </details>
+  </div>
+</article>
+
+
+<article class="card hn-card pts-hot" id="hn-8">
+  <div class="card-glow" aria-hidden="true"></div>
+  <div class="card-head">
+    <span class="rank">#8</span>
+    <h3 class="title"><a href="https://unfenced.land/" target="_blank" rel="noopener">Show HN: Unfenced – Land for sale that borders public land</a></h3>
+  </div>
+  <div class="meta"><span class="domain">unfenced.land</span> · <span class="score pts-hot">▲ 287</span> · <span>190 commenti</span> · <span>by otherwatersflow</span> · <span class="tag">#startups</span> <span class="tag">#maps</span> <span class="tag">#data</span> <span class="tag">#realestate</span></div>
+  
+  <div class="summary-block">
+    <p class="summary-teaser">Unfenced è un prodotto lanciato come Show HN, ovvero una demo aperta alla community, che propone una piattaforma innovativa per elencare terreni in vendita che confinano direttamente con terre pubbliche. L&#x27;idea centrale è semplice ma inedita: per chi ama l&#x27;outdoor, la privacy…</p>
+    <details class="summary-details">
+      <summary class="expand-btn" aria-controls="hn-long-8">
+        <span class="expand-label-closed">Leggi riassunto completo · ~175 parole</span>
+        <span class="expand-label-open">Nascondi riassunto</span>
+        <span class="expand-chevron" aria-hidden="true">▾</span>
+      </summary>
+      <div class="summary-long" id="hn-long-8">
+        <div class="summary-long-label">Riassunto · versione PDF</div>
+        <p class="summary-long-text">Unfenced è un prodotto lanciato come Show HN, ovvero una demo aperta alla community, che propone una piattaforma innovativa per elencare terreni in vendita che confinano direttamente con terre pubbliche. L&#x27;idea centrale è semplice ma inedita: per chi ama l&#x27;outdoor, la privacy e gli spazi aperti, acquistare un lotto che confina con un&#x27;area pubblica consente di fatto di accedere a vaste distese naturali senza dover pagare costi aggiuntivi di confine o acquistare superfici enormi. Il sito permette di cercare per stato e di consultare una mappa interattiva dei territori disponibili negli Stati Uniti, mettendo in relazione i dati catastali con le aree protette. La proposta gioca in modo astuto sul valore percepito della fuga dalla densità urbana e sulla garanzia, attraente per molti, di avere un vero e proprio parco privato subito accanto a casa, trasformando la semplice vicinanza al terreno pubblico in una leva di marketing immobiliare di grande appeal. Costituisce un interessante esempio di startup data-driven che sfrutta dati catastali e geografici aperti per creare e intercettare un mercato di nicchia prima inesplorato.</p>
+      </div>
+    </details>
+  </div>
+</article>
+
+
+<article class="card hn-card pts-hot" id="hn-9">
+  <div class="card-glow" aria-hidden="true"></div>
+  <div class="card-head">
+    <span class="rank">#9</span>
+    <h3 class="title"><a href="https://www.krea.ai/krea-3" target="_blank" rel="noopener">Krea 3 – An image model built for editing at scale</a></h3>
+  </div>
+  <div class="meta"><span class="domain">krea.ai</span> · <span class="score pts-hot">▲ 285</span> · <span>90 commenti</span> · <span>by dvrp</span> · <span class="tag">#ai</span> <span class="tag">#image</span> <span class="tag">#generative</span></div>
+  
+  <div class="summary-block">
+    <p class="summary-teaser">Krea 3 è un modello di editing di immagini pensato esplicitamente per la produzione su scala industriale, progettato per modificare soltanto ciò che viene esplicitamente richiesto dall&#x27;utente e per completare ogni operazione in pochi secondi. Secondo l&#x27;azienda, il sistema è circa quattro…</p>
+    <details class="summary-details">
+      <summary class="expand-btn" aria-controls="hn-long-9">
+        <span class="expand-label-closed">Leggi riassunto completo · ~176 parole</span>
+        <span class="expand-label-open">Nascondi riassunto</span>
+        <span class="expand-chevron" aria-hidden="true">▾</span>
+      </summary>
+      <div class="summary-long" id="hn-long-9">
+        <div class="summary-long-label">Riassunto · versione PDF</div>
+        <p class="summary-long-text">Krea 3 è un modello di editing di immagini pensato esplicitamente per la produzione su scala industriale, progettato per modificare soltanto ciò che viene esplicitamente richiesto dall&#x27;utente e per completare ogni operazione in pochi secondi. Secondo l&#x27;azienda, il sistema è circa quattro volte più veloce di Nano Banana Pro, dieci volte più rapido e tre volte più economico rispetto a GPT Image 2, con un costo dichiarato che scende fino a soli sedici centesimi circa per immagine. Il target è chiaramente professionale e commerciale: editori, studi creativi, piattaforme e-commerce e servizi che devono elaborare ogni giorno grandi volumi di immagini in modo rapido, prevedibile e controllato, senza interventi manuali costosi. L&#x27;attenzione principale è rivolta alla velocità, al controllo selettivo dell&#x27;intervento e ai costi unitari molto contenuti, segno evidente che il settore dell&#x27;editing generativo sta compiendo la transizione dal fascino dimostrativo e spettacolare verso una vera e propria adozione industriale, nella quale contano più la latenza, la prevedibilità del risultato e il prezzo per immagine che non l&#x27;effetto sorpresa, rendendo il modello uno strumento di lavoro concreto.</p>
+      </div>
+    </details>
+  </div>
+</article>
+
+
+<article class="card hn-card pts-hot" id="hn-10">
+  <div class="card-glow" aria-hidden="true"></div>
+  <div class="card-head">
+    <span class="rank">#10</span>
+    <h3 class="title"><a href="https://libreboot.org/news/libreboot2610.html" target="_blank" rel="noopener">Libreboot 26.10 &amp;quot;Ominous Olive&amp;quot; released with UEFI, Chromebook support</a></h3>
+  </div>
+  <div class="meta"><span class="domain">libreboot.org</span> · <span class="score pts-hot">▲ 272</span> · <span>165 commenti</span> · <span>by iamnothere</span> · <span class="tag">#firmware</span> <span class="tag">#linux</span> <span class="tag">#privacy</span> <span class="tag">#uefi</span></div>
+  
+  <div class="summary-block">
+    <p class="summary-teaser">Libreboot, il firmware di avvio completamente libero costruito a partire da coreboot, ha rilasciato la nuova versione 26.10 denominata Ominous Olive. La novità più rilevante di questo rilascio è l&#x27;aggiunta del supporto UEFI completo, con il payload EDK2 impostato come default, un…</p>
+    <details class="summary-details">
+      <summary class="expand-btn" aria-controls="hn-long-10">
+        <span class="expand-label-closed">Leggi riassunto completo · ~182 parole</span>
+        <span class="expand-label-open">Nascondi riassunto</span>
+        <span class="expand-chevron" aria-hidden="true">▾</span>
+      </summary>
+      <div class="summary-long" id="hn-long-10">
+        <div class="summary-long-label">Riassunto · versione PDF</div>
+        <p class="summary-long-text">Libreboot, il firmware di avvio completamente libero costruito a partire da coreboot, ha rilasciato la nuova versione 26.10 denominata Ominous Olive. La novità più rilevante di questo rilascio è l&#x27;aggiunta del supporto UEFI completo, con il payload EDK2 impostato come default, un passo importante per allineare il progetto agli standard firmware oggi dominanti nel settore. Il rilascio include inoltre il supporto per un numero molto ampio di Chromebook Intel e AMD, con oltre duecentotrentatré modelli aggiunti, oltre al supporto per GPU moderne reso possibile proprio da EDK2 e al fork 15h.org per la famiglia di processori AMD Fam15h. Non mancano revisioni upstream, numerose correzioni di bug e svariate nuove configurazioni hardware. Libreboot prosegue la sua missione storica, ovvero fornire un avvio completamente libero, privo di blob proprietari e quindi fruibile e verificabile, allargando anno dopo anno la compatibilità con l&#x27;hardware di largo consumo e rendendo UEFI, ormai lo standard quasi universale, un&#x27;opzione fluida e praticabile. Per la community del software libero più radicale e per chiunque cerchi privacy e controllo totale sul proprio firmware, si tratta di un rilascio atteso e significativo.</p>
+      </div>
+    </details>
+  </div>
+</article>
+
+
+<article class="card hn-card pts-hot" id="hn-11">
+  <div class="card-glow" aria-hidden="true"></div>
+  <div class="card-head">
+    <span class="rank">#11</span>
+    <h3 class="title"><a href="https://fortran-lang.org/news/2026/09-15-Fortran-birthday/" target="_blank" rel="noopener">Celebrating 70 Years of Fortran</a></h3>
+  </div>
+  <div class="meta"><span class="domain">fortran-lang.org</span> · <span class="score pts-hot">▲ 254</span> · <span>105 commenti</span> · <span>by rbanffy</span> · <span class="tag">#programming</span> <span class="tag">#history</span> <span class="tag">#compilers</span></div>
+  
+  <div class="summary-block">
+    <p class="summary-teaser">Fortran compie settant&#x27;anni, un traguardo che pochissime tecnologie possono vantare. Nell&#x27;articolo pubblicato sul sito ufficiale di Fortran, l&#x27;equipe che ne cura lo sviluppo festeggia il compleanno di uno dei primi linguaggi di programmazione di alto livello creati con un vero impatto di…</p>
+    <details class="summary-details">
+      <summary class="expand-btn" aria-controls="hn-long-11">
+        <span class="expand-label-closed">Leggi riassunto completo · ~171 parole</span>
+        <span class="expand-label-open">Nascondi riassunto</span>
+        <span class="expand-chevron" aria-hidden="true">▾</span>
+      </summary>
+      <div class="summary-long" id="hn-long-11">
+        <div class="summary-long-label">Riassunto · versione PDF</div>
+        <p class="summary-long-text">Fortran compie settant&#x27;anni, un traguardo che pochissime tecnologie possono vantare. Nell&#x27;articolo pubblicato sul sito ufficiale di Fortran, l&#x27;equipe che ne cura lo sviluppo festeggia il compleanno di uno dei primi linguaggi di programmazione di alto livello creati con un vero impatto di massa, nato nel 1957 per il calcolo scientifico ed evolutosi ininterrottamente da allora. Il post ricorda la longevità straordinaria del linguaggio, che ancora oggi domina settori come il calcolo ad alte prestazioni e la simulazione numerica in fisica, meteorologia e ingegneria, grazie alla continuità di un ecosistema fatto di standard ben definiti, compiler moderni e un&#x27;ampia raccolta di librerie e pacchetti. Settant&#x27;anni rappresentano un risultato raro per qualunque tecnologia informatica: Fortran ha attraversato decenni, cambi di architettura, paradigmi di programmazione e rivoluzioni nel mondo dei computer senza perdere il suo ruolo centrale nel calcolo numerico, proprio perché progettato da sempre per l&#x27;efficienza e l&#x27;affidabilità del calcolo matematico. Un anniversario che è anche l&#x27;occasione per riflettere su quanto alcune scelte di design fondamentali siano così solide da durare nel tempo.</p>
+      </div>
+    </details>
+  </div>
+</article>
+
+
+<article class="card hn-card pts-hot" id="hn-12">
+  <div class="card-glow" aria-hidden="true"></div>
+  <div class="card-head">
+    <span class="rank">#12</span>
+    <h3 class="title"><a href="https://support.withings.com/hc/en-us/community/posts/51887047154577-Unacceptable-Apple-Health-Sync-is-now-behind-a-99-year-paywall-for-new-accounts" target="_blank" rel="noopener">New Withings Users Must Pay $99/Year for Apple Health Syncing</a></h3>
+  </div>
+  <div class="meta"><span class="domain">support.withings.com</span> · <span class="score pts-hot">▲ 222</span> · <span>161 commenti</span> · <span>by johnbehnke</span> · <span class="tag">#hardware</span> <span class="tag">#privacy</span> <span class="tag">#health</span> <span class="tag">#subscription</span></div>
+  
+  <div class="summary-block">
+    <p class="summary-teaser">Withings ha introdotto una modifica tariffaria che sta sollevando un&#x27;ampia ondata di proteste tra gli utenti: i nuovi account dovranno d&#x27;ora in poi pagare novantanove dollari all&#x27;anno per poter sincronizzare i dati con Apple Health. Una discussione pubblicata sul forum ufficiale del…</p>
+    <details class="summary-details">
+      <summary class="expand-btn" aria-controls="hn-long-12">
+        <span class="expand-label-closed">Leggi riassunto completo · ~169 parole</span>
+        <span class="expand-label-open">Nascondi riassunto</span>
+        <span class="expand-chevron" aria-hidden="true">▾</span>
+      </summary>
+      <div class="summary-long" id="hn-long-12">
+        <div class="summary-long-label">Riassunto · versione PDF</div>
+        <p class="summary-long-text">Withings ha introdotto una modifica tariffaria che sta sollevando un&#x27;ampia ondata di proteste tra gli utenti: i nuovi account dovranno d&#x27;ora in poi pagare novantanove dollari all&#x27;anno per poter sincronizzare i dati con Apple Health. Una discussione pubblicata sul forum ufficiale del supporto, intitolata in modo esplicito e senza mezzi termini Unacceptable, raccoglie la frustrazione di molti utenti che percepiscono questa mossa come una scelta che estende la monetizzazione a una funzionalità considerata da sempre basilare e di fatto gratuita. Per i produttori di dispositivi indossabili dedicati alla salute, l&#x27;integrazione con le piattaforme native come Apple Health costituisce uno degli elementi centrali dell&#x27;esperienza d&#x27;uso, e relegarla dietro un abbonamento aggiuntivo rischia di danneggiare seriamente la fiducia nel marchio e di spingere i clienti verso alternative concorrenti. Il caso riapre il dibattito sempre più acceso su come funzionalità essenziali vengano progressivamente spostate dietro paywall ricorrenti, in un mercato dell&#x27;hardware consumer in cui il modello dei ricavi da abbonamento si sta progressivamente diffondendo anche laddove prima dominava il pagamento una tantum.</p>
+      </div>
+    </details>
+  </div>
+</article>
+
+
+<article class="card hn-card pts-hot" id="hn-13">
+  <div class="card-glow" aria-hidden="true"></div>
+  <div class="card-head">
+    <span class="rank">#13</span>
+    <h3 class="title"><a href="https://www.seriouseats.com/biscoff-history-12168161" target="_blank" rel="noopener">Delta’s Biscoff cookies were supposed to be temporary</a></h3>
+  </div>
+  <div class="meta"><span class="domain">seriouseats.com</span> · <span class="score pts-hot">▲ 206</span> · <span>153 commenti</span> · <span>by mhb</span> · <span class="tag">#design</span> <span class="tag">#marketing</span> <span class="tag">#food</span></div>
+  
+  <div class="summary-block">
+    <p class="summary-teaser">Serious Eats ricostruisce con cura la storia dei celebri biscotti Biscoff della compagnia aerea Delta Air Lines, un dettaglio che inizialmente doveva essere del tutto temporaneo e che invece si è trasformato in uno degli elementi più riconoscibili e amati dell&#x27;esperienza di…</p>
+    <details class="summary-details">
+      <summary class="expand-btn" aria-controls="hn-long-13">
+        <span class="expand-label-closed">Leggi riassunto completo · ~178 parole</span>
+        <span class="expand-label-open">Nascondi riassunto</span>
+        <span class="expand-chevron" aria-hidden="true">▾</span>
+      </summary>
+      <div class="summary-long" id="hn-long-13">
+        <div class="summary-long-label">Riassunto · versione PDF</div>
+        <p class="summary-long-text">Serious Eats ricostruisce con cura la storia dei celebri biscotti Biscoff della compagnia aerea Delta Air Lines, un dettaglio che inizialmente doveva essere del tutto temporaneo e che invece si è trasformato in uno degli elementi più riconoscibili e amati dell&#x27;esperienza di volo. I famosi biscotti alla cannella e al caramello, prodotti dall&#x27;azienda belga Lotus, sono comparsi per la prima volta sui voli Delta come una semplice soluzione di cortesia pensata per accompagnare il caffè, e si sono conquistati nel tempo una notorietà talmente ampia da diventare un motivo di fedeltà ricercato e citato da moltissimi passeggeri. L&#x27;articolo ripercorre come questo piccolo oggetto apparentemente usa e getta sia cresciuto fino a essere richiesto, imitato, collezionato e venduto anche al di fuori degli aerei, diventando un vero e proprio caso di studio sorprendente sul potere della percezione e sul funzionamento di un marketing involontario e genuino all&#x27;interno delle esperienze di viaggio. Una storia leggera ma istruttiva, che dimostra come i dettagli imprevisti e non pianificati possano definire in modo profondo il ricordo e la qualità percepita di un servizio.</p>
+      </div>
+    </details>
+  </div>
+</article>
+
+
+<article class="card hn-card pts-high" id="hn-14">
+  <div class="card-glow" aria-hidden="true"></div>
+  <div class="card-head">
+    <span class="rank">#14</span>
+    <h3 class="title"><a href="https://www.eink.com/news/detail/EInk-Launches-Latest-Version-of-Color-ePaper-Platform-E-Ink-Kaleido-4" target="_blank" rel="noopener">E Ink Kaleido 4</a></h3>
+  </div>
+  <div class="meta"><span class="domain">eink.com</span> · <span class="score pts-high">▲ 160</span> · <span>90 commenti</span> · <span>by Perroboc</span> · <span class="tag">#electronics</span> <span class="tag">#hardware</span> <span class="tag">#epaper</span></div>
+  
+  <div class="summary-block">
+    <p class="summary-teaser">E Ink ha annunciato il lancio di Kaleido 4, l&#x27;ultima versione della sua piattaforma di ePaper a colori, un aggiornamento atteso da chi segue da vicino l&#x27;evoluzione della tecnologia dell&#x27;inchiostro elettronico. Il primo dispositivo commerciale a sfruttare le nuove funzionalità è l&#x27;Hanvon…</p>
+    <details class="summary-details">
+      <summary class="expand-btn" aria-controls="hn-long-14">
+        <span class="expand-label-closed">Leggi riassunto completo · ~186 parole</span>
+        <span class="expand-label-open">Nascondi riassunto</span>
+        <span class="expand-chevron" aria-hidden="true">▾</span>
+      </summary>
+      <div class="summary-long" id="hn-long-14">
+        <div class="summary-long-label">Riassunto · versione PDF</div>
+        <p class="summary-long-text">E Ink ha annunciato il lancio di Kaleido 4, l&#x27;ultima versione della sua piattaforma di ePaper a colori, un aggiornamento atteso da chi segue da vicino l&#x27;evoluzione della tecnologia dell&#x27;inchiostro elettronico. Il primo dispositivo commerciale a sfruttare le nuove funzionalità è l&#x27;Hanvon M10C II, che integra questa tecnologia nella sua offerta di e-reader. Kaleido 4 promette miglioramenti significativi nella resa dei colori rispetto alle generazioni precedenti, con l&#x27;obiettivo dichiarato di rendere la lettura a colori su inchiostro elettronico più vivace, luminosa e soddisfacente, e allo stesso tempo di rendere gli e-book reader dispositivi molto più versatili e adatti a usi professionali e creativi. L&#x27;annuncio conferma la strategia di lungo periodo di E Ink, orientata verso display a bassissimo consumo destinati alla lettura, all&#x27;educazione, al lavoro d&#x27;ufficio e ad applicazioni professionali, dove la resistenza alla luce diretta e il comfort visivo sono fondamentali. Per chi segue l&#x27;hardware e l&#x27;elettronica di consumo, Kaleido 4 rappresenta un avanzamento incrementale ma concreto e tangibile nella maturità dei display e-paper a colori, contribuendo a ridurre il divario storico che li separava dagli schermi LCD e OLED in termini di qualità cromatica.</p>
+      </div>
+    </details>
+  </div>
+</article>
+
+
+<article class="card hn-card pts-high" id="hn-15">
+  <div class="card-glow" aria-hidden="true"></div>
+  <div class="card-head">
+    <span class="rank">#15</span>
+    <h3 class="title"><a href="https://blogs.gnome.org/uraeus/2026/10/15/aiandreverseengineerhardware/" target="_blank" rel="noopener">Using AI to reverse engineer hardware</a></h3>
+  </div>
+  <div class="meta"><span class="domain">blogs.gnome.org</span> · <span class="score pts-high">▲ 158</span> · <span>138 commenti</span> · <span>by ErenayDev</span> · <span class="tag">#ai</span> <span class="tag">#hardware</span> <span class="tag">#reversengineering</span></div>
+  
+  <div class="summary-block">
+    <p class="summary-teaser">Christian F.K. Schaller, noto e rispettato esponente delle comunità di GNOME e Fedora, propone una interessante riflessione sull&#x27;uso dell&#x27;intelligenza artificiale nel campo del reverse engineering dell&#x27;hardware. Nell&#x27;articolo pubblicato sul suo blog personale, l&#x27;autore esplora come gli strumenti basati sull&#x27;AI possano accelerare in…</p>
+    <details class="summary-details">
+      <summary class="expand-btn" aria-controls="hn-long-15">
+        <span class="expand-label-closed">Leggi riassunto completo · ~176 parole</span>
+        <span class="expand-label-open">Nascondi riassunto</span>
+        <span class="expand-chevron" aria-hidden="true">▾</span>
+      </summary>
+      <div class="summary-long" id="hn-long-15">
+        <div class="summary-long-label">Riassunto · versione PDF</div>
+        <p class="summary-long-text">Christian F.K. Schaller, noto e rispettato esponente delle comunità di GNOME e Fedora, propone una interessante riflessione sull&#x27;uso dell&#x27;intelligenza artificiale nel campo del reverse engineering dell&#x27;hardware. Nell&#x27;articolo pubblicato sul suo blog personale, l&#x27;autore esplora come gli strumenti basati sull&#x27;AI possano accelerare in modo decisivo l&#x27;analisi di componenti e periferiche, riducendo il lavoro manuale ripetitivo in attività quali la decodifica di protocolli di comunicazione, l&#x27;analisi dei firmware e l&#x27;interpretazione di schematiche e circuiti. La prospettiva è quella di un tecnico profondamente radicato nella community open source, cioè utilizzare l&#x27;intelligenza artificiale come leva per rendere più accessibile l&#x27;interoperabilità e la compatibilità dei driver anche quando le informazioni ufficiali e la documentazione del produttore risultano incomplete o del tutto assenti. La tesi è che questa frontiera sia molto promettente: se l&#x27;AI riuscirà davvero a colmare in modo affidabile il vuoto informativo lasciato dalla documentazione mancante, il reverse engineering hardware potrebbe diventare molto più rapido, economico e alla portata di più persone, democratizzando di fatto la capacità di riparare, riutilizzare e comprendere in profondità i dispositivi che usiamo ogni giorno.</p>
+      </div>
+    </details>
+  </div>
+</article>
+
+
+<article class="card hn-card pts-high" id="hn-16">
+  <div class="card-glow" aria-hidden="true"></div>
+  <div class="card-head">
+    <span class="rank">#16</span>
+    <h3 class="title"><a href="https://www.niemanlab.org/2026/10/metas-new-commercial-terms-will-allow-the-scraping-of-news-sites-legal-experts-say/" target="_blank" rel="noopener">Business accounts will consent to Meta scraping their websites Starting Oct. 30</a></h3>
+  </div>
+  <div class="meta"><span class="domain">niemanlab.org</span> · <span class="score pts-high">▲ 147</span> · <span>65 commenti</span> · <span>by 0in</span> · <span class="tag">#law</span> <span class="tag">#privacy</span> <span class="tag">#media</span></div>
+  
+  <div class="summary-block">
+    <p class="summary-teaser">Un articolo di Nieman Lab, punto di riferimento per chi segue l&#x27;evoluzione dell&#x27;editoria digitale, riporta che i nuovi termini commerciali di Meta, che entreranno in vigore il trenta ottobre, consentiranno in pratica la raccolta automatica, nota come scraping, dei contenuti dei siti…</p>
+    <details class="summary-details">
+      <summary class="expand-btn" aria-controls="hn-long-16">
+        <span class="expand-label-closed">Leggi riassunto completo · ~178 parole</span>
+        <span class="expand-label-open">Nascondi riassunto</span>
+        <span class="expand-chevron" aria-hidden="true">▾</span>
+      </summary>
+      <div class="summary-long" id="hn-long-16">
+        <div class="summary-long-label">Riassunto · versione PDF</div>
+        <p class="summary-long-text">Un articolo di Nieman Lab, punto di riferimento per chi segue l&#x27;evoluzione dell&#x27;editoria digitale, riporta che i nuovi termini commerciali di Meta, che entreranno in vigore il trenta ottobre, consentiranno in pratica la raccolta automatica, nota come scraping, dei contenuti dei siti di notizie, secondo quanto sostengono diversi esperti legali interpellati dal sito. In sostanza, i titolari di account business che gestiscono siti di informazione saranno considerati consenzienti allo scraping da parte di Meta, senza la necessità di stipulare licenze esplicite e dedicate. La questione tocca il delicato ed eterno equilibrio di potere tra editori e piattaforme tecnologiche: mentre i siti di news sono spesso attratti dalla possibilità di raggiungere un pubblico ampio attraverso la distribuzione sui social network, i nuovi termini rischiano di svuotare di valore le trattative individuali e i compensi economici. Gli esperti interpellati sottolineano le molte ambiguità e i potenziali conflitti legali del provvedimento, perché un consenso considerato presunto potrebbe entrare in conflitto con accordi esistenti e diritti d&#x27;autore. Un cambiamento con implicazioni enormi per l&#x27;economia dell&#x27;editoria e per la sostenibilità economica del giornalismo.</p>
+      </div>
+    </details>
+  </div>
+</article>
+
+
+<article class="card hn-card pts-high" id="hn-17">
+  <div class="card-glow" aria-hidden="true"></div>
+  <div class="card-head">
+    <span class="rank">#17</span>
+    <h3 class="title"><a href="https://philzimmermann.com/EN/essays/WhyIWrotePGP.html" target="_blank" rel="noopener">Why I Wrote PGP (1991, revised 1999)</a></h3>
+  </div>
+  <div class="meta"><span class="domain">philzimmermann.com</span> · <span class="score pts-high">▲ 136</span> · <span>50 commenti</span> · <span>by GaryBluto</span> · <span class="tag">#security</span> <span class="tag">#privacy</span> <span class="tag">#crypto</span></div>
+  
+  <div class="summary-block">
+    <p class="summary-teaser">Phil Zimmermann racconta, in un testo che risale al manuale originale di PGP del 1991 e rivisto nel 1999, le ragioni profonde che lo portarono a scrivere il celebre strumento di cifratura. La citazione di Gandhi, qualunque cosa tu faccia sarà insignificante…</p>
+    <details class="summary-details">
+      <summary class="expand-btn" aria-controls="hn-long-17">
+        <span class="expand-label-closed">Leggi riassunto completo · ~197 parole</span>
+        <span class="expand-label-open">Nascondi riassunto</span>
+        <span class="expand-chevron" aria-hidden="true">▾</span>
+      </summary>
+      <div class="summary-long" id="hn-long-17">
+        <div class="summary-long-label">Riassunto · versione PDF</div>
+        <p class="summary-long-text">Phil Zimmermann racconta, in un testo che risale al manuale originale di PGP del 1991 e rivisto nel 1999, le ragioni profonde che lo portarono a scrivere il celebre strumento di cifratura. La citazione di Gandhi, qualunque cosa tu faccia sarà insignificante, ma è molto importante che tu la faccia, apre quella che è di fatto una dichiarazione programmatica sulla privacy come diritto fondamentale: la posta elettronica personale non deve essere affare di nessun altro oltre che del mittente e del destinatario. Zimmermann pensava concretamente agli attivisti politici, alle persone che discutono di tasse o di questioni strettamente private, ai dissidenti che vivono in paesi repressivi e per i quali comunicare in modo sicuro può letteralmente fare la differenza tra la vita e la repressione. Per lui la crittografia era ed è un atto di libertà individuale e di resistenza democratica. PGP nacque da una forte convinzione etica e tecnica che in seguito ha plasmato decenni di sicurezza informatica, diventando lo standard per la protezione della posta elettronica e l&#x27;inspirazione per un&#x27;intera generazione di strumenti cifrati. Un testo fondante, oggi più che mai attuale, in un&#x27;era di sorveglianza di massa e di raccolta indiscriminata di dati personali.</p>
+      </div>
+    </details>
+  </div>
+</article>
+
+
+<article class="card hn-card pts-high" id="hn-18">
+  <div class="card-glow" aria-hidden="true"></div>
+  <div class="card-head">
+    <span class="rank">#18</span>
+    <h3 class="title"><a href="https://www.bipm.org/en/cgpm-2026/resolution-5" target="_blank" rel="noopener">BIPM decides to stop adding leap seconds to UTC</a></h3>
+  </div>
+  <div class="meta"><span class="domain">bipm.org</span> · <span class="score pts-high">▲ 133</span> · <span>60 commenti</span> · <span>by gliffie</span> · <span class="tag">#systems</span> <span class="tag">#time</span> <span class="tag">#measurement</span></div>
+  
+  <div class="summary-block">
+    <p class="summary-teaser">Il BIPM, l&#x27;organismo internazionale che governa e armonizza i sistemi di misura, ha adottato la Risoluzione 5 del 2026 con la quale decide ufficialmente di smettere di aggiungere i cosiddetti secondi intercalari, noti come leap seconds, alla scala temporale UTC. La decisione…</p>
+    <details class="summary-details">
+      <summary class="expand-btn" aria-controls="hn-long-18">
+        <span class="expand-label-closed">Leggi riassunto completo · ~188 parole</span>
+        <span class="expand-label-open">Nascondi riassunto</span>
+        <span class="expand-chevron" aria-hidden="true">▾</span>
+      </summary>
+      <div class="summary-long" id="hn-long-18">
+        <div class="summary-long-label">Riassunto · versione PDF</div>
+        <p class="summary-long-text">Il BIPM, l&#x27;organismo internazionale che governa e armonizza i sistemi di misura, ha adottato la Risoluzione 5 del 2026 con la quale decide ufficialmente di smettere di aggiungere i cosiddetti secondi intercalari, noti come leap seconds, alla scala temporale UTC. La decisione, discussa e approvata durante la CGPM, elimina il complesso e delicato meccanismo di correzione che serviva a compensare la progressiva differenza tra il tempo atomico, estremamente preciso e regolare, e la rotazione terrestre, che invece rallenta in modo irregolare. Per chi lavora quotidianamente con sistemi distribuiti, reti informatiche, telecomunicazioni, navigazione e in particolare con il settore finanziario, la fine dei secondi intercalari semplifica in modo enorme la gestione del tempo: spariscono le cosiddette finestre di manutenzione dedicate, i bug e gli errori legati ai rari ma problematici minuti da sessantuno secondi. La transizione, che con tutta probabilità verrà gestita spostando la correzione su intervalli temporali molto più lunghi, punta a costruire una scala temporale più stabile e prevedibile per i sistemi moderni, spostando il rapporto con il tempo astronomico dal dettaglio di un secondo a orizzonti decisamente più ampi, a beneficio di tutta l&#x27;infrastruttura digitale globale.</p>
+      </div>
+    </details>
+  </div>
+</article>
+
+
+<article class="card hn-card pts-high" id="hn-19">
+  <div class="card-glow" aria-hidden="true"></div>
+  <div class="card-head">
+    <span class="rank">#19</span>
+    <h3 class="title"><a href="https://github.com/Saffsanity/sill" target="_blank" rel="noopener">Any window from your Mac, on your iPhone and iPad</a></h3>
+  </div>
+  <div class="meta"><span class="domain">github.com</span> · <span class="score pts-high">▲ 105</span> · <span>17 commenti</span> · <span>by chanana</span> · <span class="tag">#apple</span> <span class="tag">#opensource</span> <span class="tag">#local</span></div>
+  
+  <div class="summary-block">
+    <p class="summary-teaser">Un progetto open source chiamato sill propone di portare qualsiasi finestra aperta sul proprio Mac, in tempo reale, direttamente su iPhone e iPad, con pieno supporto a tocco, Apple Pencil, trackpad e tastiera. Si tratta di una proposta decisamente interessante, perché l&#x27;applicazione…</p>
+    <details class="summary-details">
+      <summary class="expand-btn" aria-controls="hn-long-19">
+        <span class="expand-label-closed">Leggi riassunto completo · ~186 parole</span>
+        <span class="expand-label-open">Nascondi riassunto</span>
+        <span class="expand-chevron" aria-hidden="true">▾</span>
+      </summary>
+      <div class="summary-long" id="hn-long-19">
+        <div class="summary-long-label">Riassunto · versione PDF</div>
+        <p class="summary-long-text">Un progetto open source chiamato sill propone di portare qualsiasi finestra aperta sul proprio Mac, in tempo reale, direttamente su iPhone e iPad, con pieno supporto a tocco, Apple Pencil, trackpad e tastiera. Si tratta di una proposta decisamente interessante, perché l&#x27;applicazione è completamente gratuita, open source e non richiede alcun server remoto o infrastruttura in cloud: la comunicazione avviene infatti direttamente e in locale tra il computer e il dispositivo mobile, con evidenti vantaggi per quanto riguarda privacy e latenza. L&#x27;idea è particolarmente attraente per chi utilizza il Mac in contesti creativi o produttivi e desidera estendere lo schermo principale o interagire con le proprie applicazioni native dal tablet, magari sfruttando la precisione della Apple Pencil per disegnare o annotare o la naturalezza del multitouch per esplorare contenuti. La natura completamente offline e priva di server rappresenta un notevole vantaggio rispetto alle soluzioni basate su cloud, oltre a dare all&#x27;utente pieno controllo sui propri dati. È un esempio emblematico di come l&#x27;ecosistema Apple, tradizionalmente chiuso, possa essere arricchito e integrato con soluzioni indipendenti e aperte, offrendo un&#x27;alternativa valida alle funzionalità proprietarie di continuità del sistema.</p>
+      </div>
+    </details>
+  </div>
+</article>
+
+
+<article class="card hn-card pts-high" id="hn-20">
+  <div class="card-glow" aria-hidden="true"></div>
+  <div class="card-head">
+    <span class="rank">#20</span>
+    <h3 class="title"><a href="https://www.pcmag.com/news/apple-routed-a-graphite-pipe-through-the-iphone-duos-hinge" target="_blank" rel="noopener">Apple routed a graphite pipe through the iPhone Duo&amp;#x27;s hinge to dissipate heat</a></h3>
+  </div>
+  <div class="meta"><span class="domain">pcmag.com</span> · <span class="score pts-high">▲ 105</span> · <span>65 commenti</span> · <span>by giuliomagnifico</span> · <span class="tag">#apple</span> <span class="tag">#hardware</span> <span class="tag">#cooling</span></div>
+  
+  <div class="summary-block">
+    <p class="summary-teaser">PC Mag riporta una soluzione ingegneristica molto interessante messa in atto da Apple per il raffreddamento del nuovo iPhone Duo, un dispositivo pieghevole: l&#x27;azienda avrebbe fatto passare un tubo di grafite direttamente attraverso la cerniera che collega le due metà del telefono…</p>
+    <details class="summary-details">
+      <summary class="expand-btn" aria-controls="hn-long-20">
+        <span class="expand-label-closed">Leggi riassunto completo · ~186 parole</span>
+        <span class="expand-label-open">Nascondi riassunto</span>
+        <span class="expand-chevron" aria-hidden="true">▾</span>
+      </summary>
+      <div class="summary-long" id="hn-long-20">
+        <div class="summary-long-label">Riassunto · versione PDF</div>
+        <p class="summary-long-text">PC Mag riporta una soluzione ingegneristica molto interessante messa in atto da Apple per il raffreddamento del nuovo iPhone Duo, un dispositivo pieghevole: l&#x27;azienda avrebbe fatto passare un tubo di grafite direttamente attraverso la cerniera che collega le due metà del telefono, allo scopo di dissipare in modo efficace il calore prodotto dai componenti interni. La cerniera è da sempre uno dei punti più critici di qualsiasi dispositivo pieghevole, sia dal punto di vista puramente meccanico, dovendo garantire migliaia di aperture e chiusure senza cedimenti, sia dal punto di vista della gestione termica, perché si tratta di una zona particolarmente vincolata e stretta dove è molto difficile collocare i tradizionali sistemi di raffreddamento. L&#x27;utilizzo di un heat pipe in grafite che attraversa proprio la cerniera consente di trasferire il calore da una metà all&#x27;altra del dispositivo, aumentando la superficie complessiva di dissipazione e migliorando di conseguenza le prestazioni sostenute, riducendo il cosiddetto throttling, ovvero i rallentamenti dovuti al surriscaldamento. La scelta tecnica è rilevante perché dimostra l&#x27;attenzione estrema di Apple alla gestione termica per garantire piena potenza in un fattore di forma così compatto e complesso.</p>
+      </div>
+    </details>
+  </div>
+</article>
+</div>
+</section>
+
+
+  <footer class="site-footer">
+    HTML portatile monofile · CSS inline · teaser + riassunto PDF espandibile · no rete · 2026-10-16T06:06:13Z
+  </footer>
+</div>
+
+<script>
+
+(() => {
+  // Optional polish: accordion habit — opening one long summary keeps others open
+  // (explicit multi-expand is better for scanning long digests).
+  document.querySelectorAll('.summary-details').forEach((d) => {
+    d.addEventListener('toggle', () => {
+      if (d.open) {
+        const long = d.querySelector('.summary-long-text');
+        if (long) long.setAttribute('tabindex', '-1');
+      }
+    });
+  });
+})();
+
+</script>
+</body>
+</html>
